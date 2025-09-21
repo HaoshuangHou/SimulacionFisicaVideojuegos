@@ -3,12 +3,16 @@
 #include <PxPhysicsAPI.h>
 
 #include <vector>
+#include <iostream>
 
 #include "core.hpp"
 #include "RenderUtils.hpp"
 #include "callbacks.hpp"
 
-#include <iostream>
+//mis Clases
+#include "callbacks.hpp"
+
+
 
 std::string display_text = "This is a test";
 
@@ -53,8 +57,15 @@ void initPhysics(bool interactive)
 	sceneDesc.cpuDispatcher = gDispatcher;
 	sceneDesc.filterShader = contactReportFilterShader;
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
-	gScene = gPhysics->createScene(sceneDesc);
-	}
+	gScene = gPhysics->createScene(sceneDesc); //crear la escena
+
+
+	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));
+	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(10, 0, 0), Vector4(1, 0, 0, 1)));
+	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 10, 0), Vector4(0, 0, 1, 1)));
+	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 10), Vector4(0, 1, 0, 1)));
+
+}
 
 
 // Function to configure what happens in each step of physics
@@ -66,6 +77,7 @@ void stepPhysics(bool interactive, double t)
 
 	gScene->simulate(t);
 	gScene->fetchResults(true);
+
 }
 
 // Function to clean data
@@ -84,7 +96,9 @@ void cleanupPhysics(bool interactive)
 	transport->release();
 	
 	gFoundation->release();
-	}
+
+	DeregisterAllRenderItem();
+}
 
 // Function called when a key is pressed
 void keyPress(unsigned char key, const PxTransform& camera)
