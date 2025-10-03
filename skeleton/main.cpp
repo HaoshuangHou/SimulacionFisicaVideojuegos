@@ -12,10 +12,11 @@
 //mis Clases
 #include "callbacks.hpp"
 
+#include "Particle.h"
 
 
 std::string display_text = "This is a test";
-
+std::vector<Particle*> particles;
 
 using namespace physx;
 
@@ -60,11 +61,10 @@ void initPhysics(bool interactive)
 	gScene = gPhysics->createScene(sceneDesc); //crear la escena
 
 
-	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));
-	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(10, 0, 0), Vector4(1, 0, 0, 1)));
-	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 10, 0), Vector4(0, 0, 1, 1)));
-	RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 10), Vector4(0, 1, 0, 1)));
-
+	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));
+	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(10, 0, 0), Vector4(1, 0, 0, 1)));
+	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 10, 0), Vector4(0, 0, 1, 1)));
+	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 10), Vector4(0, 1, 0, 1)));
 }
 
 
@@ -78,6 +78,12 @@ void stepPhysics(bool interactive, double t)
 	gScene->simulate(t);
 	gScene->fetchResults(true);
 
+	for (auto it = particles.begin(); it != particles.end(); ++it)
+	{
+		if (*it != nullptr) {
+			(*it)->update(t);
+		}
+	}
 }
 
 // Function to clean data
@@ -97,6 +103,7 @@ void cleanupPhysics(bool interactive)
 	
 	gFoundation->release();
 
+	particles.clear();
 	DeregisterAllRenderItem();
 }
 
@@ -109,8 +116,25 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 	//case 'B': break;
 	//case ' ':	break;
-	case ' ':
+	case '1':
 	{
+		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
+			Vector3(0, -9.8, 0), EULER);
+		particles.push_back(p);
+		break;
+	} 
+	case '2':
+	{
+		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
+			Vector3(0, -9.8, 0), EULER_SEMI_IMPLICITO);
+		particles.push_back(p);
+		break;
+	}
+	case '3':
+	{
+		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
+			Vector3(0, -9.8, 0), VERLET);
+		particles.push_back(p);
 		break;
 	}
 	default:
