@@ -7,11 +7,6 @@ Scene::~Scene()
 	clean();
 }
 
-void Scene::addEntity(Entity* e)
-{
-	_entities.push_back(e);
-}
-
 void Scene::clean()
 {
 	for (auto e : _entities) delete e;
@@ -24,27 +19,31 @@ void Scene::update(double t)
 		e->update(t);
 	}
 
-	//_entities.erase(
-	//	std::remove_if(_entities.begin(), _entities.end(),
-	//		[](const Entity*& e) {
-	//			return !e->is_alive();
-	//		}),
-	//	_entities.end()
-	//);
+	for (auto it = _entities.begin(); it != _entities.end(); ) {
+		if (!(*it)->is_alive()) {
+			DeregisterRenderItem((*it)->getRenderItem());
+			delete* it;
+			it = _entities.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
 }
 
 void Scene::enter()
 {
 	for (auto e : _entities) {
-		//RegisterRenderItem(e->getRenderItem());
+		RegisterRenderItem(e->getRenderItem());
 	}
 }
 
 void Scene::exit()
 {
 	for (auto e : _entities) {
-		//DeregisterRenderItem(e->getRenderItem());
+		DeregisterRenderItem(e->getRenderItem());
 	}
+	clean();
 }
 
 

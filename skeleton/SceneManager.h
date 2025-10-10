@@ -7,10 +7,11 @@ class SceneManager
 {
 public:
 	SceneManager();
-	~SceneManager() {};
+	~SceneManager();
 
 	void update(double t);
 	void changeScene(int sceneIndex);
+	void nextScene();
 	void handleInput(unsigned char key);
 
 private:

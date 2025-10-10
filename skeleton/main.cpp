@@ -4,6 +4,8 @@
 
 #include <vector>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 #include "core.hpp"
 #include "RenderUtils.hpp"
@@ -13,10 +15,10 @@
 #include "callbacks.hpp"
 
 #include "Particle.h"
+#include "SceneManager.h"
 
 
 std::string display_text = "This is a test";
-std::vector<Particle*> particles;
 
 using namespace physx;
 
@@ -35,6 +37,7 @@ PxDefaultCpuDispatcher*	gDispatcher = NULL;
 PxScene*				gScene      = NULL;
 ContactReportCallback gContactReportCallback;
 
+SceneManager* _sceneM = nullptr;
 
 // Initialize physics engine
 void initPhysics(bool interactive)
@@ -61,6 +64,7 @@ void initPhysics(bool interactive)
 	gScene = gPhysics->createScene(sceneDesc); //crear la escena
 
 
+	_sceneM = new SceneManager();
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(10, 0, 0), Vector4(1, 0, 0, 1)));
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 10, 0), Vector4(0, 0, 1, 1)));
@@ -78,12 +82,9 @@ void stepPhysics(bool interactive, double t)
 	gScene->simulate(t);
 	gScene->fetchResults(true);
 
-	for (auto it = particles.begin(); it != particles.end(); ++it)
-	{
-		if (*it != nullptr) {
-			(*it)->update(t);
-		}
-	}
+	_sceneM->update(t);
+
+	std::this_thread::sleep_for(std::chrono::microseconds(10));
 }
 
 // Function to clean data
@@ -103,7 +104,8 @@ void cleanupPhysics(bool interactive)
 	
 	gFoundation->release();
 
-	particles.clear();
+	delete _sceneM;
+
 	DeregisterAllRenderItem();
 }
 
@@ -111,32 +113,14 @@ void cleanupPhysics(bool interactive)
 void keyPress(unsigned char key, const PxTransform& camera)
 {
 	PX_UNUSED(camera);
-
+	_sceneM->handleInput(key);
 	switch(toupper(key))
 	{
 	//case 'B': break;
 	//case ' ':	break;
-	case '1':
-	{
-		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), EULER);
-		particles.push_back(p);
+	case 'Q':	
+		_sceneM->nextScene();
 		break;
-	} 
-	case '2':
-	{
-		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), EULER_SEMI_IMPLICITO);
-		particles.push_back(p);
-		break;
-	}
-	case '3':
-	{
-		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), VERLET);
-		particles.push_back(p);
-		break;
-	}
 	default:
 		break;
 	}
