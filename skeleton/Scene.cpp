@@ -46,4 +46,9 @@ void Scene::exit()
 	clean();
 }
 
+std::string Scene::getDisplayText() const
+{
+	return _text;
+}
+
 

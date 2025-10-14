@@ -40,14 +40,19 @@ void SceneManager::changeScene(int sceneIndex)
 
 void SceneManager::nextScene()
 {
-    int next_scene = _current_scene;
-    if (_current_scene < _scenes.size())
-        next_scene++;
-    else next_scene = 0;
+    int next_scene = _current_scene + 1;
+    if (next_scene >= _scenes.size())
+        next_scene = 0;
+
     changeScene(next_scene);
 }
 
 void SceneManager::handleInput(unsigned char key)
 {
     _scenes.at(_current_scene)->handleInput(key);
+}
+
+std::string SceneManager::getDisplayText() const
+{
+    return _scenes.at(_current_scene)->getDisplayText();
 }

@@ -1,11 +1,12 @@
 #pragma once
 #include <vector>
+#include <string>
 
 class Entity;
 class Scene
 {
 public:
-	Scene() = default;
+	Scene() : _entities(), _text(" ") {};
 	virtual ~Scene();
 
 	Scene(const Scene& s) = delete;  
@@ -17,8 +18,10 @@ public:
 	virtual void update(double t);
 	virtual void enter();
 	virtual void exit();
+	std::string getDisplayText() const;
 
 protected:
 	std::vector<Entity*> _entities;
+	std::string _text;
 };
 

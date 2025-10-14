@@ -4,6 +4,7 @@
 void Scene2::init()
 {
 	_camera = GetCamera();
+	_text = "ESCENA 2: PROYECTILES, PASAR DE ESCENA CON Q";
 }
 
 void Scene2::handleInput(unsigned char key)
@@ -12,35 +13,22 @@ void Scene2::handleInput(unsigned char key)
 	{
 	case '1':
 	{
-		create_projectil(CANON, 5);
+		create_projectil(CANON, 10);
 		break;
 	}
 	case '2':
 	{
-		Projectil* p = new Projectil(Vector3(0, 10, 0), Vector3(5, 0, 0), CANON);
-		_entities.push_back(p);
-		std::cout << "Aceleracion Canon: " << p->getAcceleration().y << "\n";
+		create_projectil(TANQUE, 50);
 		break;
 	}
 	case '3':
 	{
-		Projectil* p = new Projectil(Vector3(0, 10, 0), Vector3(5, 0, 0), TANQUE);
-		_entities.push_back(p);
-		std::cout << "Aceleracion tanque: " << p->getAcceleration().y << "\n";
+		create_projectil(PISTOLA, 100);
 		break;
 	}
 	case '4':
 	{
-		Projectil* p = new Projectil(Vector3(0, 10, 0), Vector3(10, 0, 0), PISTOLA);
-		_entities.push_back(p);
-		std::cout << "Aceleracion pistola: " << p->getAcceleration().y << "\n";
-		break;
-	}
-	case '5':
-	{
-		Projectil* p = new Projectil(Vector3(10, 10, 0), Vector3(250, 0, 0), LASER);
-		_entities.push_back(p);
-		std::cout << "Aceleracion laser: " << p->getAcceleration().y << "\n";
+		create_projectil(PISTOLA, 250);
 		break;
 	}
 	default:
