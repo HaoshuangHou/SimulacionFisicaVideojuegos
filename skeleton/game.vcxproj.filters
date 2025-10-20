@@ -43,6 +43,12 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="NormalDistributionGen.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="UniformDistributionGen.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -88,6 +94,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ParticleGen.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="NormalDistributionGen.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="UniformDistributionGen.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

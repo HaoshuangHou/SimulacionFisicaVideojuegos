@@ -42,5 +42,5 @@ void Scene2::create_projectil(ProjectilType t, float sim_speed)
 	dir.normalize();
 	const Vector3 ini_pos = _camera->getTransform().p;
 	Projectil* p = new Projectil(ini_pos, sim_speed * dir, t);
-	_entities.push_back(p);
+	addEntityWithRenderItem(p);
 }

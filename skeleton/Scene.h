@@ -6,7 +6,7 @@ class Entity;
 class Scene
 {
 public:
-	Scene() : _entities(), _text(" ") {};
+	Scene() : _entities(), _text() {};
 	virtual ~Scene();
 
 	Scene(const Scene& s) = delete;  
@@ -16,6 +16,7 @@ public:
 	virtual void clean();
 	virtual void handleInput(unsigned char key) = 0;
 	virtual void update(double t);
+	virtual void addEntityWithRenderItem(Entity* e);
 	virtual void enter();
 	virtual void exit();
 	std::string getDisplayText() const;

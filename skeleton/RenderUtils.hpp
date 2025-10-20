@@ -16,7 +16,9 @@ public:
 		shape(_shape), transform(_trans), actor(NULL), color(_color), references(1)
 	{
 		shape->acquireReference();
-		RegisterRenderItem(this);
+		
+		
+		(this);
 	}
 
 	RenderItem(physx::PxShape* _shape, const Vector4& _color) :

@@ -19,7 +19,7 @@ void Scene::update(double t)
 		e->update(t);
 	}
 
-	for (auto it = _entities.begin(); it != _entities.end(); ) {
+	/*for (auto it = _entities.begin(); it != _entities.end(); ) {
 		if (!(*it)->is_alive()) {
 			DeregisterRenderItem((*it)->getRenderItem());
 			delete* it;
@@ -28,22 +28,29 @@ void Scene::update(double t)
 		else {
 			++it;
 		}
+	}*/
+}
+
+void Scene::addEntityWithRenderItem(Entity* e)
+{
+	if (e->getRenderItem() == nullptr) {
+		e->create_renderItem();
 	}
+	_entities.push_back(e);
 }
 
 void Scene::enter()
 {
-	for (auto e : _entities) {
-		RegisterRenderItem(e->getRenderItem());
-	}
+	//for (Entity* e : _entities) {
+	//	e->create_renderItem();
+	//}
 }
 
 void Scene::exit()
 {
-	for (auto e : _entities) {
-		DeregisterRenderItem(e->getRenderItem());
+	for (Entity* e : _entities) {
+		//if(e->getRenderItem()!=nullptr)DeregisterRenderItem(e->getRenderItem());
 	}
-	clean();
 }
 
 std::string Scene::getDisplayText() const

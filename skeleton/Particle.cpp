@@ -7,11 +7,36 @@
 using namespace physx;
 
 
-Particle::Particle(Vector3 pos, Vector3 velocity, Vector3 acceleration, IntegrateType t, double mass, double dumping, double lifeTime)
-	:Entity(pos, CreateShape(PxSphereGeometry(1)), { 0,1,1,1 }), _vel(velocity), _ac(acceleration), 
-	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0)
+Particle::Particle(Vector3 const&  pos, Vector3 const& velocity, 
+	Vector3 const&  acceleration,Vector4 const&  color, IntegrateType t, 
+	double mass, double dumping, double lifeTime)
+	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), _ac(acceleration), 
+	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color)
 {
 	_ant_pos = _transform.p;
+}
+
+Particle::Particle(const Particle& other)
+	: Entity(other._transform.p, CreateShape(PxSphereGeometry(1)), other._color),
+	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
+	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p)
+{ }
+
+Particle& Particle::operator=(const Particle& other)
+{
+	if (this != &other) {
+		_transform.p = other._transform.p;
+		_vel = other._vel;
+		_ac = other._ac;
+		_mass = other._mass;
+		_dampingValue = other._dampingValue;
+		_lifeTime = other._lifeTime;
+		_intType = other._intType;
+		_iniTime = 0; // Reiniciar tiempo
+		_ant_pos = other._transform.p;
+		_color = other._color;
+	}
+	return *this;
 }
 
 void Particle::update(double t)
@@ -79,6 +104,29 @@ double Particle::getMass() const
 	return _mass;
 }
 
+double Particle::getLifeTime() const
+{
+	return _lifeTime;
+}
+
+double Particle::getDamping() const
+{
+	return _dampingValue;
+}
+
+void Particle::setColor(const Vector4& color)
+{
+	_color = color;
+	if (_renderItem != nullptr) {
+		_renderItem->color = color;
+	}
+}
+
+void Particle::setLifeTime(double lifeTime)
+{
+	_lifeTime = lifeTime;
+}
+
 void Particle::setVelocity(const Vector3& velocity)
 {
 	_vel = velocity;
@@ -92,5 +140,20 @@ void Particle::setAcceleration(const Vector3& acceleration)
 void Particle::setMass(double mass)
 {
 	_mass = mass;
+}
+
+void Particle::setPosition(const Vector3& pos)
+{
+	_transform.p = pos;
+}
+
+void Particle::setDamping(double damping)
+{
+	_dampingValue = damping;
+}
+
+void Particle::setColor(Vector4 color)
+{
+	_renderItem.
 }
 

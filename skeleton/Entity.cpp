@@ -3,14 +3,25 @@
 
 Entity::~Entity()
 {
-	DeregisterRenderItem(_renderItem);
-	delete _renderItem;
+	if (_renderItem) {
+		DeregisterRenderItem(_renderItem.get());
+	}
 }
 
-Entity::Entity(Vector3 pos, physx::PxShape* _shape, Vector4 color)
-	:_alive(true)
+void Entity::create_renderItem()
 {
-	_transform = physx::PxTransform(pos.x, pos.y, pos.z);
-	_renderItem = new RenderItem(_shape, &_transform, color);
-	RegisterRenderItem(_renderItem);
+	if (_renderItem) {
+		DeregisterRenderItem(_renderItem.get());
+	}
+
+	_renderItem = std::make_unique<RenderItem>(_shape, &_transform, _color);
+	RegisterRenderItem(_renderItem.get());
+}
+
+Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
+	:_alive(true),
+	_shape(shape),
+	_color(color),
+	_transform(physx::PxTransform(pos.x, pos.y, pos.z))
+{
 }
