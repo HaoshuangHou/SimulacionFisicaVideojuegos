@@ -9,8 +9,8 @@ std::list<Particle*> NormalDistributionGen::generateP()
 
             Particle* new_particle = new Particle(*_model);
 
-            Vector3 pos = _pos + _normal(_mt) * _des_Pos;
-            Vector3 vel = _vel + _normal(_mt) * _des_Vel;
+            Vector3 pos = _pos + Vector3(_normal(_mt)* _des_Pos.x, _normal(_mt) * _des_Pos.y, _normal(_mt) * _des_Pos.z);
+            Vector3 vel = _vel + Vector3(_normal(_mt)* _des_Vel.x, _normal(_mt) * _des_Vel.y, _normal(_mt) * _des_Vel.z);
             double dur = _dur + _normal(_mt) * _des_Dur;
 
             new_particle->setPosition(pos);

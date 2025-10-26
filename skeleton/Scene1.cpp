@@ -13,21 +13,21 @@ void Scene1::handleInput(unsigned char key)
 	case '1':
 	{
 		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), EULER, 1.0, 0.9, 1.0);
+			Vector3(0, -9.8, 0), Vector4(1, 1, 1, 1), EULER);
 		addEntityWithRenderItem(p);
 		break;
 	}
 	case '2':
 	{
 		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), EULER_SEMI_IMPLICITO);
+			Vector3(0, -9.8, 0), Vector4(1, 0, 1, 1), EULER_SEMI_IMPLICITO);
 		addEntityWithRenderItem(p);
 		break;
 	}
 	case '3':
 	{
 		Particle* p = new Particle(Vector3(0, 10, 0), Vector3(5, 10, 0),
-			Vector3(0, -9.8, 0), VERLET);
+			Vector3(0, -9.8, 0), Vector4(1, 1, 0, 1), VERLET);
 		addEntityWithRenderItem(p);
 		break;
 	}

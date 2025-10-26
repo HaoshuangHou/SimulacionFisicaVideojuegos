@@ -9,8 +9,8 @@ std::list<Particle*> UniformDistributionGen::generateP()
 
             Particle* new_particle = new Particle(*_model);
 
-            Vector3 pos = _pos + _uniform(_mt) * _des_Pos;
-            Vector3 vel = _vel + _uniform(_mt) * _des_Vel;
+            Vector3 pos = _pos + Vector3(_uniform(_mt) * _des_Pos.x, _uniform(_mt) * _des_Pos.y, _uniform(_mt) * _des_Pos.z);
+            Vector3 vel = _vel + Vector3(_uniform(_mt) * _des_Vel.x, _uniform(_mt) * _des_Vel.y, _uniform(_mt) * _des_Vel.z);
             double dur = _dur + _uniform(_mt) * _des_Dur;
 
             new_particle->setPosition(pos);

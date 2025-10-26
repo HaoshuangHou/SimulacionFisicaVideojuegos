@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Scene1.h"
 #include "Scene2.h"
+#include "Scene3.h"
 
 SceneManager::SceneManager()
 	:_current_scene(0)
@@ -17,6 +18,7 @@ void SceneManager::initScenes()
     // Crear las escenas
     _scenes.push_back(std::make_unique<Scene1>());
     _scenes.push_back(std::make_unique<Scene2>());
+    _scenes.push_back(std::make_unique<Scene3>());
 
     // Inicializar
     for (auto& s : _scenes) {

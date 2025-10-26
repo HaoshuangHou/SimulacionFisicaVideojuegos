@@ -22,6 +22,17 @@ Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
 	:_alive(true),
 	_shape(shape),
 	_color(color),
-	_transform(physx::PxTransform(pos.x, pos.y, pos.z))
+	_transform(physx::PxTransform(pos.x, pos.y, pos.z)),
+	_renderItem(nullptr)
 {
+}
+
+Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color, bool renderItem)
+	:_alive(true),
+	_shape(shape),
+	_color(color),
+	_transform(physx::PxTransform(pos.x, pos.y, pos.z)),
+	_renderItem(nullptr)
+{
+	create_renderItem();
 }

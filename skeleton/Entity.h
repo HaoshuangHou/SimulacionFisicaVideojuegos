@@ -18,11 +18,10 @@ public:
 
 protected:
     Entity(Vector3 pos, physx::PxShape* shape, Vector4 color);
+    Entity(Vector3 pos, physx::PxShape* shape, Vector4 color, bool renderItem);
     physx::PxTransform _transform;
     std::unique_ptr<RenderItem> _renderItem;
     bool _alive;
-
-private:
     physx::PxShape* _shape;
     Vector4 _color;
 };

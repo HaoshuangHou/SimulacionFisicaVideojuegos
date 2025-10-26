@@ -11,13 +11,13 @@ Particle::Particle(Vector3 const&  pos, Vector3 const& velocity,
 	Vector3 const&  acceleration,Vector4 const&  color, IntegrateType t, 
 	double mass, double dumping, double lifeTime)
 	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), _ac(acceleration), 
-	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color)
+	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color), _size(1)
 {
 	_ant_pos = _transform.p;
 }
 
 Particle::Particle(const Particle& other)
-	: Entity(other._transform.p, CreateShape(PxSphereGeometry(1)), other._color),
+	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, true),
 	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
 	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p)
 { }
@@ -109,6 +109,11 @@ double Particle::getLifeTime() const
 	return _lifeTime;
 }
 
+double Particle::getCLifeTime() const
+{
+	return _iniTime;
+}
+
 double Particle::getDamping() const
 {
 	return _dampingValue;
@@ -152,8 +157,27 @@ void Particle::setDamping(double damping)
 	_dampingValue = damping;
 }
 
-void Particle::setColor(Vector4 color)
+void Particle::setTam(double tam)
 {
-	_renderItem.
+	if (_shape) {
+		PxSphereGeometry sphere(tam);
+		_shape->setGeometry(sphere);
+
+		if (_renderItem) {
+			DeregisterRenderItem(_renderItem.get());
+			RegisterRenderItem(_renderItem.get());
+		}
+		_size = tam;
+	}
 }
 
+void Particle::addForce(Vector3 const& f)
+{
+	_force += f;
+	_ac = _force * (1 / _mass);
+}
+
+void Particle::cleanForce()
+{
+	_force = Vector3(0, 0, 0);
+}

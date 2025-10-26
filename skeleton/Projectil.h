@@ -6,7 +6,7 @@ enum ProjectilType {
 class Projectil: public Particle
 {
 public:
-	Projectil(Vector3 pos, Vector3 sim_velocity,ProjectilType T);
+    Projectil(Vector3 pos, Vector3 sim_velocity, ProjectilType T, Vector4 const& color = Vector4(1, 1, 1, 1));
 
 private:
     struct ProjectilData {

@@ -11,8 +11,8 @@ const Projectil::ProjectilData Projectil::proyectilesDB[] = {
 };
 
 
-Projectil::Projectil(Vector3 pos, Vector3 sim_velocity,ProjectilType t)
-	:Particle(pos, sim_velocity, { 0,0,0 }, EULER_SEMI_IMPLICITO)
+Projectil::Projectil(Vector3 pos, Vector3 sim_velocity, ProjectilType t, Vector4 const& color)
+    :Particle(pos, sim_velocity, { 0,0,0 }, color, EULER_SEMI_IMPLICITO)
 {
     configurarDesdeTipo(t, sim_velocity);
     

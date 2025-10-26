@@ -27,6 +27,7 @@ public:
 	Vector3 getAcceleration() const;
 	double getMass()const;
 	double getLifeTime() const;
+	double getCLifeTime() const;
 	double getDamping() const;
 	
 
@@ -37,15 +38,19 @@ public:
 	void setMass(double mass);
 	void setPosition(const Vector3& pos);
 	void setDamping(double damping);
-	void setColor(Vector4 color);
+	void setTam(double tam);
+	void addForce(Vector3 const& f);
+	void cleanForce();
 
 protected:
 	Vector3 _vel;
 	Vector3 _ac;
+	Vector3 _force;
 	double _mass;
 	double _lifeTime;
 	double _dampingValue;
 	Vector4 _color;
+	double _size;
 
 private:
 	IntegrateType _intType;

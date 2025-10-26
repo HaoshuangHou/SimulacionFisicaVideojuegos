@@ -1,6 +1,7 @@
 #pragma once
 #include <random>
 #include <list>
+#include <iostream>
 #include "core.hpp"
 #include "Particle.h"
 
@@ -11,7 +12,6 @@ protected:
 	Vector3 _pos;
 	Vector3 _vel;
 	double _dur;
-	double probGen;
 	int n_particle;
 	Particle* _model;
 
@@ -20,11 +20,11 @@ protected:
 	double _des_Dur;
 public:
 	ParticleGen() : _pos(0, 0, 0), _vel(1, 0, 0), _dur(1), n_particle(1), 
-		_mt(), _model(nullptr), _des_Pos(0, 0, 0),_des_Dur(0),_des_Vel(0, 0, 0) {};
+		_mt(std::random_device{}()), _model(nullptr), _des_Pos(0, 0, 0),_des_Dur(0),_des_Vel(0, 0, 0) {};
 
 	ParticleGen(Particle* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
 		:_pos(position), _vel(velocity), _dur(duration), n_particle(n_particle), 
-		_mt(), _model(model_p), _des_Pos(), _des_Dur(), _des_Vel() {};
+		_mt(std::random_device{}()), _model(model_p), _des_Pos(), _des_Dur(), _des_Vel() {};
 
 	virtual ~ParticleGen() = default;
 
@@ -50,9 +50,10 @@ public:
 	inline void  setDesDur(double desDur) { _des_Dur = desDur; };
 
 	inline bool canGenerateParticle() {
-		if (probGen >= 1.0) return true;
 		std::uniform_real_distribution<double> dist(0.0, 1.0);
-		return dist(_mt) <= probGen;
+		double randomProbability = dist(_mt);  
+		double randomCheck = dist(_mt);
+		return randomCheck <= randomProbability;
 	}
 
 };
