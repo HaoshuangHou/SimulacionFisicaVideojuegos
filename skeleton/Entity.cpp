@@ -3,19 +3,29 @@
 
 Entity::~Entity()
 {
-	if (_renderItem) {
-		DeregisterRenderItem(_renderItem.get());
-	}
+	deregisterRenderItem();
 }
 
 void Entity::create_renderItem()
 {
-	if (_renderItem) {
-		DeregisterRenderItem(_renderItem.get());
-	}
+	deregisterRenderItem();
 
 	_renderItem = std::make_unique<RenderItem>(_shape, &_transform, _color);
 	RegisterRenderItem(_renderItem.get());
+	_renderItemRegistered = true;
+}
+
+void Entity::deregisterRenderItem()
+{
+	if (_renderItem && _renderItemRegistered) {
+		DeregisterRenderItem(_renderItem.get());
+		_renderItemRegistered = false;
+	}
+}
+
+bool Entity::isRenderItemValid()
+{
+	return _renderItem != nullptr && _renderItemRegistered;
 }
 
 Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
@@ -23,7 +33,8 @@ Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
 	_shape(shape),
 	_color(color),
 	_transform(physx::PxTransform(pos.x, pos.y, pos.z)),
-	_renderItem(nullptr)
+	_renderItem(nullptr),
+	_renderItemRegistered(false)
 {
 }
 
@@ -32,7 +43,8 @@ Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color, bool renderIte
 	_shape(shape),
 	_color(color),
 	_transform(physx::PxTransform(pos.x, pos.y, pos.z)),
-	_renderItem(nullptr)
+	_renderItem(nullptr),
+	_renderItemRegistered(false)
 {
-	create_renderItem();
+	if (renderItem)create_renderItem();
 }

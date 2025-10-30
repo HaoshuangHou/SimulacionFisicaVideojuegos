@@ -15,6 +15,8 @@ public:
     bool is_alive()const { return _alive; };
     void setAlive(bool alive) { _alive = alive; }
     void create_renderItem();
+    void deregisterRenderItem();
+    bool isRenderItemValid();
 
 protected:
     Entity(Vector3 pos, physx::PxShape* shape, Vector4 color);
@@ -24,5 +26,8 @@ protected:
     bool _alive;
     physx::PxShape* _shape;
     Vector4 _color;
+
+private:
+    bool _renderItemRegistered;
 };
 

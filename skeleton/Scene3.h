@@ -1,9 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "RenderUtils.hpp"
-#include "Projectil.h"
 
-class ParticleSystem;
 class Scene3: public Scene
 {
 public:

@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <memory>
 #include "core.hpp"
 
 class Particle;
@@ -12,7 +13,7 @@ protected:
 	Vector4 _startColor;
 	Vector4 _endColor;
 
-	std::list<Particle*> _particles;
+	std::list<std::unique_ptr<Particle>> _particles;
 	std::list<ParticleGen*> _generators;
 
 	Particle* _model_particle;

@@ -64,6 +64,7 @@
     <ClCompile Include="TapParticleSystem.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="FireworkParticleSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -135,6 +136,9 @@
     <ClInclude Include="TapParticleSystem.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="FireworkParticleSystem.h" />
+    <ClInclude Include="GravityGenerator.h" />
+    <ClInclude Include="ForceRegistry.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

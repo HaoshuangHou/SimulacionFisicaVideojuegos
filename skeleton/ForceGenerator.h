@@ -1,15 +1,12 @@
 #pragma once
 #include "core.hpp"
+#include "Particle.h"
 
-class Particle;
 class ForceGenerator
 {
 public:
-	ForceGenerator() : _force() {};
-	virtual ~ForceGenerator();
-	virtual void calculateForce(Particle* p) = 0;
-
-private:
-	Vector3 _force;
+	ForceGenerator() = default;
+	virtual ~ForceGenerator() = default;
+	virtual void updateForce(Particle* particle) = 0;
 };
 

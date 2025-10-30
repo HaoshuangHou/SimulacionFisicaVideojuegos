@@ -3,6 +3,7 @@
 #include "Scene1.h"
 #include "Scene2.h"
 #include "Scene3.h"
+#include "Scene4.h"
 
 SceneManager::SceneManager()
 	:_current_scene(0)
@@ -19,6 +20,7 @@ void SceneManager::initScenes()
     _scenes.push_back(std::make_unique<Scene1>());
     _scenes.push_back(std::make_unique<Scene2>());
     _scenes.push_back(std::make_unique<Scene3>());
+    _scenes.push_back(std::make_unique<Scene4>());
 
     // Inicializar
     for (auto& s : _scenes) {

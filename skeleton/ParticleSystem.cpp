@@ -16,12 +16,8 @@ void ParticleSystem::create_model_particle(double tam)
 }
 void ParticleSystem::delete_particle()
 {
-	_particles.remove_if([this](Particle* p) {
-		if (!p->is_alive() || isParticleOutsideArea(p)) {
-			delete p;
-			return true;
-		}
-		return false;
+	_particles.remove_if([this](std::unique_ptr<Particle>& p) {
+		return  !p->is_alive() || isParticleOutsideArea(p.get());
 		});
 }
 
@@ -31,9 +27,6 @@ ParticleSystem::ParticleSystem(const Vector3& center, float r)
 
 ParticleSystem::~ParticleSystem()
 {
-	for (auto p : _particles) {
-		delete p;
-	}
 	_particles.clear();
 
 	for (auto g : _generators) {
@@ -47,7 +40,7 @@ ParticleSystem::~ParticleSystem()
 
 void ParticleSystem::update(double dt)
 {
-	for (Particle* p : _particles) {
+	for (auto& p : _particles) {
 		p->update(dt);
 	}
 		
@@ -55,7 +48,10 @@ void ParticleSystem::update(double dt)
 
 	for (auto g : _generators) {
 		auto new_particles = g->generateP();
-		_particles.splice(_particles.end(), new_particles);
+		for (auto& new_p : new_particles) {
+			_particles.push_back(std::unique_ptr<Particle>(new_p));
+		}
+		new_particles.clear();
 	}
 }
 
@@ -68,22 +64,17 @@ void ParticleSystem::addGenerator(ParticleGen* gen)
 
 void ParticleSystem::registerAllRenderItems()
 {
-	for (auto particle : _particles) {
-		if (particle->getRenderItem() == nullptr) {
-			particle->create_renderItem();
-		}
-		else {
-			RegisterRenderItem(particle->getRenderItem());
+	for (auto& particle : _particles) {
+		if (particle && !particle->isRenderItemValid()) {
+			particle->create_renderItem(); 
 		}
 	}
 }
 
 void ParticleSystem::deregisterAllRenderItems()
 {
-	for (auto particle : _particles) {
-		if (particle->getRenderItem() != nullptr) {
-			DeregisterRenderItem(particle->getRenderItem());
-		}
+	for (auto& particle : _particles) {
+		if (particle) particle->deregisterRenderItem();
 	}
 }
 
@@ -91,8 +82,8 @@ bool ParticleSystem::isParticleOutsideArea(Particle* particle)
 {
 	if (!particle) return true;
 
-	Vector3 particlePos = particle->getTransform().p;
-	Vector3 delta = particlePos - _center;
-	float distance = sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
+	const Vector3 particlePos = particle->getTransform().p;
+	const Vector3 delta = particlePos - _center;
+	const float distance = sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
 	return distance > _radius;
 }

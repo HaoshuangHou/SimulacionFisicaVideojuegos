@@ -2,13 +2,16 @@
 #include <vector>
 #include <string>
 #include <list>
+#include "ForceRegistry.h"
+#include "RenderUtils.hpp"
+#include "Projectil.h"
+#include "ParticleSystem.h"
+#include "Entity.h"
 
-class Entity;
-class ParticleSystem;
 class Scene
 {
 public:
-	Scene() : _entities(), _text(), _particleSystems() {};
+	Scene() : _entities(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry()) {};
 	virtual ~Scene();
 
 	Scene(const Scene& s) = delete;  
@@ -29,5 +32,6 @@ protected:
 	std::vector<Entity*> _entities;
 	std::list<ParticleSystem*> _particleSystems;
 	std::string _text;
+	ForceRegistry* _forceRegistry;
 };
 

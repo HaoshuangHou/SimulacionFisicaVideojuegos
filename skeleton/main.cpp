@@ -120,10 +120,18 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	{
 	//case 'B': break;
 	//case ' ':	break;
-	case 'Q':	
+	case 'Q':
+	{
 		_sceneM->nextScene();
 		display_text = _sceneM->getDisplayText();
 		break;
+	}	
+	case 'B':
+	{
+		_sceneM->changeScene(3);
+		display_text = _sceneM->getDisplayText();
+		break;
+	}
 	default:
 		break;
 	}

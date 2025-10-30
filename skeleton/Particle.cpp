@@ -10,16 +10,19 @@ using namespace physx;
 Particle::Particle(Vector3 const&  pos, Vector3 const& velocity, 
 	Vector3 const&  acceleration,Vector4 const&  color, IntegrateType t, 
 	double mass, double dumping, double lifeTime)
-	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), _ac(acceleration), 
-	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color), _size(1)
+	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), 
+	_ac(acceleration), _const_ac(acceleration),
+	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color), _size(1),
+	_force({ 0,0,0 })
 {
 	_ant_pos = _transform.p;
 }
 
-Particle::Particle(const Particle& other)
-	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, true),
-	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
-	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p)
+Particle::Particle(const Particle& other, bool render)
+	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, render),
+	_vel(other._vel), _ac(other._ac), _const_ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
+	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p), _size(other._size),
+	_force({0,0,0})
 { }
 
 Particle& Particle::operator=(const Particle& other)
@@ -47,6 +50,10 @@ void Particle::update(double t)
 		return;
 	}
 
+	if (!_force.isZero()) {
+		_ac = _const_ac + (_force * (1.0 / _mass));
+	}
+
 	switch (_intType)
 	{
 	case EULER:
@@ -62,6 +69,7 @@ void Particle::update(double t)
 		break;
 	}
 
+	cleanForce();
 }
 
 void Particle::integrate_euler(double t)
@@ -82,10 +90,9 @@ void Particle::integrate_verlet(double t)
 {
 	if (_ant_pos == _transform.p) integrate_euler_semi_implicito(t);
 	else {
-		Vector3 act_pos = _transform.p;
+		const Vector3 act_pos = _transform.p;
 		_transform.p = (_transform.p * 2) - _ant_pos + _ac * pow(t, 2);
 		_ant_pos = act_pos;
-		//std::cout << "aceleracion: " << _ac.y << "  delta time: " << t << "\n";
 	}
 }
 
@@ -117,6 +124,11 @@ double Particle::getCLifeTime() const
 double Particle::getDamping() const
 {
 	return _dampingValue;
+}
+
+Vector4 Particle::getColor() const
+{
+	return _color;
 }
 
 void Particle::setColor(const Vector4& color)
@@ -160,7 +172,7 @@ void Particle::setDamping(double damping)
 void Particle::setTam(double tam)
 {
 	if (_shape) {
-		PxSphereGeometry sphere(tam);
+		const PxSphereGeometry sphere(tam);
 		_shape->setGeometry(sphere);
 
 		if (_renderItem) {
@@ -174,7 +186,6 @@ void Particle::setTam(double tam)
 void Particle::addForce(Vector3 const& f)
 {
 	_force += f;
-	_ac = _force * (1 / _mass);
 }
 
 void Particle::cleanForce()

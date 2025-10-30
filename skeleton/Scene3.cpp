@@ -2,6 +2,7 @@
 #include "FireParticleSystem.h"
 #include "FogParticleSystem.h"
 #include "TapParticleSystem.h"
+#include "FireworkParticleSystem.h"
 
 void Scene3::init()
 {
@@ -29,4 +30,5 @@ void Scene3::createParticleSystem()
 	addParticleSystem(new FireParticleSystem());
 	addParticleSystem(new FogParticleSystem());
 	addParticleSystem(new TapParticleSystem({ -10,20,0 }));
+	//addParticleSystem(new FireworkParticleSystem());
 }

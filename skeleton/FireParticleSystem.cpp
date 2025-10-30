@@ -41,8 +41,8 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
 void FireParticleSystem::update(double dt)
 {
     ParticleSystem::update(dt);
-    for (Particle* p : _particles) {
-        updateParticleColor(p);
+    for (auto& p : _particles) {
+        updateParticleColor(p.get());
     }
 }
 

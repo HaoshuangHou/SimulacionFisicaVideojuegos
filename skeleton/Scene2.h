@@ -1,7 +1,5 @@
 #pragma once
 #include "Scene.h"
-#include "RenderUtils.hpp"
-#include "Projectil.h"
 
 class Scene2: public Scene
 {

@@ -18,7 +18,7 @@ public:
 		IntegrateType t = EULER_SEMI_IMPLICITO,double mass = 1, double dumping = 0.98, 
 		double lifeTime = 10.0);
 
-	Particle(const Particle& other);
+	Particle(const Particle& other, bool render = true);
 	Particle& operator=(const Particle& other);
 
 	void update(double t) override;
@@ -29,6 +29,7 @@ public:
 	double getLifeTime() const;
 	double getCLifeTime() const;
 	double getDamping() const;
+	Vector4 getColor()const;
 	
 
 	void setColor(const Vector4& color);
@@ -45,6 +46,7 @@ public:
 protected:
 	Vector3 _vel;
 	Vector3 _ac;
+	Vector3 _const_ac;
 	Vector3 _force;
 	double _mass;
 	double _lifeTime;
