@@ -41,11 +41,10 @@ public:
         registry.clear();
     }
 
-    void updateForces() {
+    void updateForces(double dt) {
         for (auto& reg : registry) {
             if (reg.particle && reg.fg) {
-                reg.particle->cleanForce();
-                reg.fg->updateForce(reg.particle);
+                reg.fg->updateForce(reg.particle, dt);
             }
         }
     }

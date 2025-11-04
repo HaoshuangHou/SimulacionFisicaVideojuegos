@@ -11,6 +11,7 @@ public:
 
     // Getters
     physx::PxTransform getTransform() const { return _transform; };
+    Vector3 getPos() const { return _transform.p; };
     RenderItem* getRenderItem() const { return _renderItem.get(); };
     bool is_alive()const { return _alive; };
     void setAlive(bool alive) { _alive = alive; }

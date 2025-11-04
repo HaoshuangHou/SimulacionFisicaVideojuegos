@@ -65,6 +65,7 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="FireworkParticleSystem.cpp" />
+    <ClCompile Include="SceneGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -139,6 +140,12 @@
     <ClInclude Include="FireworkParticleSystem.h" />
     <ClInclude Include="GravityGenerator.h" />
     <ClInclude Include="ForceRegistry.h" />
+    <ClInclude Include="WindGenerator.h">
+      <Filter>Archivos de origen</Filter>
+    </ClInclude>
+    <ClInclude Include="WhirlwindGenerator.h" />
+    <ClInclude Include="ExplosionGenerator.h" />
+    <ClInclude Include="SceneGame.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

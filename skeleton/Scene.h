@@ -6,12 +6,12 @@
 #include "RenderUtils.hpp"
 #include "Projectil.h"
 #include "ParticleSystem.h"
-#include "Entity.h"
+#include "Particle.h"
 
 class Scene
 {
 public:
-	Scene() : _entities(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry()) {};
+	Scene() : _particles(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry()) {};
 	virtual ~Scene();
 
 	Scene(const Scene& s) = delete;  
@@ -21,15 +21,16 @@ public:
 	virtual void clean();
 	virtual void handleInput(unsigned char key) = 0;
 	virtual void update(double t);
-	virtual void addEntityWithRenderItem(Entity* e);
+	virtual void addEntityWithRenderItem(Particle* p);
 	virtual void enter();
 	virtual void exit();
 	std::string getDisplayText() const;
 
 	void addParticleSystem(ParticleSystem* ps);
+	void addGlobalForce(ForceGenerator* force);
 
 protected:
-	std::vector<Entity*> _entities;
+	std::vector<Particle*> _particles;
 	std::list<ParticleSystem*> _particleSystems;
 	std::string _text;
 	ForceRegistry* _forceRegistry;

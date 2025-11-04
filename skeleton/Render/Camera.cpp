@@ -107,6 +107,26 @@ PxTransform Camera::getTransform() const
 	return PxTransform(mEye, PxQuat(m));
 }
 
+void Camera::setEye(const physx::PxVec3& newEye)
+{
+	if (newEye.isFinite()) {
+		mEye = newEye;
+	}
+}
+
+void Camera::setDir(const physx::PxVec3& newDir)
+{
+	if (newDir.isFinite() && newDir.magnitudeSquared() > 1e-12f) {
+		mDir = newDir.getNormalized();
+	}
+}
+
+void Camera::resetCamera()
+{
+	mEye = physx::PxVec3(50.0f, 50.0f, 50.0f);
+	mDir = physx::PxVec3(-0.6f, -0.2f, -0.7f);
+}
+
 PxVec3 Camera::getEye() const
 { 
 	return mEye; 

@@ -3,6 +3,7 @@
 #include "FogParticleSystem.h"
 #include "TapParticleSystem.h"
 #include "FireworkParticleSystem.h"
+#include "GravityGenerator.h"
 
 void Scene3::init()
 {
@@ -29,6 +30,9 @@ void Scene3::createParticleSystem()
 {
 	addParticleSystem(new FireParticleSystem());
 	addParticleSystem(new FogParticleSystem());
-	addParticleSystem(new TapParticleSystem({ -10,20,0 }));
+
+	TapParticleSystem* t = new TapParticleSystem({ -10,20,0 });
+	t->addForce(new GravityGenerator(Vector3(0, -9.8, 0)));
+	addParticleSystem(t);
 	//addParticleSystem(new FireworkParticleSystem());
 }

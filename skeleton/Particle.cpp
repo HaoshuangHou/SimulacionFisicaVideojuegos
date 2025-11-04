@@ -1,4 +1,4 @@
-#include "Particle.h"
+﻿#include "Particle.h"
 #include "RenderUtils.hpp"
 #include <PxPhysicsAPI.h>
 #include <math.h>
@@ -8,11 +8,11 @@ using namespace physx;
 
 
 Particle::Particle(Vector3 const&  pos, Vector3 const& velocity, 
-	Vector3 const&  acceleration,Vector4 const&  color, IntegrateType t, 
-	double mass, double dumping, double lifeTime)
+	Vector3 const&  acceleration,Vector4 const&  color,
+	double mass, double lifeTime,double dumping, IntegrateType t)
 	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), 
-	_ac(acceleration), _const_ac(acceleration),
-	_intType(t), _mass(mass), _dampingValue(dumping), _lifeTime(lifeTime), _iniTime(0), _color(color), _size(1),
+	_ac(acceleration),_intType(t), _mass(mass), _dampingValue(dumping), 
+	_lifeTime(lifeTime), _iniTime(0), _color(color), _size(1),
 	_force({ 0,0,0 })
 {
 	_ant_pos = _transform.p;
@@ -20,7 +20,7 @@ Particle::Particle(Vector3 const&  pos, Vector3 const& velocity,
 
 Particle::Particle(const Particle& other, bool render)
 	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, render),
-	_vel(other._vel), _ac(other._ac), _const_ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
+	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
 	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p), _size(other._size),
 	_force({0,0,0})
 { }
@@ -51,7 +51,7 @@ void Particle::update(double t)
 	}
 
 	if (!_force.isZero()) {
-		_ac = _const_ac + (_force * (1.0 / _mass));
+		_ac = (_force * (1.0 / _mass));
 	}
 
 	switch (_intType)
@@ -68,7 +68,6 @@ void Particle::update(double t)
 	default:
 		break;
 	}
-
 	cleanForce();
 }
 
@@ -185,10 +184,14 @@ void Particle::setTam(double tam)
 
 void Particle::addForce(Vector3 const& f)
 {
+	/*if (_force.y < 0.1f) {
+		std::cout << "Aceleracion:   " << _force.y << "\n";
+	}*/
 	_force += f;
 }
 
 void Particle::cleanForce()
 {
 	_force = Vector3(0, 0, 0);
+	_ac = Vector3(0, 0, 0);
 }

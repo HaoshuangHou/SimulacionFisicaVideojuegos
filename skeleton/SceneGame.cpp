@@ -1,40 +1,43 @@
-#include "Scene4.h"
+#include "SceneGame.h"
 #include "GravityGenerator.h"
 #include "WindGenerator.h"
 #include "WhirlwindGenerator.h"
 #include "ExplosionGenerator.h"
 
-void Scene4::init()
+SceneGame::SceneGame()
+	:_canon(nullptr), _target(nullptr), _currentProjectile(nullptr),
+	_windGenerator(nullptr), _gravityGenerator(nullptr),_explosionGenerator(nullptr),
+	_canonAngle(0.0f), _projectilePower(20.0f),
+	_projectilesRemaining(8), _maxProjectiles(8),
+	_windActive(true), _windStrength(8.0f),
+	_gameWon(false), _gameTime(0.0f)
+{}
+
+SceneGame::~SceneGame()
 {
-	_text = "ESCENA 4: PARTICULAS CON FUERZAS, PASAR DE ESCENA CON Q";
-
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
-	Particle* p1 = new Particle(
-		Vector3(5, 10, 0), Vector3(0, 0, 0),
-		Vector3(0, 0, 0), Vector4(1, 0, 0, 1), // Rojo
-		1, 1000
-	);
-	_forceRegistry->addRegistry(p1, _gravityGenerator);
-	_particles.push_back(p1);
-
-	//Particle* p2 = new Particle(
-	//	Vector3(0, 10, 0), Vector3(0, 0, 0),
-	//	Vector3(0, -9.8, 0), Vector4(0, 1, 0, 1)  // Verde
-	//);
-	//_entities.push_back(p2);
-
-	//WhirlwindGenerator* whirlwind = new WhirlwindGenerator(Vector3(0, 0, 0), 50, 1.0, 0.5, 0.3);
-	//_forceRegistry->addRegistry(p1, whirlwind);
-
-	_explosionGenerator = new ExplosionGenerator(
-		Vector3(0, 5, 0),  // Centro de la explosi¨®n
-		30.0,              // Radio de la explosi¨®n
-		5000.0,            // Intensidad K
-		2.0                // Constante de tiempo tau
-	);
+	delete _windGenerator;
+	delete _gravityGenerator;
+	delete _explosionGenerator;
 }
 
-void Scene4::handleInput(unsigned char key)
+void SceneGame::init()
+{
+	_text = "A/D: Girar, W/S: Potencia, ESPACIO: Disparar, V: Viento, R: Reset";
+	
+	setupCamera();
+
+	createCanon();
+	createTarget();
+	createPlatforms();
+	createWindZone();
+
+	showGameInfo();
+
+	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	addGlobalForce(_gravityGenerator);
+}
+
+void SceneGame::handleInput(unsigned char key)
 {
 	switch (toupper(key))
 	{
@@ -110,4 +113,65 @@ void Scene4::handleInput(unsigned char key)
 			break;
 		}
 	}
+}
+
+void SceneGame::update(double t)
+{
+}
+
+void SceneGame::enter()
+{
+}
+
+void SceneGame::exit()
+{
+	if (GetCamera())GetCamera()->resetCamera();
+}
+
+void SceneGame::setupCamera()
+{
+	if (GetCamera()) {
+		GetCamera()->setEye({ 0.0f, 10.0f, 25.0f });
+		GetCamera()->setDir({ 0.0f, -0.3f, -1.0f });
+	}
+}
+
+void SceneGame::createCanon()
+{
+}
+
+void SceneGame::createTarget()
+{
+}
+
+void SceneGame::createPlatforms()
+{
+}
+
+void SceneGame::createWindZone()
+{
+}
+
+void SceneGame::shootProjectile()
+{
+}
+
+void SceneGame::updateCanonAngle()
+{
+}
+
+void SceneGame::updateProjectilePower()
+{
+}
+
+void SceneGame::checkWinCondition()
+{
+}
+
+void SceneGame::resetProjectile()
+{
+}
+
+void SceneGame::showGameInfo()
+{
 }

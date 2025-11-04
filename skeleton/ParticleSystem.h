@@ -5,6 +5,8 @@
 
 class Particle;
 class ParticleGen;
+class ForceGenerator;
+class ForceRegistry;
 
 class ParticleSystem {
 protected:
@@ -15,6 +17,8 @@ protected:
 
 	std::list<std::unique_ptr<Particle>> _particles;
 	std::list<ParticleGen*> _generators;
+	std::list<std::unique_ptr<ForceGenerator>> _forces;
+	std::unique_ptr<ForceRegistry> _forceRegistry;
 
 	Particle* _model_particle;
 	void create_model_particle();
@@ -28,6 +32,7 @@ public:
 	virtual ~ParticleSystem();
 	virtual void update(double dt);
 	void addGenerator(ParticleGen* gen);
+	void addForce(ForceGenerator* f);
 
 	void registerAllRenderItems();
 	void deregisterAllRenderItems();

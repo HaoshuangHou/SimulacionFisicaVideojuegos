@@ -11,8 +11,8 @@ Scene::~Scene()
 
 void Scene::clean()
 {
-	for (auto e : _entities) delete e;
-	_entities.clear();
+	for (auto e : _particles) delete e;
+	_particles.clear();
 
 	for (auto ps : _particleSystems) delete ps;
 	_particleSystems.clear();
@@ -22,21 +22,20 @@ void Scene::clean()
 
 void Scene::update(double t)
 {
+	_forceRegistry->updateForces(t);
 
-	_forceRegistry->updateForces();
-
-	for (auto& e : _entities) {
-		if (e)e->update(t);
+	for (auto& e : _particles) {
+		if (e && e->is_alive())e->update(t);
 	}
 
 	for (auto ps : _particleSystems) {
 		if (ps)ps->update(t);
 	}
 
-	for (auto it = _entities.begin(); it != _entities.end(); ) {
+	for (auto it = _particles.begin(); it != _particles.end(); ) {
 		if (!(*it)->is_alive()) {
 			delete* it;
-			it = _entities.erase(it);
+			it = _particles.erase(it);
 		}
 		else {
 			++it;
@@ -44,30 +43,30 @@ void Scene::update(double t)
 	}
 }
 
-void Scene::addEntityWithRenderItem(Entity* e)
+void Scene::addEntityWithRenderItem(Particle* p)
 {
-	if (e->getRenderItem() == nullptr) {
-		e->create_renderItem();
+	if (p->getRenderItem() == nullptr) {
+		p->create_renderItem();
 	}
-	_entities.push_back(e);
+	_particles.push_back(p);
 }
 
 void Scene::enter()
 {
-	for (Entity* e : _entities) {
+	for (Entity* e : _particles) {
 		if (e && !e->isRenderItemValid()) {
 			e->create_renderItem();
 		}
 	}
 	for (auto ps : _particleSystems) {
-		ps->registerAllRenderItems();
+		if (ps)ps->registerAllRenderItems();
 	}
 
 }
 
 void Scene::exit()
 {
-	for (Entity* e : _entities) {
+	for (Entity* e : _particles) {
 		if (e) e->deregisterRenderItem();
 	}
 	for (auto ps : _particleSystems) {
@@ -84,6 +83,20 @@ void Scene::addParticleSystem(ParticleSystem* ps)
 {
 	if (ps != nullptr) {
 		_particleSystems.push_back(ps);
+	}
+}
+
+void Scene::addGlobalForce(ForceGenerator* force)
+{
+	if (force) {
+		for (auto& e : _particles) {
+			if (e) {
+				_forceRegistry->addRegistry(e, force);
+			}
+		}
+		for (auto ps : _particleSystems) {
+			ps->addForce(force);
+		}
 	}
 }
 

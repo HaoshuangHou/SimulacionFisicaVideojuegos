@@ -1,6 +1,7 @@
 ﻿#include "TapParticleSystem.h"
 #include "Particle.h"
 #include "UniformDistributionGen.h"
+#include "GravityGenerator.h"
 
 TapParticleSystem::TapParticleSystem(const Vector3& center, const Vector3& dir, float radius)
     : ParticleSystem(center, radius)
@@ -30,5 +31,5 @@ TapParticleSystem::TapParticleSystem(const Vector3& center, const Vector3& dir, 
     waterGen->setDesVel(Vector3(0.3f, 0.1f, 0.3f));
     waterGen->setDesDur(1.5f);
 
-    addGenerator(waterGen);
+    addGenerator(waterGen);  
 }

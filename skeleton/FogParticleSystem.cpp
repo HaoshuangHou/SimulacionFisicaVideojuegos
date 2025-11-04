@@ -11,7 +11,6 @@ FogParticleSystem::FogParticleSystem(const Vector3& center, float radius)
 
     if (_model_particle) {
         _model_particle->setPosition(_center);
-        _model_particle->setAcceleration(Vector3(0.0f, 0.05f, 0.0f));
         _model_particle->setColor(_startColor);
     }
 

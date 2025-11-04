@@ -16,7 +16,6 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
     // Configurar la partícula modelo para fuego
     if (_model_particle) {
         _model_particle->setPosition(_center);
-        _model_particle->setAcceleration(Vector3(0, 1.5f, 0));
         _model_particle->setDamping(0.9f);                    
         _model_particle->setLifeTime(2.5f);                     
         _model_particle->setColor(_startColor);
@@ -40,7 +39,23 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
 
 void FireParticleSystem::update(double dt)
 {
-    ParticleSystem::update(dt);
+    //ParticleSystem::update(dt);
+    for (auto& p : _particles) {
+        p->addForce(Vector3(0, 8.0f, 0));  // Fuerza ascendente para fuego
+        p->update(dt);
+        updateParticleColor(p.get());
+    }
+
+    delete_particle();
+
+    // Generar nuevas partículas
+    for (auto g : _generators) {
+        auto new_particles = g->generateP();
+        for (auto& new_p : new_particles) {
+            _particles.push_back(std::unique_ptr<Particle>(new_p));
+            // NO registrar fuerzas globales
+        }
+    }
     for (auto& p : _particles) {
         updateParticleColor(p.get());
     }
