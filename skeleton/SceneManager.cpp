@@ -4,6 +4,7 @@
 #include "Scene2.h"
 #include "Scene3.h"
 #include "Scene4.h"
+#include "SceneGame.h"
 
 SceneManager::SceneManager()
 	:_current_scene(0)
@@ -21,6 +22,7 @@ void SceneManager::initScenes()
     _scenes.push_back(std::make_unique<Scene2>());
     _scenes.push_back(std::make_unique<Scene3>());
     _scenes.push_back(std::make_unique<Scene4>());
+    _scenes.push_back(std::make_unique<SceneGame>());
 
     // Inicializar
     for (auto& s : _scenes) {
@@ -54,6 +56,13 @@ void SceneManager::nextScene()
 void SceneManager::handleInput(unsigned char key)
 {
     _scenes.at(_current_scene)->handleInput(key);
+}
+
+void SceneManager::handleSpecialInput(int key)
+{
+    if (_current_scene >= 0 && _current_scene < _scenes.size()) {
+        _scenes.at(_current_scene)->handleSpecialInput(key);
+    }
 }
 
 std::string SceneManager::getDisplayText() const

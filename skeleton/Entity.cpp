@@ -28,7 +28,12 @@ bool Entity::isRenderItemValid()
 	return _renderItem != nullptr && _renderItemRegistered;
 }
 
-Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
+void Entity::setPosition(const Vector3& pos)
+{
+	_transform.p = pos;
+}
+
+Entity::Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color)
 	:_alive(true),
 	_shape(shape),
 	_color(color),
@@ -38,7 +43,7 @@ Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color)
 {
 }
 
-Entity::Entity(Vector3 pos, physx::PxShape* shape, Vector4 color, bool renderItem)
+Entity::Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem)
 	:_alive(true),
 	_shape(shape),
 	_color(color),

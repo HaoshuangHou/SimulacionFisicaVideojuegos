@@ -3,7 +3,7 @@
 
 void Scene1::init()
 {
-	_text = "ESCENA 1: PARTICULAS , PASAR DE ESCENA CON Q";
+	_text = "ESCENA 1: PARTICULAS ,SIGUIENTE ESCENA(Q)";
 }
 
 void Scene1::handleInput(unsigned char key)

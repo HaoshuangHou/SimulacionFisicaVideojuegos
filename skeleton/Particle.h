@@ -36,7 +36,6 @@ public:
 	void setVelocity(const Vector3& velocity);
 	void setAcceleration(const Vector3& acceleration);
 	void setMass(double mass);
-	void setPosition(const Vector3& pos);
 	void setDamping(double damping);
 	void setTam(double tam);
 	void addForce(Vector3 const& f);

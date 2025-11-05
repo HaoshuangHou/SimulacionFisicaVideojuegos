@@ -1,4 +1,4 @@
-// This code contains NVIDIA Confidential Information and is disclosed to you
+﻿// This code contains NVIDIA Confidential Information and is disclosed to you
 // under a form of NVIDIA software license agreement provided separately to you.
 //
 // Notice
@@ -229,6 +229,7 @@ void renderGeometry(const PxGeometryHolder& h, bool wireframe =false)
 	}
 }
 
+ProjectionMode current_projection_mode = PROJ_PERSPECTIVE;
 namespace Snippets
 {
 
@@ -281,19 +282,38 @@ void setupDefaultRenderState()
 	glEnable(GL_LIGHT0);
 }
 
-
 void startRender(const PxVec3& cameraEye, const PxVec3& cameraDir, PxReal clipNear, PxReal clipFar)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	// Display text
-	glColor4f(1.0f, 0.2f, 0.2f, 1.0f);
-	drawText(display_text, 0, 0);
-
 	// Setup camera
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(60.0, GLdouble(glutGet(GLUT_WINDOW_WIDTH)) / GLdouble(glutGet(GLUT_WINDOW_HEIGHT)), GLdouble(clipNear), GLdouble(clipFar));
+
+	if (current_projection_mode==PROJ_ORTHOGRAPHIC) {
+		const int windowWidth = glutGet(GLUT_WINDOW_WIDTH);
+		const int windowHeight = glutGet(GLUT_WINDOW_HEIGHT);
+		const float aspectRatio = (float)windowWidth / (float)windowHeight;
+
+		const float gameWorldWidth = 30.0f;
+		const float gameWorldHeight = 25.0f;
+		const float worldAspect = gameWorldWidth / gameWorldHeight;
+
+		float visibleWidth, visibleHeight;
+		if (aspectRatio > worldAspect) {
+			visibleHeight = gameWorldHeight;
+			visibleWidth = gameWorldHeight * aspectRatio;
+		}
+		else {
+			visibleWidth = gameWorldWidth;
+			visibleHeight = gameWorldWidth / aspectRatio;
+		}
+
+		glOrtho(-visibleWidth / 2, visibleWidth / 2,
+			-visibleHeight / 2, visibleHeight / 2,
+			clipNear, clipFar);
+	}
+	else gluPerspective(60.0, GLdouble(glutGet(GLUT_WINDOW_WIDTH)) / GLdouble(glutGet(GLUT_WINDOW_HEIGHT)), GLdouble(clipNear), GLdouble(clipFar));
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -379,6 +399,9 @@ void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, co
 
 void finishRender()
 {
+	// Display text
+	drawText(display_text, 1, 2);
+
 	glutSwapBuffers();
 }
 
@@ -388,18 +411,52 @@ void drawText(const std::string& text, int x, int y)
 	double* matrix = new double[16];
 	glGetDoublev(GL_PROJECTION_MATRIX, matrix);
 	glLoadIdentity();
-	glOrtho(0, 512, 0, 512, -5, 5);
+	
+	const int windowWidth = glutGet(GLUT_WINDOW_WIDTH);
+	const int windowHeight = glutGet(GLUT_WINDOW_HEIGHT);
+	glOrtho(0, windowWidth, 0, windowHeight, -5, 5);
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glPushMatrix();
 	//glLoadIdentity();
-	glRasterPos2i(x, y);
 
+	glDepthFunc(GL_ALWAYS);
+	glDisable(GL_LIGHTING);
+
+	//fondo de texto
+	int textWidth = 0;
+	for (int i = 0; i < text.length(); i++) {
+		textWidth += glutBitmapWidth(GLUT_BITMAP_9_BY_15, text[i]);
+	}
+	int textHeight = 15;
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	glColor4f(0.0f, 0.0f, 0.0f, 0.5f); // Fondo negro semi-transparente
+
+	glBegin(GL_QUADS);
+	glVertex2i(x - 5, y - 3);                    // Esquina inferior izquierda
+	glVertex2i(x + textWidth + 5, y - 3);        // Esquina inferior derecha
+	glVertex2i(x + textWidth + 5, y + textHeight + 3); // Esquina superior derecha
+	glVertex2i(x - 5, y + textHeight + 3);       // Esquina superior izquierda
+	glEnd();
+
+	glDisable(GL_BLEND);
+
+	//texto
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	glRasterPos2i(x, y);
 	int length = text.length();
 
 	for (int i = 0; i < length; i++) {
 		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, (int)text[i]);
 	}
+
+	glEnable(GL_LIGHTING);
+	glDepthFunc(GL_LESS);
+
 	glPopMatrix();
 	glMatrixMode(GL_PROJECTION);
 	glLoadMatrixd(matrix);

@@ -4,7 +4,7 @@
 void Scene2::init()
 {
 	_camera = GetCamera();
-	_text = "ESCENA 2: PROYECTILES, PASAR DE ESCENA CON Q";
+	_text = "ESCENA 2: PROYECTILES, SIGUIENTE ESCENA(Q)";
 }
 
 void Scene2::handleInput(unsigned char key)

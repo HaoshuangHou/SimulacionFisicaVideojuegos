@@ -1,7 +1,7 @@
 #pragma once
 #include "Particle.h"
 enum ProjectilType {
-	CANON,TANQUE,PISTOLA,LASER
+    CANON, TANQUE, PISTOLA, LASER, GAME
 };
 class Projectil: public Particle
 {

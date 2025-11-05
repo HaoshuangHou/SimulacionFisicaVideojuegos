@@ -18,10 +18,10 @@ public:
     void create_renderItem();
     void deregisterRenderItem();
     bool isRenderItemValid();
-
+    void setPosition(const Vector3& pos);
 protected:
-    Entity(Vector3 pos, physx::PxShape* shape, Vector4 color);
-    Entity(Vector3 pos, physx::PxShape* shape, Vector4 color, bool renderItem);
+    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color);
+    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem);
     physx::PxTransform _transform;
     std::unique_ptr<RenderItem> _renderItem;
     bool _alive;

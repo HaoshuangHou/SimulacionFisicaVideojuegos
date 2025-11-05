@@ -1,29 +1,33 @@
 #pragma once
 #include "ParticleSystem.h"
-#include "NormalDistributionGen.h"
-#include <unordered_set>
+#include "UniformDistributionGen.h"
+#include <memory>
+#include <vector>
 
 class FireworkParticleSystem : public ParticleSystem {
 private:
-    int _maxGenerations;
-    double _timeSinceLastFirework;
-    double _fireworkInterval;
-    NormalDistributionGen* _rocketGen;
-    NormalDistributionGen* _explosionGen;
-    NormalDistributionGen* _finalGen;
+    Vector4 _rocketColor = Vector4(0.7f, 0.3f, 0.9f, 1.0f);
+    Vector4 _explosionColor1 = Vector4(0.8f, 0.4f, 1.0f, 1.0f);
+    Vector4 _explosionColor2 = Vector4(0.9f, 0.6f, 1.0f, 1.0f);
+    Vector4 _explosionColor3 = Vector4(0.7f, 0.5f, 0.9f, 1.0f);
+    Vector4 _sparkColor = Vector4(0.6f, 0.2f, 0.8f, 1.0f);
 
-    std::unordered_set<Particle*> _rockets;
-    std::unordered_set<Particle*> _explosions;
-    std::unordered_set<Particle*> _final;
+    Vector3 _launchPosition;
+    std::unique_ptr<Particle> _rocketModel;
+    std::unique_ptr<Particle> _explosionModel;
+    std::unique_ptr<Particle> _sparkModel;
+
+    UniformDistributionGen* _explosionGen;
+    UniformDistributionGen* _sparkGen;
+
+    void createParticleModels();
+    void setupGenerators();
+    void createExplosionAt(const Vector3& pos, const Vector4& color);
 
 public:
-    FireworkParticleSystem(const Vector3& center=Vector3(0,0,0), float radius=20.0f, int maxGenerations = 3);
-    virtual ~FireworkParticleSystem();
-    virtual void update(double dt) override;
+    FireworkParticleSystem(const Vector3& launchPosition);
+    ~FireworkParticleSystem();
 
-private:
-    void createNewFirework();
-    void createFinalFlash(const Vector3& position, const Vector4& color);
-    void processFireworkDeaths();
-    Vector4 getRandomColor();
+    void update(double dt) override;
+    void createFirework();
 };

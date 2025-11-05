@@ -6,32 +6,28 @@
 
 void Scene4::init()
 {
-	_text = "ESCENA 4: PARTICULAS CON FUERZAS, PASAR DE ESCENA CON Q";
+	_text = "ESCENA 4: FUERZAS, SIGUIENTE ESCENA(Q), gravedad(1), viento(2), torbellino(3), explosion(4)";
 
 	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
-	Particle* p1 = new Particle(
-		Vector3(5, 10, 0), Vector3(0, 0, 0),
-		Vector3(0, 0, 0), Vector4(1, 0, 0, 1), // Rojo
-		1, 1000
-	);
-	_forceRegistry->addRegistry(p1, _gravityGenerator);
-	_particles.push_back(p1);
 
-	//Particle* p2 = new Particle(
-	//	Vector3(0, 10, 0), Vector3(0, 0, 0),
-	//	Vector3(0, -9.8, 0), Vector4(0, 1, 0, 1)  // Verde
-	//);
-	//_entities.push_back(p2);
+	_explosionGenerator = new ExplosionGenerator(Vector3(0, 10, 0), 15.0, 5000.0, 10.0);
 
-	//WhirlwindGenerator* whirlwind = new WhirlwindGenerator(Vector3(0, 0, 0), 50, 1.0, 0.5, 0.3);
-	//_forceRegistry->addRegistry(p1, whirlwind);
+	_windGenerator = new WindGenerator(Vector3(0, 10, 0), 15, Vector3(0, 100, 0), 0.15);
 
-	_explosionGenerator = new ExplosionGenerator(
-		Vector3(0, 5, 0),  // Centro de la explosi車n
-		30.0,              // Radio de la explosi車n
-		5000.0,            // Intensidad K
-		2.0                // Constante de tiempo tau
-	);
+	_whirlwindGenerator = new WhirlwindGenerator(Vector3(0, 10, 0), 15, 2.0, 0.08, 0.02);
+}
+
+void Scene4::enter()
+{
+	Scene::enter();
+}
+
+void Scene4::exit()
+{
+	Scene::exit();
+	_explosionGenerator->setVisible(false);
+	_windGenerator->setVisible(false);
+	_whirlwindGenerator->setVisible(false);
 }
 
 void Scene4::handleInput(unsigned char key)
@@ -40,70 +36,83 @@ void Scene4::handleInput(unsigned char key)
 	{
 		case '1':
 		{
+			_explosionGenerator->setVisible(false);
+			_windGenerator->setVisible(false);
+			_whirlwindGenerator->setVisible(false);
 			Particle* p1 = new Particle(
-				Vector3(5, 10, 0), Vector3(0, 0, 0),
-				Vector3(0, 0, 0), Vector4(1, 0, 0, 1)  // Rojo
+				Vector3(5, 20, 0), Vector3(0, 0, 0),
+				Vector3(0, 0, 0), Vector4(1, 0, 0, 1),  // Rojo
+				1.0f
 			);
-			p1->setMass(1);
 			_forceRegistry->addRegistry(p1, _gravityGenerator);
 			addEntityWithRenderItem(p1);
-			_particles.push_back(p1);
-
-			Particle* p2 = new Particle(
-				Vector3(0, 10, 0), Vector3(0, 0, 0),
-				Vector3(0, -9.8, 0), Vector4(0, 1, 0, 1)  // Verde
-			);
-			addEntityWithRenderItem(p2);
-
 			break;
 		}
 		case '2':
 		{
-			WindGenerator* wind = new WindGenerator(Vector3(0, 0, 0), 50, Vector3(0, 100, 0), 0.15);
-			Particle* p1 = new Particle(
-				Vector3(5, 10, 0), Vector3(0, 0, 0),
-				Vector3(0, 0, 0), Vector4(1, 0, 0, 1)
+			_explosionGenerator->setVisible(false);
+			_windGenerator->setVisible(true);
+			_whirlwindGenerator->setVisible(false);
+			Particle* p = new Particle(
+				Vector3(0, 0, 0), Vector3(0, 0, 0),
+				Vector3(0, 0, 0), Vector4(1, 0, 1, 1),
+				1.0f
 			);
-			p1->setMass(1);
-			_forceRegistry->addRegistry(p1, wind);
-			addEntityWithRenderItem(p1);
+			_forceRegistry->addRegistry(p, _windGenerator);
+			_forceRegistry->addRegistry(p, _gravityGenerator);
+			addEntityWithRenderItem(p);
+
 			break;
 		}
-		case '3':  // Tecla 3: Crear m迆ltiples part赤culas para probar explosi車n
+		case '3':
 		{
-			for (int i = 0; i < 15; ++i) {
-				double x = (rand() % 300 - 150) / 10.0;  // -15 a 15
-				double y = (rand() % 100 + 50) / 10.0;   // 5 a 15
-				double z = (rand() % 300 - 150) / 10.0;  // -15 a 15
-
-				double mass = 1.0; // 1.0 a 21.0
+			_explosionGenerator->setVisible(false);
+			_windGenerator->setVisible(false);
+			_whirlwindGenerator->setVisible(true);
+			for (int i = 0; i < 5; ++i) {
+				double angle = i * (360.0 / 5) * (3.14159 / 180.0);
+				double radius = 4.0;    
+				double x = cos(angle) * radius;
+				double z = sin(angle) * radius;
 
 				Particle* p = new Particle(
-					Vector3(x, y, z),
+					Vector3(x, 0, z), 
 					Vector3(0, 0, 0),
 					Vector3(0, 0, 0),
-					Vector4(0.8, 0.6, 0.2, 1.0),  // Color naranja
-					mass
+					Vector4(0, 1, 1, 1),
+					1.0f
 				);
-
-				//_forceRegistry->addRegistry(p, _gravityGenerator);
-				_forceRegistry->addRegistry(p, _explosionGenerator);
+				_forceRegistry->addRegistry(p, _whirlwindGenerator);
+				_forceRegistry->addRegistry(p, _gravityGenerator);
 				addEntityWithRenderItem(p);
 			}
 			break;
 		}
-		case 'E':  // Tecla E: Activar explosi車n
+		case '4':
 		{
-			if (_explosionGenerator != nullptr) {
-				_explosionGenerator->activate();
+			_explosionGenerator->setVisible(true);
+			_windGenerator->setVisible(false);
+			_whirlwindGenerator->setVisible(false);
+
+			for (int i = 0; i < 10; ++i) {
+				double angle = i * (360.0 / 10) * (3.14159 / 180.0);
+				double radius = 4.0;
+				double x = cos(angle) * radius;
+				double z = sin(angle) * radius;
+
+				double mass = 1.0f + i;
+
+				Particle* p = new Particle(
+					Vector3(x, 10, z),
+					Vector3(0, 0, 0),
+					Vector3(0, 0, 0),
+					Vector4(1, 1, 0, 1),
+					mass
+				);
+				_forceRegistry->addRegistry(p, _explosionGenerator);
+				addEntityWithRenderItem(p);
 			}
-			break;
-		}
-		case 'R':  // Tecla R: Resetear explosi車n (permitir reactivaci車n)
-		{
-			if (_explosionGenerator != nullptr) {
-				_explosionGenerator->deactivate();
-			}
+			_explosionGenerator->active(true);
 			break;
 		}
 		default: {

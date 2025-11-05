@@ -7,7 +7,7 @@
 
 void Scene3::init()
 {
-	_text = "ESCENA 3: SISTEMAS DE PARTICULAS, PASAR DE ESCENA CON Q";
+	_text = "ESCENA 3: SISTEMAS DE PARTICULAS,SIGUIENTE ESCENA(Q)";
 	createParticleSystem();
 }
 
@@ -17,7 +17,7 @@ void Scene3::handleInput(unsigned char key)
 	{
 	case '1':
 	{
-
+		f->createFirework();
 		break;
 	}
 	default:
@@ -34,5 +34,7 @@ void Scene3::createParticleSystem()
 	TapParticleSystem* t = new TapParticleSystem({ -10,20,0 });
 	t->addForce(new GravityGenerator(Vector3(0, -9.8, 0)));
 	addParticleSystem(t);
-	//addParticleSystem(new FireworkParticleSystem());
+	f = new FireworkParticleSystem(Vector3(0,0,0));
+	f->addForce(new GravityGenerator(Vector3(0, -9.8, 0)));
+	addParticleSystem(f);
 }

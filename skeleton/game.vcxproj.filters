@@ -66,6 +66,7 @@
     </ClCompile>
     <ClCompile Include="FireworkParticleSystem.cpp" />
     <ClCompile Include="SceneGame.cpp" />
+    <ClCompile Include="Shooter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -146,6 +147,7 @@
     <ClInclude Include="WhirlwindGenerator.h" />
     <ClInclude Include="ExplosionGenerator.h" />
     <ClInclude Include="SceneGame.h" />
+    <ClInclude Include="Shooter.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

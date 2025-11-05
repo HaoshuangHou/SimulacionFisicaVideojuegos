@@ -14,6 +14,7 @@ public:
 	void changeScene(int sceneIndex);
 	void nextScene();
 	void handleInput(unsigned char key);
+    void handleSpecialInput(int key);
 	std::string getDisplayText() const;
 
 private:

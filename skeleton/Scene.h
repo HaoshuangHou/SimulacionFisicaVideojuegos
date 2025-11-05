@@ -20,6 +20,7 @@ public:
 	virtual void init() = 0;
 	virtual void clean();
 	virtual void handleInput(unsigned char key) = 0;
+	virtual void handleSpecialInput(int key) {};
 	virtual void update(double t);
 	virtual void addEntityWithRenderItem(Particle* p);
 	virtual void enter();

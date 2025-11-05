@@ -1,161 +1,154 @@
 ﻿#include "FireworkParticleSystem.h"
+#include "FireworkParticleSystem.h"
 #include "Particle.h"
+#include "ForceRegistry.h"
+#include <cstdlib>
+#include <ctime>
 
-FireworkParticleSystem::FireworkParticleSystem(const Vector3& center, float radius, int maxGenerations)
-    : ParticleSystem(center, radius),
-    _maxGenerations(maxGenerations),
-    _timeSinceLastFirework(0.0),
-    _fireworkInterval(2.0f)
+FireworkParticleSystem::FireworkParticleSystem(const Vector3& launchPosition)
+    : ParticleSystem(launchPosition, 1.0f), _launchPosition(launchPosition)
 {
-    create_model_particle(); 
-
-    if (_model_particle) {
-        _model_particle->setPosition(_center);
-        _model_particle->setVelocity(Vector3(0, 5.0f, 0));
-        _model_particle->setColor(Vector4(1, 1, 1, 1));
-        _model_particle->setLifeTime(1.0f);
-    }
-
-    _rocketGen = new NormalDistributionGen(
-        _model_particle,
-        _center,
-        Vector3(0, 12.0f, 0),      
-        2.5f,                     
-        1              
-    );
-    _rocketGen->setDesPos(Vector3(1.0f, 0.0f, 1.0f));    
-    _rocketGen->setDesVel(Vector3(0.5f, 3.0f, 0.5f));   
-    _rocketGen->setDesDur(1.0f);                       
-
-
-    Particle* explosionModel = new Particle(*_model_particle, false);
-    explosionModel->setTam(0.7f);
-    explosionModel->setAcceleration(Vector3(0, -9.0f, 0));
-
-    _explosionGen = new NormalDistributionGen(
-        explosionModel,
-        Vector3(0, 0, 0),          // Posición relativa (se ajustará)
-        Vector3(0, 0, 0),          // Velocidad base 0 (la variación hace el trabajo)
-        1.8f,                      // Duración
-        10                         // 10 partículas por explosión
-    );
-    _explosionGen->setDesPos(Vector3(0.1f, 0.1f, 0.1f)); // Poca variación posición
-    _explosionGen->setDesVel(Vector3(8.0f, 8.0f, 8.0f)); // Alta variación para explosión radial
-    _explosionGen->setDesDur(1.0f);                      // Variación duración
-
-    Particle* sparkleModel = new Particle(*_model_particle, false);
-    sparkleModel->setTam(0.4f);
-    sparkleModel->setAcceleration(Vector3(0, -5.0f, 0));
-
-    _finalGen = new NormalDistributionGen(
-        sparkleModel,
-        Vector3(0, 0, 0),
-        Vector3(0, 1.0f, 0),       // Pequeño impulso hacia arriba
-        1.3f,                      // Duración
-        5                          // 5 chispas
-    );
-    _finalGen->setDesPos(Vector3(0.5f, 0.2f, 0.5f));   // Variación posición
-    _finalGen->setDesVel(Vector3(4.0f, 3.0f, 4.0f));   // Variación velocidad
-    _finalGen->setDesDur(1.0f);                        // Variación duración
-
+    std::srand(std::time(nullptr));
+    createParticleModels();
+    setupGenerators();
 }
 
 FireworkParticleSystem::~FireworkParticleSystem()
 {
-    delete _rocketGen;
     delete _explosionGen;
-    delete _finalGen;
+    delete _sparkGen;
+}
 
-    _rockets.clear();
-    _explosions.clear();
-    _final.clear();
+void FireworkParticleSystem::createParticleModels()
+{
+    // Modelo para cohetes
+    _rocketModel = std::make_unique<Particle>();
+    _rocketModel->setVelocity({ 0,25,0 });
+    _rocketModel->setPosition(_launchPosition);
+    _rocketModel->setLifeTime(1.5f);
+    _rocketModel->setColor(_rocketColor);
+    _rocketModel->setTam(1.2f);
+
+    // Modelo para partículas de explosión
+    _explosionModel = std::make_unique<Particle>();
+    _explosionModel->setVelocity({ 20,20,20 });
+    _explosionModel->setLifeTime(0.6f);
+    _explosionModel->setColor(_explosionColor1);
+    _explosionModel->setTam(0.8f);
+
+    // Modelo para chispas
+    _sparkModel = std::make_unique<Particle>();
+    _sparkModel->setVelocity({ 5,10,5 });
+    _sparkModel->setLifeTime(0.3f);
+    _sparkModel->setColor(_sparkColor);
+    _sparkModel->setMass(0.2f);
+    _sparkModel->setTam(0.5f);
+}
+
+void FireworkParticleSystem::setupGenerators()
+{
+    _explosionGen = new UniformDistributionGen(
+        _explosionModel.get(),
+        Vector3(0, 0, 0),                   
+        Vector3(0, 0, 0),                   
+        0.6f,                               
+        6                                 
+    );
+    _explosionGen->setDesPos(Vector3(0.5f, 0.5f, 0.5f));
+    _explosionGen->setDesVel(Vector3(6.0f, 6.0f, 6.0f));
+    _explosionGen->setDesDur(0.2f);   
+
+    _sparkGen = new UniformDistributionGen(
+        _sparkModel.get(),
+        Vector3(0, 0, 0),                   
+        Vector3(0, 0, 0),                   
+        0.3f,                               
+        3                                
+    );
+    _sparkGen->setDesPos(Vector3(0.5f, 0.5f, 0.5f)); 
+    _sparkGen->setDesVel(Vector3(3.0f, 3.0f, 3.0f));
+    _sparkGen->setDesDur(0.2f);
+}
+
+void FireworkParticleSystem::createExplosionAt(const Vector3& pos, const Vector4& color)
+{
+    _explosionGen->setColor(color);
+    _explosionGen->setPos(pos);
+
+    auto explosionParticles = _explosionGen->generateP();
+    for (auto& explosionParticle : explosionParticles) {
+        _particles.push_back(std::unique_ptr<Particle>(explosionParticle));
+        for (auto& force : _forces) {
+            _forceRegistry->addRegistry(explosionParticle, force.get());
+        }
+    }
+}
+
+void FireworkParticleSystem::createFirework()
+{
+    Particle* rocket = new Particle(*_rocketModel.get());
+    _particles.push_back(std::unique_ptr<Particle>(rocket));
 }
 
 void FireworkParticleSystem::update(double dt)
 {
-    ParticleSystem::update(dt);
 
-    // Generar nuevos fuegos artificiales
-    _timeSinceLastFirework += dt;
-    if (_timeSinceLastFirework >= _fireworkInterval) {
-        createNewFirework();
-        _timeSinceLastFirework = 0.0;
-    }
+    _forceRegistry->updateForces(dt);
 
-    processFireworkDeaths();
-}
-
-void FireworkParticleSystem::createNewFirework()
-{
-    auto rockets = _rocketGen->generateP();
-
-    for (Particle* rocket : rockets) {
-        rocket->setColor(getRandomColor());
-        _rockets.insert(rocket);
-    }
-
-    //_particles.splice(_particles.end(), rockets);
-
-}
-
-void FireworkParticleSystem::processFireworkDeaths()
-{
     std::vector<Particle*> deadRockets;
-    for (Particle* r : _rockets) {
-        if (!r->is_alive()) {
-            deadRockets.push_back(r);
-            Vector3 pos = r->getTransform().p;
-            Vector4 color = r->getColor();
+    std::vector<Particle*> deadExplosion1;
+    std::vector<Particle*> deadExplosion2;
+    std::vector<Particle*> deadExplosion3;
 
-            _explosionGen->setPos(pos);
-            auto explosionParticles = _explosionGen->generateP();
+    for (auto& p : _particles) {
+        p->update(dt);
 
-            for (Particle* p : explosionParticles) {
-                p->setColor(color);
-                _explosions.insert(p);
+        if (!p->is_alive()) {
+            const Vector4 color = p->getColor();
+
+            if (color == _rocketColor) {
+                deadRockets.push_back(p.get());
             }
-           // _particles.splice(_particles.end(), explosionParticles);
+            else if (color == _explosionColor1) {
+                deadExplosion1.push_back(p.get());
+            }
+            else if (color == _explosionColor2) {
+                deadExplosion2.push_back(p.get());
+            }
+            else if (color == _explosionColor3) {
+                deadExplosion3.push_back(p.get());
+            }
         }
     }
 
-    std::vector<Particle*> deadExplosions;
-    for (Particle* e : _explosions) {
-        if (!e->is_alive()) {
-            deadExplosions.push_back(e);
-            Vector3 pos = e->getTransform().p;
-            Vector4 color = e->getColor();
+    for (auto* rocket : deadRockets) {
+        createExplosionAt(rocket->getPos(), _explosionColor1);
+    }
 
-            _finalGen->setPos(pos);
-            auto sparkleParticles = _finalGen->generateP();
+    for (auto* explosion : deadExplosion1) {
+        createExplosionAt(explosion->getPos(), _explosionColor2);
+    }
 
-            // Aplicar color a las chispas
-            for (Particle* p : sparkleParticles) {
-                p->setColor(color);
-                _final.insert(p);
+    for (auto* explosion : deadExplosion2) {
+        createExplosionAt(explosion->getPos(), _explosionColor3);
+    }
+
+    for (auto* explosionParticle : deadExplosion3) {
+        _sparkGen->setPos(explosionParticle->getPos());
+        auto sparks = _sparkGen->generateP();
+        for (auto& spark : sparks) {
+            _particles.push_back(std::unique_ptr<Particle>(spark));
+            for (auto& force : _forces) {
+               _forceRegistry->addRegistry(spark, force.get());
             }
-          //  _particles.splice(_particles.end(), sparkleParticles);
         }
     }
-    for (Particle* dead : deadRockets) {
-        _rockets.erase(dead);
-    }
-    for (Particle* dead : deadExplosions) {
-        _explosions.erase(dead);
-    }
-}
-Vector4 FireworkParticleSystem::getRandomColor()
-{
-    static std::vector<Vector4> colors = {
-        Vector4(1.0f, 0.2f, 0.2f, 1.0f),  // Rojo
-        Vector4(0.2f, 1.0f, 0.2f, 1.0f),  // Verde  
-        Vector4(0.2f, 0.4f, 1.0f, 1.0f),  // Azul
-        Vector4(1.0f, 1.0f, 0.2f, 1.0f),  // Amarillo
-        Vector4(1.0f, 0.2f, 1.0f, 1.0f),  // Magenta
-        Vector4(0.2f, 1.0f, 1.0f, 1.0f)   // Cian
-    };
 
-    static std::mt19937 gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, colors.size() - 1);
-
-    return colors[dist(gen)];
+    _particles.remove_if([this](std::unique_ptr<Particle>& p) {
+        if (!p->is_alive()) {
+            _forceRegistry->clearParticle(p.get());
+            return true;
+        }
+        return false;
+        });
 }

@@ -95,7 +95,7 @@ void Scene::addGlobalForce(ForceGenerator* force)
 			}
 		}
 		for (auto ps : _particleSystems) {
-			ps->addForce(force);
+			if (ps)ps->addForce(force);
 		}
 	}
 }

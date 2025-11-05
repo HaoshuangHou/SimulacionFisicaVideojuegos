@@ -8,10 +8,15 @@
 
 using namespace physx;
 
+int gWindowWidth = 800;
+int gWindowHeight = 600;
+float gAspectRatio = 800.0f / 600.0f;
+
 extern void initPhysics(bool interactive);
 extern void stepPhysics(bool interactive, double t);	
 extern void cleanupPhysics(bool interactive);
 extern void keyPress(unsigned char key, const PxTransform& camera);
+extern void specialKeyPress(int key, const PxTransform& camera);
 extern PxPhysics* gPhysics;
 extern PxMaterial* gMaterial;
 
@@ -60,7 +65,9 @@ void keyboardCallback(unsigned char key, int x, int y)
 	if(!sCamera->handleKey(key, x, y))
 		keyPress(key, sCamera->getTransform());
 }
-
+void specialCallback(int key, int x, int y) {
+	specialKeyPress(key, sCamera->getTransform());
+}
 void mouseCallback(int button, int state, int x, int y)
 {
 	sCamera->handleMouse(button, state, x, y);
@@ -145,6 +152,7 @@ void renderLoop()
 	glutIdleFunc(idleCallback);
 	glutDisplayFunc(renderCallback);
 	glutKeyboardFunc(keyboardCallback);
+	glutSpecialFunc(specialCallback);
 	glutMouseFunc(mouseCallback);
 	glutMotionFunc(motionCallback);
 	motionCallback(0,0);

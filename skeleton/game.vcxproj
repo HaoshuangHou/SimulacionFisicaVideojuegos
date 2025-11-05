@@ -274,6 +274,7 @@
     <ClCompile Include="Scene4.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Shooter.cpp" />
     <ClCompile Include="TapParticleSystem.cpp" />
     <ClCompile Include="UniformDistributionGen.cpp" />
     <ClCompile Include="Vector3D.cpp" />
@@ -304,6 +305,7 @@
     <ClInclude Include="Scene4.h" />
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Shooter.h" />
     <ClInclude Include="TapParticleSystem.h" />
     <ClInclude Include="UniformDistributionGen.h" />
     <ClInclude Include="Vector3D.h" />

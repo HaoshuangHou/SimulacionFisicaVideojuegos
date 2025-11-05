@@ -31,6 +31,7 @@
 
 #include "Camera.h"
 #include <ctype.h>
+#include <cassert>
 #include "foundation/PxMat33.h"
 
 using namespace physx;
@@ -124,7 +125,7 @@ void Camera::setDir(const physx::PxVec3& newDir)
 void Camera::resetCamera()
 {
 	mEye = physx::PxVec3(50.0f, 50.0f, 50.0f);
-	mDir = physx::PxVec3(-0.6f, -0.2f, -0.7f);
+	mDir = physx::PxVec3(-0.6f, -0.2f, -0.7f).getNormalized();
 }
 
 PxVec3 Camera::getEye() const

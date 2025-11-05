@@ -34,6 +34,8 @@ public:
 	inline Vector3 getPos() const { return _pos; };
 	inline void setPos(const Vector3& pos) { _pos = pos; };
 
+	inline void setColor(const Vector4& color) { _model->setColor(color); };
+
 	inline Vector3 getVel() const { return _vel; };
 	inline void setVel(const Vector3& vel) { _vel = vel; };
 

@@ -1,57 +1,68 @@
 ﻿#pragma once
 #include "Scene.h"
+#include "Projectil.h"
+#include "Shooter.h"
 
 class ExplosionGenerator;
 class GravityGenerator;
 class WindGenerator;
 
-class SceneGame: public Scene
+class SceneGame : public Scene
 {
-protected:
-	ExplosionGenerator* _explosionGenerator = nullptr;
-	GravityGenerator* _gravityGenerator = nullptr;
-	WindGenerator* _windGenerator = nullptr;
 public:
 	SceneGame();
 	virtual ~SceneGame();
-	virtual void init() override;
-	virtual void handleInput(unsigned char key) override;
+
+	void init() override;
+	void handleInput(unsigned char key) override;
+	void handleSpecialInput(int key) override;
 
 	void update(double t) override;
 	void enter() override;
 	void exit() override;
 
 private:
-	void setupCamera();
-	void createCanon();
-	void createTarget();
-	void createPlatforms();
-	void createWindZone();
-	void shootProjectile();
-	void updateCanonAngle();
-	void updateProjectilePower();
-	void checkWinCondition();
-	void resetProjectile();
-	void showGameInfo();
+	void clearScene();
+	void createGameObjects();
+	void setupForces();
 
-	Particle* _canon;
+	void shoot();
+	void updateShootAngle(float delta);
+	void updateProjectilePower(float delta);
+	void checkProjectileState();
+	void checkGameOver();
+
+	void setupCamera();
+	void showGameInfo();
+	void updateGameState(double t);
+
+	Shooter* _shooter = nullptr;
 	Particle* _target;
-	std::vector<Particle*> _platforms;
-	std::vector<Projectil*> _projectiles;
 	Projectil* _currentProjectile;
 
-	float _canonAngle;           
+	// Estado del juego
 	float _projectilePower;
 	int _projectilesRemaining;
 	int _maxProjectiles;
+	bool _gameWon;
+
+	// Fuerzas
+	ExplosionGenerator* _explosionGenerator = nullptr;
+	WindGenerator* _windGenerator = nullptr;
+	GravityGenerator* _gravityGenerator = nullptr;
 	bool _windActive;
 	float _windStrength;
-	bool _gameWon;
-	float _gameTime;
 
-	const float MAX_ANGLE = 3.14159f * 0.4f; // 72 grados
-	const float MIN_ANGLE = -3.14159f * 0.4f; // -72 grados
+	// Constantes
+	const float MAX_ANGLE = 3.14159f * 0.6f;
+	const float MIN_ANGLE = -3.14159f * 0.1f; 
 	const float MAX_POWER = 50.0f;
 	const float MIN_POWER = 5.0f;
-};
 
+
+	float _worldWidth, _worldHeight;
+
+	Vector3 getRelativePosition(float relX, float relY, float z = 0.0f) const;
+	void updateViewportFromScreen();
+	void repositionObjects();
+};

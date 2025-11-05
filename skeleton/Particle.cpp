@@ -21,7 +21,8 @@ Particle::Particle(Vector3 const&  pos, Vector3 const& velocity,
 Particle::Particle(const Particle& other, bool render)
 	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, render),
 	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
-	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _ant_pos(other._transform.p), _size(other._size),
+	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _color(other._color),
+	_ant_pos(other._transform.p), _size(other._size),
 	_force({0,0,0})
 { }
 
@@ -158,11 +159,6 @@ void Particle::setMass(double mass)
 	_mass = mass;
 }
 
-void Particle::setPosition(const Vector3& pos)
-{
-	_transform.p = pos;
-}
-
 void Particle::setDamping(double damping)
 {
 	_dampingValue = damping;
@@ -184,9 +180,6 @@ void Particle::setTam(double tam)
 
 void Particle::addForce(Vector3 const& f)
 {
-	/*if (_force.y < 0.1f) {
-		std::cout << "Aceleracion:   " << _force.y << "\n";
-	}*/
 	_force += f;
 }
 
