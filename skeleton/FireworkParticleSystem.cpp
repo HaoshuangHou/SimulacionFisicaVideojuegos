@@ -25,16 +25,16 @@ void FireworkParticleSystem::createParticleModels()
     _rocketModel = std::make_unique<Particle>();
     _rocketModel->setVelocity({ 0,25,0 });
     _rocketModel->setPosition(_launchPosition);
-    _rocketModel->setLifeTime(1.5f);
+    _rocketModel->setLifeTime(0.8f);
     _rocketModel->setColor(_rocketColor);
-    _rocketModel->setTam(1.2f);
+    _rocketModel->setTam(1.0f);
 
     // Modelo para partículas de explosión
     _explosionModel = std::make_unique<Particle>();
     _explosionModel->setVelocity({ 20,20,20 });
     _explosionModel->setLifeTime(0.6f);
     _explosionModel->setColor(_explosionColor1);
-    _explosionModel->setTam(0.8f);
+    _explosionModel->setTam(0.5f);
 
     // Modelo para chispas
     _sparkModel = std::make_unique<Particle>();
@@ -42,7 +42,7 @@ void FireworkParticleSystem::createParticleModels()
     _sparkModel->setLifeTime(0.3f);
     _sparkModel->setColor(_sparkColor);
     _sparkModel->setMass(0.2f);
-    _sparkModel->setTam(0.5f);
+    _sparkModel->setTam(0.3f);
 }
 
 void FireworkParticleSystem::setupGenerators()

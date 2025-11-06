@@ -3,30 +3,38 @@
 #include "WindGenerator.h"
 #include "WhirlwindGenerator.h"
 #include "ExplosionGenerator.h"
+#include "ForceParticleSystem.h"
 #include "RenderUtils.hpp"
+
+#include "FireParticleSystem.h"
+#include "FogParticleSystem.h"
+#include "TapParticleSystem.h"
+#include "FireworkParticleSystem.h"
+
 #include <iostream>
 #include <sstream>
 
 SceneGame::SceneGame()
-	:_target(nullptr), _currentProjectile(nullptr),
+	:_target(nullptr),
 	_windGenerator(nullptr), _gravityGenerator(nullptr), _explosionGenerator(nullptr), 
-	_projectilePower(20.0f),_projectilesRemaining(8), _maxProjectiles(80),
-	_windActive(true), _windStrength(200.0f),_gameWon(false),
-	_worldWidth(30.0f), _worldHeight(25.0f)
-{
-}
+	_fireSystem(nullptr), _fireworkSystem(nullptr), _fog(nullptr),
+	_windParticleSystem(nullptr), _whirlwindParticleSystem(nullptr),
+	_projectilePower(20.0f),_projectilesRemaining(8), _maxProjectiles(8),
+	_windActive(false), _whirlwindActive(false),_gameWon(false),_gameOver(false),
+	_worldWidth(30.0f), _worldHeight(25.0f), _explosionTimer(0)
+{}
 
 SceneGame::~SceneGame()
 {
-	delete _windGenerator;
-	delete _gravityGenerator;
-	delete _explosionGenerator;
+	_activeProjectiles.clear();
 	delete _shooter;
+	_shooter = nullptr;
 }
 
+#pragma region Scene
 void SceneGame::init()
 {
-	_text = "FLECHAS: Girar/Disparar, ESPACIO: Disparar, V: Viento, R: Reset";
+	_text = "FLECHAS Girar / Potencia | SPACE Disparar | 1 Viento | 2 Torbellino ";
 	clearScene();
 
 	updateViewportFromScreen();
@@ -35,71 +43,29 @@ void SceneGame::init()
 	setupForces();
 
 	_gameWon = false;
+	_gameOver = false;
 	_projectilesRemaining = _maxProjectiles;
-}
-
-void SceneGame::handleInput(unsigned char key)
-{
-	switch (toupper(key))
-	{
-	case ' ': // Disparar proyectil
-	{
-		shoot();
-		break;
-	}
-	case 'V': {
-		_windActive = !_windActive;
-
-		if (_currentProjectile) {
-			if (_windActive)
-				_forceRegistry->addRegistry(_currentProjectile, _windGenerator);
-			else
-				_forceRegistry->remove(_currentProjectile, _windGenerator);
-		}
-		break;
-	}	
-	case 'R': // Resetear juego
-		init();
-		break;
-
-	case 'E':
-		break;
-
-	default:
-		break;
-	}
-
-	showGameInfo();
-}
-
-void SceneGame::handleSpecialInput(int key)
-{
-	switch (key) {
-	case GLUT_KEY_LEFT:
-		updateShootAngle(-0.1f);
-		break; 
-	case GLUT_KEY_RIGHT: 
-		updateShootAngle(0.1f);
-		break; 
-	case GLUT_KEY_UP: 
-		updateProjectilePower(2.0f);
-		break;
-	case GLUT_KEY_DOWN: 
-		updateProjectilePower(-2.0f); 
-		break; 
-
-	default:
-		break;
-	}
+	_windActive = false;
+	_whirlwindActive = false;
 }
 
 void SceneGame::update(double t)
 {
-	updateViewportFromScreen();
-	Scene::update(t);
 	updateGameState(t);
-	checkProjectileState();
-	checkGameOver();
+	updateViewportFromScreen();
+	if (_gameWon) {
+		if (_explosionTimer > 0.0) {
+			_explosionTimer -= t;
+		}
+		else if (_explosionGenerator) {
+			_explosionGenerator->active(true);
+		}
+	}
+	else if (!_gameOver && !_gameWon) {
+		checkProjectileState();
+	}
+
+	Scene::update(t);
 }
 
 void SceneGame::enter()
@@ -120,33 +86,22 @@ void SceneGame::exit()
 
 void SceneGame::clearScene()
 {
+	_activeProjectiles.clear();
 	_particles.clear();
+
 	if (_forceRegistry) _forceRegistry->clear();
-	_currentProjectile = nullptr;
 
-	delete _shooter;
-	_shooter = nullptr;
+	removePacticleSystem(_fireSystem);
+	removePacticleSystem(_fog);
+	removePacticleSystem(_fireworkSystem);
+
+	if(_windParticleSystem)_windParticleSystem->setVisible(false);
+	if(_whirlwindParticleSystem)_whirlwindParticleSystem->setVisible(false);
+
+	if (_explosionGenerator) {
+		_explosionGenerator->active(false);
+	}
 }
-
-void SceneGame::createGameObjects()
-{
-	_shooter = new Shooter(getRelativePosition(0.05f, 0.05f), Vector4(1, 0, 0, 1));
-	
-	_target = new Particle(getRelativePosition(0.8f, 0.5f), Vector3(0), Vector3(0),
-		Vector4(1.0, 0.0, 0.0, 1.0), 0, 1000);
-	_target->setTam(2.0);
-	_particles.push_back(_target);
-}
-
-void SceneGame::setupForces()
-{
-	//_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
-
-	Vector3 windDir = Vector3(-1, 0, 0);
-	//_windGenerator = new WindGenerator(Vector3(0, 5, 0), 5, windDir * _windStrength, 0.1);
-
-}
-
 void SceneGame::setupCamera()
 {
 	if (GetCamera()) {
@@ -155,23 +110,83 @@ void SceneGame::setupCamera()
 	}
 }
 
+#pragma endregion
+
+#pragma region Input
+void SceneGame::handleInput(unsigned char key)
+{
+	switch (toupper(key))
+	{
+	case ' ': 
+	{
+		shoot();
+		break;
+	}
+	case 'R': 
+		init();
+		break;
+
+	case '1':
+		toggleForce(WIND);
+		break;
+
+	case '2':
+		toggleForce(WHIRLWIND);
+		break;
+
+	default:
+		break;
+	}
+}
+
+void SceneGame::handleSpecialInput(int key)
+{
+	if (_gameWon||_gameOver) return;
+	switch (key) {
+	case GLUT_KEY_LEFT:
+		updateShootAngle(-0.1f);
+		break;
+	case GLUT_KEY_RIGHT:
+		updateShootAngle(0.1f);
+		break;
+	case GLUT_KEY_UP:
+		updateProjectilePower(2.0f);
+		break;
+	case GLUT_KEY_DOWN:
+		updateProjectilePower(-2.0f);
+		break;
+
+	default:
+		break;
+	}
+}
+#pragma endregion
+
+#pragma region Shoot
 void SceneGame::shoot()
 {
-	if (_projectilesRemaining <= 0 || _currentProjectile != nullptr || !_shooter)
+	if (_projectilesRemaining <= 0 || !_shooter || _gameWon)
 		return;
 
 	Vector3 dir = _shooter->getShootDirection();
 	dir.normalize();
 	const Vector3 ini_pos = _shooter->getPosition();
-	_currentProjectile = new Projectil(ini_pos, _projectilePower * dir, ProjectilType::GAME, Vector4(0.0, 0.0, 1.0, 1.0));
-	_currentProjectile->setTam(0.5);
-	addEntityWithRenderItem(_currentProjectile);
+
+	Projectil* newProjectile = new Projectil(ini_pos, _projectilePower * dir, ProjectilType::GAME, Vector4(0.0, 0.0, 1.0, 1.0));
+	newProjectile->setTam(0.5);
+	newProjectile->setLifeTime(10.0f);
+
+	addEntityWithRenderItem(newProjectile);
 
 	if (_gravityGenerator)
-		_forceRegistry->addRegistry(_currentProjectile, _gravityGenerator);
-	if (_windGenerator && _windActive)
-		_forceRegistry->addRegistry(_currentProjectile, _windGenerator);
-
+		_forceRegistry->addRegistry(newProjectile, _gravityGenerator);
+	if (_windGenerator && _windActive) {
+		_forceRegistry->addRegistry(newProjectile, _windGenerator);
+	}
+	if (_whirlwindGenerator && _whirlwindActive) {
+		_forceRegistry->addRegistry(newProjectile, _whirlwindGenerator);
+	}
+	_activeProjectiles.push_back(newProjectile);
 	_projectilesRemaining--;
 }
 
@@ -197,48 +212,66 @@ void SceneGame::updateProjectilePower(float delta)
 
 void SceneGame::checkProjectileState()
 {
-	if (!_currentProjectile) return;
+	for (auto& projectile : _activeProjectiles) {
+		if (!projectile || !projectile->is_alive()) {
+			continue;
+		}
 
-	Vector3 projPos = _currentProjectile->getPos();
-	Vector3 targetPos = _target->getPos();
+		const Vector3 projPos = projectile->getPos();
+		const Vector3 targetPos = _target->getPos();
 
-	if ((projPos - targetPos).magnitude() < 2.5f) {
-		_gameWon = true;
-		_text = "¡OBJETIVO DESTRUIDO! Presiona R para reiniciar";
+		if ((projPos - targetPos).magnitude() < 1.5f) {
+			_gameWon = true;
+			projectile->setAlive(false);
+
+			_windParticleSystem->setVisible(false);
+			_whirlwindParticleSystem->setVisible(false);
+
+			_fireSystem = new FireParticleSystem(_victoryPos, 5.0f);
+			addParticleSystem(_fireSystem);
+			_fireSystem->addForce(_explosionGenerator);
+
+			_fireworkSystem = new FireworkParticleSystem(getRelativePosition(0.5f, 0.0f));
+			_fireworkSystem->createFirework();
+			addParticleSystem(_fireworkSystem);
+
+			_explosionTimer = 3.0f;
+			_explosionGenerator->active(false);
+		}
 	}
 
-	if (projPos.y < -5 || abs(projPos.x) > 50 || abs(projPos.z) > 50) {
-		_currentProjectile = nullptr;
-	}
 }
+#pragma endregion
 
-void SceneGame::checkGameOver()
-{
-	if (_projectilesRemaining <= 0 && !_currentProjectile && !_gameWon) {
-		_text = "GAME OVER： Sin proyectiles. Presiona R para reiniciar";
-	}
-}
-
-void SceneGame::showGameInfo()
-{
-	const float angleDeg = _shooter ? (_shooter->getAngle() * 180 / 3.14159f) : 0.0f;
-
-	std::cout << "\nAngulo: " << angleDeg
-		<< " | Potencia: " << _projectilePower
-		<< " | Proyectiles: " << _projectilesRemaining << "/" << _maxProjectiles
-		<< " | Viento: " << (_windActive ? "ON" : "OFF") << std::endl;
-}
-
+#pragma region GameInfo
 void SceneGame::updateGameState(double t)
 {
-	std::stringstream ss;
-	ss << "FLECHAS: Girar/Disparar | Potencia: " << _projectilePower
-		<< " | Proyectiles: " << _projectilesRemaining << "/" << _maxProjectiles
-		<< " | V: Viento (" << (_windActive ? "ON" : "OFF") << ") | R: Reset";
+	if (_gameWon) {
+		_text = "VICTORIA | Presiona R para reiniciar";
 
+		return;
+	}
+	if (_projectilesRemaining <= 0 && !_gameWon) {
+		if (!_gameOver) {
+			_text = "GAME OVER： Sin proyectiles| Presiona R para reiniciar";
+			_windParticleSystem->setVisible(false);
+			_whirlwindParticleSystem->setVisible(false);
+			_fog = new FogParticleSystem(_victoryPos, 100.0f);
+			addParticleSystem(_fog);
+			_gameOver = true;
+		}
+		return;
+	}
+	std::stringstream ss;
+	ss << "FLECHAS Girar / Potencia | SPACE Disparar | 1 Viento | 2 Torbellino  "
+		<< "  Potencia " << _projectilePower
+		<< " | Proyectiles " << _projectilesRemaining << "/" << _maxProjectiles;
 	_text = ss.str();
 }
 
+#pragma endregion
+
+#pragma region GameObjectPosition
 Vector3 SceneGame::getRelativePosition(float relX, float relY, float z) const
 {
 	float worldX = (relX - 0.5f) * _worldWidth;
@@ -249,7 +282,7 @@ Vector3 SceneGame::getRelativePosition(float relX, float relY, float z) const
 
 void SceneGame::updateViewportFromScreen()
 {
-	int screenWidth= glutGet(GLUT_WINDOW_WIDTH);
+	int screenWidth = glutGet(GLUT_WINDOW_WIDTH);
 	int	screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
 	float screenAspect = (float)screenWidth / (float)screenHeight;
 
@@ -280,10 +313,109 @@ void SceneGame::repositionObjects()
 {
 	if (_shooter) {
 		_shooter->setPosition(getRelativePosition(0.05f, 0.05f));
-    }
-    
-    // Reposicionar el objetivo
-    if (_target) {
-        _target->setPosition(getRelativePosition(0.8f, 0.5f));
-    }
+	}
+
+	// Reposicionar el objetivo
+	if (_target) {
+		_target->setPosition(getRelativePosition(0.8f, 0.5f));
+	}
 }
+#pragma endregion
+
+#pragma region GameObjects
+void SceneGame::createGameObjects()
+{
+	if (_gameOver || _gameWon) return;
+	
+	_shooter = new Shooter(getRelativePosition(0.05f, 0.05f), Vector4(1, 0, 0, 1));
+
+	_target = new Particle(getRelativePosition(0.8f, 0.6f), Vector3(0), Vector3(0),
+		Vector4(1.0, 0.0, 0.0, 1.0), 0, 1000);
+	_target->setTam(1.0);
+	_particles.push_back(_target);
+
+	_victoryPos = _target->getPos();
+}
+#pragma endregion
+
+#pragma region Forces
+void SceneGame::setupForces()
+{
+	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+
+	const Vector3 windPos = getRelativePosition(0.3f, 0.2f);
+	const Vector3 windDir = Vector3(0, 1, 0);
+	_windGenerator = new WindGenerator(windPos, 5, windDir *50, 0.3);
+
+	const Vector3 whirlwindPos = getRelativePosition(0.4f, 0.6f);
+	_whirlwindGenerator = new WhirlwindGenerator(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
+
+	_windParticleSystem = new ForceParticleSystem(
+		_windGenerator,
+		Vector4(0.6f, 0.7f, 0.8f, 0.45f),
+		false
+	);
+
+	_whirlwindParticleSystem = new ForceParticleSystem(
+		_whirlwindGenerator,
+		Vector4(0.65f, 0.6f, 0.9f, 0.5f),
+		true
+	);
+
+	addParticleSystem(_windParticleSystem);
+	addParticleSystem(_whirlwindParticleSystem);
+
+	_windParticleSystem->setVisible(false);
+	_whirlwindParticleSystem->setVisible(false);
+
+	if (_windParticleSystem) {
+		_windParticleSystem->addForce(_windGenerator);
+	}
+	if (_whirlwindParticleSystem) {
+		_whirlwindParticleSystem->addForce(_whirlwindGenerator);
+	}
+
+	_explosionGenerator = new ExplosionGenerator(_victoryPos, 5.0f, 100, 5);
+}
+void SceneGame::toggleForce(ForceType forceType)
+{
+	switch (forceType) {
+	case WIND:
+	{
+		if (!_windGenerator || !_windParticleSystem) return;
+		_windActive = !_windActive;
+		_windParticleSystem->setVisible(_windActive);
+		applyForceToAllProjectiles(_windGenerator, _windActive);
+		break;
+
+	}
+	case WHIRLWIND:
+	{
+		if (!_whirlwindGenerator || !_whirlwindParticleSystem) return;
+		_whirlwindActive = !_whirlwindActive;
+		_whirlwindParticleSystem->setVisible(_whirlwindActive);
+		applyForceToAllProjectiles(_whirlwindGenerator, _whirlwindActive);
+		break;
+	}
+	default:
+		break;
+	}	
+}
+
+void SceneGame::applyForceToAllProjectiles(ForceGenerator* forceGenerator, bool active)
+{
+	if (!forceGenerator) return;
+
+	for (auto& projectile : _activeProjectiles) {
+		if (projectile) {
+			if (active) {
+				_forceRegistry->addRegistry(projectile, forceGenerator);
+			}
+			else {
+				_forceRegistry->remove(projectile, forceGenerator);
+			}
+		}
+	}
+}
+
+#pragma endregion

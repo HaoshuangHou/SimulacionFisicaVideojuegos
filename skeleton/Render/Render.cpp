@@ -269,6 +269,9 @@ void setupDefaultRenderState()
 	//glBlendFunc(GL_ZERO, GL_SRC_COLOR);
 	//glEnable(GL_BLEND);
 
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	// Setup lighting
 	glEnable(GL_LIGHTING);
 	PxReal ambientColor[]	= { 0.0f, 0.1f, 0.2f, 0.0f };
@@ -335,16 +338,27 @@ void renderShape(const PxShape& shape, const PxTransform& transform, const PxVec
 	glPushMatrix();
 	PxMat44 mtx(transform);
 	glMultMatrixf(reinterpret_cast<const float*>(&mtx));
+	if (color.w < 0.999f) { // si tiene transparencia
+		glDepthMask(GL_FALSE);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	}
 	assert(glGetError() == GL_NO_ERROR);
-	glColor4f(color.x, color.y, color.z, 1.0f);
+	glColor4f(color.x, color.y, color.z, color.w);
 	assert(glGetError() == GL_NO_ERROR);
-	renderGeometry(h, color.w < 0.999f);
+	renderGeometry(h, false);
 	assert(glGetError() == GL_NO_ERROR);
 	glPopMatrix();
 	assert(glGetError() == GL_NO_ERROR);
 
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 	assert(glGetError() == GL_NO_ERROR);
+
+	if (color.w < 0.999f) {
+		glDepthMask(GL_TRUE);
+		glDisable(GL_BLEND);
+	}
+	
 }
 
 void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, const PxVec4 & color)
@@ -362,9 +376,9 @@ void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, co
 			const PxMat44 shapePose(PxShapeExt::getGlobalPose(*shapes[j], *actors[i]));
 			PxGeometryHolder h = shapes[j]->getGeometry();
 
-			if (shapes[j]->getFlags() & PxShapeFlag::eTRIGGER_SHAPE)
-				glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-			
+			//if (shapes[j]->getFlags() & PxShapeFlag::eTRIGGER_SHAPE)
+			//	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+			//
 			// render object
 			glPushMatrix();						
 			glMultMatrixf(reinterpret_cast<const float*>(&shapePose));
@@ -374,8 +388,8 @@ void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, co
 				glColor4f(darkColor.x, darkColor.y, darkColor.z, 1.0f);
 			}
 			else
-				glColor4f(color.x, color.y, color.z, 1.0f);
-			renderGeometry(h, color.w < 0.999f);
+				glColor4f(color.x, color.y, color.z, color.w);
+			renderGeometry(h, false);
 			glPopMatrix();
 
 			glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );

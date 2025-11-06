@@ -2,6 +2,8 @@
 #include "Scene.h"
 class Scene1: public Scene
 {
+private:
+	GravityGenerator* _gravityGenerator;
 public:
 	Scene1() {};
 

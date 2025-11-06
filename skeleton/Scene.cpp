@@ -3,7 +3,7 @@
 #include "ParticleSystem.h"
 #include "ForceRegistry.h"
 #include "RenderUtils.hpp"
-
+#include <iostream>
 Scene::~Scene()
 {
 	clean();
@@ -11,13 +11,20 @@ Scene::~Scene()
 
 void Scene::clean()
 {
-	for (auto e : _particles) delete e;
+	for (auto e : _particles) {
+		delete e;
+		e = nullptr;
+	}
 	_particles.clear();
 
-	for (auto ps : _particleSystems) delete ps;
+	for (auto ps : _particleSystems) {
+		delete ps;
+		ps = nullptr;
+	}
 	_particleSystems.clear();
 
 	delete _forceRegistry;
+	_forceRegistry = nullptr;
 }
 
 void Scene::update(double t)
@@ -35,6 +42,7 @@ void Scene::update(double t)
 	for (auto it = _particles.begin(); it != _particles.end(); ) {
 		if (!(*it)->is_alive()) {
 			delete* it;
+			*it = nullptr;
 			it = _particles.erase(it);
 		}
 		else {
@@ -96,6 +104,33 @@ void Scene::addGlobalForce(ForceGenerator* force)
 		}
 		for (auto ps : _particleSystems) {
 			if (ps)ps->addForce(force);
+		}
+	}
+}
+
+void Scene::removeParticle(Particle* p)
+{
+	for (auto it = _particles.begin(); it != _particles.end();) {
+		if (*it == p && *it != nullptr) {
+			delete* it;
+			*it = nullptr;
+			it = _particles.erase(it);
+		}
+	}
+}
+
+void Scene::removePacticleSystem(ParticleSystem* ps)
+{
+	if(!ps) return;
+
+	for (auto it = _particleSystems.begin(); it != _particleSystems.end();) {
+		if (*it == ps) {
+			delete* it;
+			*it = nullptr;
+			it = _particleSystems.erase(it);
+		}
+		else {
+			++it;
 		}
 	}
 }

@@ -85,6 +85,7 @@ void stepPhysics(bool interactive, double t)
 	gScene->fetchResults(true);
 
 	_sceneM->update(t);
+	display_text = _sceneM->getDisplayText();
 
 	std::this_thread::sleep_for(std::chrono::microseconds(10));
 }
@@ -129,6 +130,12 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	case 'B':
 	{
 		_sceneM->changeScene(3);
+		display_text = _sceneM->getDisplayText();
+		break;
+	}
+	case 'G':
+	{
+		_sceneM->changeScene(4);
 		display_text = _sceneM->getDisplayText();
 		break;
 	}

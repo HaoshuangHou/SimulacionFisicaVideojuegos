@@ -1,10 +1,10 @@
 #pragma once
 #include "Scene.h"
-
 class Scene2: public Scene
 {
 private:
 	Camera* _camera;
+	GravityGenerator* _gravityGenerator;
 public:
 	Scene2() {};
 	virtual void init() override;

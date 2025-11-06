@@ -41,7 +41,7 @@ Particle& Particle::operator=(const Particle& other)
 		_color = other._color;
 	}
 	return *this;
-}
+} 
 
 void Particle::update(double t)
 {

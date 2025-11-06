@@ -7,16 +7,16 @@
 class WindGenerator: public ForceGenerator
 {
 protected:
-    Vector3 _center;
-    double _radius;
     Vector3 _wind_velocity;
     double _k1;
     double _k2;
 public:
     WindGenerator(Vector3 const& pos, double radius, const Vector3& wind_vel, double k1, double k2 = 0)
-        : _center(pos), _radius(radius) , _wind_velocity(wind_vel), _k1(k1), _k2(k2)
+        :_wind_velocity(wind_vel), _k1(k1), _k2(k2)
     {
-        createRenderItem(CreateShape(physx::PxSphereGeometry(_radius)), _center,Vector4(0, 1, 0, 0.5));
+        _center = pos;
+        _radius = radius;
+        createRenderItem(CreateShape(physx::PxSphereGeometry(_radius)), _center,Vector4(0, 1, 0, 0.1));
         setVisible(false);
     };
 	virtual ~WindGenerator() = default;

@@ -5,7 +5,7 @@
 using namespace physx;
 
 Shooter::Shooter(const Vector3& pos, const Vector4& color)
-	: Entity(pos, CreateShape(PxBoxGeometry(2.0f, 0.5f, 0.5f)), { 0.7f, 0.7f, 0.7f, 1.0f}), 
+	: Entity(pos, CreateShape(PxBoxGeometry(2.0f, 0.5f, 0.5f)), { 0.12f, 0.25f, 0.59f, 1.0f }),
 	_basePosition(pos), _currentAngle(0)
 {
 

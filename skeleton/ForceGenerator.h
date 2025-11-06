@@ -7,7 +7,10 @@ class ForceGenerator
 {
 private:
     bool _isRegistered;
+
 protected:
+    Vector3 _center;
+    double _radius;
 	RenderItem* _renderItem ;
 
     void createRenderItem(physx::PxShape* shape, const Vector3& position, const Vector4& color) {
@@ -18,14 +21,13 @@ protected:
             }
             delete _renderItem;
         }
-
         _renderItem = new RenderItem(shape, new physx::PxTransform(position), color);
         RegisterRenderItem(_renderItem);
         _isRegistered = true;
     }
 
 public:
-	ForceGenerator() :_renderItem(nullptr), _isRegistered(false) {};
+	ForceGenerator() :_renderItem(nullptr), _isRegistered(false), _center(), _radius() {};
 	virtual ~ForceGenerator() { 
         if (_renderItem != nullptr) {
             if (_isRegistered) {
@@ -38,6 +40,9 @@ public:
     
     };
 	virtual void updateForce(Particle* particle, double dt) = 0;
+
+    Vector3 getCenter() { return _center; };
+    double getRadius() { return _radius; };
 
     void setVisible(bool visible) {
         if (_renderItem != nullptr) {

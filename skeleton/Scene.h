@@ -7,6 +7,7 @@
 #include "Projectil.h"
 #include "ParticleSystem.h"
 #include "Particle.h"
+#include "GravityGenerator.h"
 
 class Scene
 {
@@ -29,6 +30,8 @@ public:
 
 	void addParticleSystem(ParticleSystem* ps);
 	void addGlobalForce(ForceGenerator* force);
+	void removeParticle(Particle* p);
+	void removePacticleSystem(ParticleSystem* ps);
 
 protected:
 	std::vector<Particle*> _particles;

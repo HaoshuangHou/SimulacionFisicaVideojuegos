@@ -34,13 +34,13 @@ ParticleSystem::~ParticleSystem()
 
 	for (auto g : _generators) {
 		delete g;
+		g = nullptr;
 	}
 	_generators.clear();
-
-	_forces.clear();
-
-	delete _model_particle;
-	_model_particle = nullptr;
+	if (_model_particle != nullptr) {
+		delete _model_particle;
+		_model_particle = nullptr;
+	}
 }
 
 void ParticleSystem::update(double dt)

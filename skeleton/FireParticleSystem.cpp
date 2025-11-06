@@ -7,13 +7,12 @@
 FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
     : ParticleSystem(center, radius)
 {
-    create_model_particle();
+    create_model_particle(radius / 10);
     _center = center;
 
     _startColor = Vector4(1.0f, 0.2f, 0.0f, 1.0f);
     _endColor = Vector4(1.0f, 1.0f, 0.3f, 1.0f);
 
-    // Configurar la partícula modelo para fuego
     if (_model_particle) {
         _model_particle->setPosition(_center);
         _model_particle->setDamping(0.9f);                    
@@ -25,13 +24,13 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
     NormalDistributionGen* fireGen = new NormalDistributionGen(
         _model_particle, 
         _center, 
-        Vector3(0, 2.0f, 0), 
+        Vector3(0, 3.0f, 0), 
         1.5f, 
         1);
 
     // Configurar variaciones para efecto de fuego
     fireGen->setDesPos(Vector3(0.8f, 0.2f, 0.8f));
-    fireGen->setDesVel(Vector3(1.0f, 2.0f, 1.0f));
+    fireGen->setDesVel(Vector3(1.2f, 3.0f, 1.2f));
     fireGen->setDesDur(0.8f);             
 
     addGenerator(fireGen);
@@ -39,23 +38,7 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
 
 void FireParticleSystem::update(double dt)
 {
-    //ParticleSystem::update(dt);
-    for (auto& p : _particles) {
-        p->addForce(Vector3(0, 8.0f, 0));  // Fuerza ascendente para fuego
-        p->update(dt);
-        updateParticleColor(p.get());
-    }
-
-    delete_particle();
-
-    // Generar nuevas partículas
-    for (auto g : _generators) {
-        auto new_particles = g->generateP();
-        for (auto& new_p : new_particles) {
-            _particles.push_back(std::unique_ptr<Particle>(new_p));
-            // NO registrar fuerzas globales
-        }
-    }
+    ParticleSystem::update(dt);
     for (auto& p : _particles) {
         updateParticleColor(p.get());
     }

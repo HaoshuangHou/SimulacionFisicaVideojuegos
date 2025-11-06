@@ -7,7 +7,7 @@
 
 void Scene3::init()
 {
-	_text = "ESCENA 3: SISTEMAS DE PARTICULAS,SIGUIENTE ESCENA(Q)";
+	_text = "ESCENA 3: SISTEMAS DE PARTICULAS, SIGUIENTE ESCENA(Q)";
 	createParticleSystem();
 }
 

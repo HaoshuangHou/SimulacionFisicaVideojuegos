@@ -20,7 +20,7 @@ public:
 	Particle(const Particle& other, bool render = true);
 	Particle& operator=(const Particle& other);
 
-	void update(double t) override;
+	virtual void update(double t) override;
 
 	Vector3 getVelocity() const;
 	Vector3 getAcceleration() const;

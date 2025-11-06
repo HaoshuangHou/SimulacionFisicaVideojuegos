@@ -7,9 +7,6 @@
 class ExplosionGenerator: public ForceGenerator
 {
 protected:
-    Vector3 _center;
-
-    double _R;
     double _K;               
     double _t;           
 
@@ -19,8 +16,10 @@ protected:
 
 public:
     ExplosionGenerator(Vector3 const& pos, double radius, double K, double t, double expan_vel = 2.0)
-        : _center(pos), _R(radius) , _K(K), _t(t), _elapsedTime(0), _active(false), _expan_vel(expan_vel)
+        :_K(K), _t(t), _elapsedTime(0), _active(false), _expan_vel(expan_vel)
     {
+        _center = pos;
+        _radius = radius;
         createRenderItem(CreateShape(physx::PxSphereGeometry(radius)), _center, Vector4(1, 0, 0, 0.5));
         setVisible(false);
     };
@@ -30,7 +29,7 @@ public:
         _active = a;
         if (a) {
             _elapsedTime = 0;
-            _R = 1.0;
+            _radius = 1.0;
         }
     }
 
@@ -50,8 +49,8 @@ public:
         Vector3 diff = pos - _center;
         double r = diff.magnitude();
 
-        _R = _expan_vel * _elapsedTime;
-        if (r < _R) {
+        _radius = _expan_vel * _elapsedTime;
+        if (r < _radius) {
             double T = exp(-_elapsedTime / _t);
             double forceMagnitude = (_K / (r * r)) * T;
             Vector3 forceDirection = diff.getNormalized();

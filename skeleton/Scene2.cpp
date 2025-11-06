@@ -1,10 +1,10 @@
 #include "Scene2.h"
-#include <iostream>
 
 void Scene2::init()
 {
 	_camera = GetCamera();
 	_text = "ESCENA 2: PROYECTILES, SIGUIENTE ESCENA(Q)";
+	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
 }
 
 void Scene2::handleInput(unsigned char key)
@@ -43,4 +43,5 @@ void Scene2::create_projectil(ProjectilType t, float sim_speed)
 	const Vector3 ini_pos = _camera->getTransform().p;
 	Projectil* p = new Projectil(ini_pos, sim_speed * dir, t);
 	addEntityWithRenderItem(p);
+	_forceRegistry->addRegistry(p, _gravityGenerator);
 }
