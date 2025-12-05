@@ -9,10 +9,22 @@ using namespace physx;
 
 Particle::Particle(Vector3 const&  pos, Vector3 const& velocity, 
 	Vector3 const&  acceleration,Vector4 const&  color,
-	double mass, double lifeTime,double dumping, IntegrateType t)
+	double mass,double dumping, IntegrateType t)
+	
 	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), 
 	_ac(acceleration),_intType(t), _mass(mass), _dampingValue(dumping), 
-	_lifeTime(lifeTime), _iniTime(0), _color(color), _size(1),
+	_lifeTime(10), _iniTime(0), _color(color), _size(1),
+	_force({ 0,0,0 })
+{
+	_ant_pos = _transform.p;
+}
+
+Particle::Particle(physx::PxShape* shape, Vector4 const& color, Vector3 const& pos, 
+	Vector3 const& velocity, Vector3 const& acceleration,double mass, 
+	double dumping, IntegrateType t)
+	:Entity(pos, shape, color), _vel(velocity),
+	_ac(acceleration), _intType(t), _mass(mass), _dampingValue(dumping),
+	_lifeTime(20), _iniTime(0), _color(color), _size(1),
 	_force({ 0,0,0 })
 {
 	_ant_pos = _transform.p;
@@ -53,6 +65,7 @@ void Particle::update(double t)
 
 	if (!_force.isZero()) {
 		_ac = (_force * (1.0 / _mass));
+		std::cout << "aceleracion " << _ac.y << '\n';
 	}
 
 	switch (_intType)
@@ -181,6 +194,7 @@ void Particle::setTam(double tam)
 void Particle::addForce(Vector3 const& f)
 {
 	_force += f;
+	std::cout << "Fuerza   " << _force.y << '\n';
 }
 
 void Particle::cleanForce()

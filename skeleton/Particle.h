@@ -15,7 +15,12 @@ class Particle: public Entity
 public:
 	Particle(Vector3 const& pos = Vector3(0, 0, 0), Vector3 const& velocity = Vector3(0, 0, 0),
 		Vector3 const& acceleration = Vector3(0, 0, 0), Vector4 const& color = Vector4(1, 1, 1, 1),
-		double mass = 1, double lifeTime = 10.0, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
+		double mass = 1, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
+
+	Particle(physx::PxShape* shape, Vector4 const& color = Vector4(1, 1, 1, 1), Vector3 const& pos = Vector3(0, 0, 0), 
+		Vector3 const& velocity = Vector3(0, 0, 0), Vector3 const& acceleration = Vector3(0, 0, 0),
+		double mass = 1, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
+
 
 	Particle(const Particle& other, bool render = true);
 	Particle& operator=(const Particle& other);

@@ -231,7 +231,7 @@ void SceneGame::checkProjectileState()
 			addParticleSystem(_fireSystem);
 			_fireSystem->addForce(_explosionGenerator);
 
-			_fireworkSystem = new FireworkParticleSystem(getRelativePosition(0.5f, 0.0f));
+			_fireworkSystem = new FireworkParticleSystem(getRelativePosition(0.5f, 0.0f)); 
 			_fireworkSystem->createFirework();
 			addParticleSystem(_fireworkSystem);
 

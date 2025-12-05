@@ -4,6 +4,7 @@
 #include "Scene2.h"
 #include "Scene3.h"
 #include "Scene4.h"
+#include "Scene5.h"
 #include "SceneGame.h"
 
 SceneManager::SceneManager()
@@ -22,6 +23,7 @@ void SceneManager::initScenes()
     _scenes.push_back(std::make_unique<Scene2>());
     _scenes.push_back(std::make_unique<Scene3>());
     _scenes.push_back(std::make_unique<Scene4>());
+    _scenes.push_back(std::make_unique<Scene5>());
     _scenes.push_back(std::make_unique<SceneGame>());
 
     // Inicializar

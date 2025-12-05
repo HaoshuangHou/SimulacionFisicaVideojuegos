@@ -1,5 +1,6 @@
 #pragma once
 #include "ForceGenerator.h"
+#include <iostream>
 class GravityGenerator: public ForceGenerator
 {
 private:
@@ -11,7 +12,10 @@ public:
     inline virtual void updateForce(Particle* particle, double dt) override {
         if (particle != nullptr) {
             if (particle->getMass() <= 0.0f) return;
-            particle->addForce(_gravity * particle->getMass());
+            Vector3 force = _gravity * particle->getMass();
+            std::cout << "Fuerza Gravedad  " << force.y << '\n';
+            std::cout << "MASA  " << particle->getMass() << '\n';
+            particle->addForce(force);
         }
     }
 };

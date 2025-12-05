@@ -273,6 +273,7 @@
     <ClCompile Include="Scene2.cpp" />
     <ClCompile Include="Scene3.cpp" />
     <ClCompile Include="Scene4.cpp" />
+    <ClCompile Include="Scene5.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shooter.cpp" />
@@ -281,8 +282,10 @@
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
     <ClInclude Include="core.hpp" />
+    <ClInclude Include="ElasticBandForceGenerator.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExplosionGenerator.h" />
     <ClInclude Include="FireParticleSystem.h" />
@@ -305,9 +308,11 @@
     <ClInclude Include="Scene2.h" />
     <ClInclude Include="Scene3.h" />
     <ClInclude Include="Scene4.h" />
+    <ClInclude Include="Scene5.h" />
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shooter.h" />
+    <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="TapParticleSystem.h" />
     <ClInclude Include="UniformDistributionGen.h" />
     <ClInclude Include="Vector3D.h" />
