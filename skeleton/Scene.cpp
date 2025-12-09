@@ -9,6 +9,13 @@ Scene::~Scene()
 	clean();
 }
 
+void Scene::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+{
+	_gPhysics = physics;
+	_gScene = scene;
+	_gMaterial = material;
+}
+
 void Scene::clean()
 {
 	for (auto e : _particles) {

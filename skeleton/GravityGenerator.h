@@ -13,8 +13,6 @@ public:
         if (particle != nullptr) {
             if (particle->getMass() <= 0.0f) return;
             Vector3 force = _gravity * particle->getMass();
-            std::cout << "Fuerza Gravedad  " << force.y << '\n';
-            std::cout << "MASA  " << particle->getMass() << '\n';
             particle->addForce(force);
         }
     }

@@ -65,7 +65,6 @@ void Particle::update(double t)
 
 	if (!_force.isZero()) {
 		_ac = (_force * (1.0 / _mass));
-		std::cout << "aceleracion " << _ac.y << '\n';
 	}
 
 	switch (_intType)
@@ -194,7 +193,6 @@ void Particle::setTam(double tam)
 void Particle::addForce(Vector3 const& f)
 {
 	_force += f;
-	std::cout << "Fuerza   " << _force.y << '\n';
 }
 
 void Particle::cleanForce()

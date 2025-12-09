@@ -23,8 +23,12 @@ void Scene5::create_slinky()
 	}
 }
 
-void Scene5::init()
+void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
 {
+	_gPhysics = physics;
+	_gScene = scene;
+	_gMaterial = material;
+
 	_text = "ESCENA 5: MUELLES, SIGUIENTE ESCENA(Q)";
 	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
 

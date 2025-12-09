@@ -4,8 +4,12 @@
 #include "WhirlwindGenerator.h"
 #include "ExplosionGenerator.h"
 
-void Scene4::init()
+void Scene4::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
 {
+	_gPhysics = physics;
+	_gScene = scene;
+	_gMaterial = material;
+
 	_text = "ESCENA 4: FUERZAS, SIGUIENTE ESCENA(Q), gravedad(1), viento(2), torbellino(3), explosion(4)";
 
 	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));

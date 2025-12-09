@@ -23,7 +23,7 @@ public:
 	SceneGame();
 	virtual ~SceneGame();
 
-	void init() override;
+	void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material) override;
 	void handleInput(unsigned char key) override;
 	void handleSpecialInput(int key) override;
 

@@ -5,8 +5,12 @@
 #include "FireworkParticleSystem.h"
 #include "GravityGenerator.h"
 
-void Scene3::init()
+void Scene3::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
 {
+	_gPhysics = physics;
+	_gScene = scene;
+	_gMaterial = material;
+
 	_text = "ESCENA 3: SISTEMAS DE PARTICULAS, SIGUIENTE ESCENA(Q)";
 	createParticleSystem();
 }

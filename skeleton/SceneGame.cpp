@@ -32,8 +32,12 @@ SceneGame::~SceneGame()
 }
 
 #pragma region Scene
-void SceneGame::init()
+void SceneGame::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
 {
+	_gPhysics = physics;
+	_gScene = scene;
+	_gMaterial = material;
+
 	_text = "FLECHAS Girar / Potencia | SPACE Disparar | 1 Viento | 2 Torbellino ";
 	clearScene();
 
@@ -123,7 +127,7 @@ void SceneGame::handleInput(unsigned char key)
 		break;
 	}
 	case 'R': 
-		init();
+		init(_gPhysics, _gScene, _gMaterial);
 		break;
 
 	case '1':

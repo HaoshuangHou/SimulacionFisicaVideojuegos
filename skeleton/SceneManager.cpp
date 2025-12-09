@@ -5,10 +5,11 @@
 #include "Scene3.h"
 #include "Scene4.h"
 #include "Scene5.h"
+#include "Scene6.h"
 #include "SceneGame.h"
 
-SceneManager::SceneManager()
-	:_current_scene(0)
+SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+    :_current_scene(0), _gPhysics(physics), _gScene(scene), _gMaterial(material)
 {
 	initScenes();
 }
@@ -24,11 +25,12 @@ void SceneManager::initScenes()
     _scenes.push_back(std::make_unique<Scene3>());
     _scenes.push_back(std::make_unique<Scene4>());
     _scenes.push_back(std::make_unique<Scene5>());
+    _scenes.push_back(std::make_unique<Scene6>());
     _scenes.push_back(std::make_unique<SceneGame>());
 
     // Inicializar
     for (auto& s : _scenes) {
-        s->init();
+        s->init(_gPhysics, _gScene, _gMaterial);
     }
 }
 void SceneManager::update(double t)

@@ -19,8 +19,6 @@ public:
     inline virtual void updateForce(Particle* particle, double dt) override {
         
         const double h = particle->getPos().y;
-        std::cout << "Altura de cubo:  " << h << '\n';
-        std::cout << "Altura de AGUA:  " << h0 << '\n';
         double immersed = 0.0;
         if (h - h0 > _height * 0.5) {
             immersed = 0.0;
@@ -31,9 +29,6 @@ public:
         else {
             immersed = (h0 - h) / _height + 0.5;
         }
-
-        std::cout << "IMMERSED:  " << immersed << '\n';
-        std::cout << '\n';
 
         Vector3 force(0, 0, 0);
         force.y = _liquid_density * _volume * immersed * _gravity;

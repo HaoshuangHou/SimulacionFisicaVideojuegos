@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <list>
+#include <PxPhysicsAPI.h>
 #include "ForceRegistry.h"
 #include "RenderUtils.hpp"
 #include "Projectil.h"
@@ -12,13 +13,15 @@
 class Scene
 {
 public:
-	Scene() : _particles(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry()) {};
+	Scene()
+		: _particles(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry())
+	{};
 	virtual ~Scene();
 
 	Scene(const Scene& s) = delete;  
 	Scene& operator=(const Scene& s) = delete;
 
-	virtual void init() = 0;
+	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material);
 	virtual void clean();
 	virtual void handleInput(unsigned char key) = 0;
 	virtual void handleSpecialInput(int key) {};
@@ -34,6 +37,10 @@ public:
 	void removePacticleSystem(ParticleSystem* ps);
 
 protected:
+	physx::PxPhysics* _gPhysics = nullptr;
+	physx::PxScene* _gScene = nullptr;
+	physx::PxMaterial* _gMaterial = nullptr;
+
 	std::vector<Particle*> _particles;
 	std::list<ParticleSystem*> _particleSystems;
 	std::string _text;

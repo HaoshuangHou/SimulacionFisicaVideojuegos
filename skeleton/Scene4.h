@@ -14,7 +14,7 @@ protected:
 	WhirlwindGenerator* _whirlwindGenerator = nullptr;
 public:
 	Scene4() {};
-	virtual void init() override;
+	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)  override;
 	virtual void enter() override;
 	virtual void exit() override;
 	virtual void handleInput(unsigned char key) override;

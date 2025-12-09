@@ -69,6 +69,7 @@
     <ClCompile Include="Shooter.cpp" />
     <ClCompile Include="ForceParticleSystem.cpp" />
     <ClCompile Include="Scene5.cpp" />
+    <ClCompile Include="Scene6.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -155,6 +156,7 @@
     <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="ElasticBandForceGenerator.h" />
     <ClInclude Include="BuoyancyForceGenerator.h" />
+    <ClInclude Include="Scene6.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">
