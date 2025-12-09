@@ -9,7 +9,7 @@ void Scene5::create_slinky()
 	for (int i = 0; i < 6; i++) {
 
 		Particle* p = new Particle(Vector3(25, 40 +4*i, 0), Vector3(0, 0, 0),
-			Vector3(0, 0, 0), Vector4(1, 0, 1, 1), 1.0f, 0.85);
+			Vector3(0, 0, 0), Vector4(1, 0, 1, 1), 2.0f, 0.5);
 		p->setLifeTime(-1);
 
 		_slinky_particles.push_back(p);
@@ -17,7 +17,7 @@ void Scene5::create_slinky()
 	}
 
 	for (int i = 0; i < 5; i++) {
-		ElasticBandForceGenerator* e = new ElasticBandForceGenerator(20, 10, _slinky_particles[i + 1]);
+		ElasticBandForceGenerator* e = new ElasticBandForceGenerator(8, 4, _slinky_particles[i + 1]);
 		_forceRegistry->addRegistry(_slinky_particles[i], e);
 		_forceRegistry->addRegistry(_slinky_particles[i], _gravityGenerator);
 	}
@@ -59,11 +59,11 @@ void Scene5::init()
 		1.0f, 0.85);
 	p2_goma->setLifeTime(-1);
 
-	_fElastic1 = new ElasticBandForceGenerator(10, 10, p1_goma);
-	_fElastic2 = new ElasticBandForceGenerator(10, 10, p2_goma);
-
 	_particles.push_back(p1_goma);
 	_particles.push_back(p2_goma);
+
+	_fElastic1 = new ElasticBandForceGenerator(20, 10, p1_goma);
+	_fElastic2 = new ElasticBandForceGenerator(20, 10, p2_goma);
 
 	_forceRegistry->addRegistry(p1_goma, _fElastic2);
 	_forceRegistry->addRegistry(p2_goma, _fElastic1);
@@ -73,10 +73,10 @@ void Scene5::init()
 	Particle* agua = new Particle(
 		CreateShape(physx::PxBoxGeometry(10.0f, 2.0f, 10.0f)),
 		Vector4(0, 0, 1, 1), Vector3(0, 18.0f, 0));
-	double const waterHeight = 21.0f;
-
 	agua->setLifeTime(-1);
+	_particles.push_back(agua);
 
+	double const waterHeight = 21.0f;
 	double const cubeHeight = 1.0f;
 	double const volume = 1.0f;
 
@@ -86,14 +86,11 @@ void Scene5::init()
 	pCubo->setMass(900.0f);
 	pCubo->setDamping(0.3f);
 	pCubo->setLifeTime(-1);
+	_particles.push_back(pCubo);
 
 	BuoyancyForceGenerator* b1 = new BuoyancyForceGenerator(cubeHeight, volume, 1000.0f, waterHeight);
-
 	_forceRegistry->addRegistry(pCubo, b1);
 	_forceRegistry->addRegistry(pCubo, _gravityGenerator);
-
-	_particles.push_back(agua);
-	_particles.push_back(pCubo);
 
 	create_slinky();
 }
@@ -120,13 +117,25 @@ void Scene5::handleInput(unsigned char key)
 		case '2':
 		{
 			_fElastic1->set_k(500);
+			_fElastic2->set_k(500);
 			_fSpring->set_k(500);
 			break;
 		}
 		case '3':
 		{
 			_fElastic1->set_k(1);
+			_fElastic2->set_k(1);
 			_fSpring->set_k(1);
+			break;
+		}
+		case 'M':
+		{
+			pCubo->setMass(500);
+			break;
+		}
+		case 'N':
+		{
+			pCubo->setMass(1000);
 			break;
 		}
 		case 'G':
@@ -141,14 +150,36 @@ void Scene5::handleInput(unsigned char key)
 			_forceRegistry->remove(p2_goma, _gravityGenerator);
 			break;
 		}
-		case 'A':
+		case '4':
 		{
-			pCubo = new Particle(
-			CreateShape(physx::PxBoxGeometry(0.5f, 0.5f, 0.5f)),
-			Vector4(1, 0, 1, 1), Vector3(0, 25.0f, 0));
-			pCubo->setMass(900.0f);
-			pCubo->setDamping(0.3f);
-			pCubo->setLifeTime(-1);
+			Particle* a = new Particle(
+				Vector3(-10, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0),
+				Vector4(1, 0.5, 0, 1), 1.0f, 0.85f
+			);
+			a->setLifeTime(-1);
+
+			Particle* b = new Particle(
+				Vector3(0, 40, 0), Vector3(0, 0, 0), Vector3(0, 0, 0),
+				Vector4(1, 0.5, 0, 1), 1.0f, 0.85f
+			);
+			b->setLifeTime(-1);
+			addEntityWithRenderItem(a);
+			addEntityWithRenderItem(b);
+
+			ElasticBandForceGenerator* f1 = new ElasticBandForceGenerator(
+				20.0f, 
+				6.0f,  
+				b        
+			);
+			ElasticBandForceGenerator* f2 = new ElasticBandForceGenerator(
+				20.0f,
+				6.0f,
+				a
+			);
+			_forceRegistry->addRegistry(a, f1);
+			_forceRegistry->addRegistry(b, f2);
+			_forceRegistry->addRegistry(b, _gravityGenerator);
+
 		}
 		default: {
 			break;
