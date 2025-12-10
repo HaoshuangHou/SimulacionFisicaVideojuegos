@@ -47,7 +47,7 @@ void FireworkParticleSystem::createParticleModels()
 
 void FireworkParticleSystem::setupGenerators()
 {
-    _explosionGen = new UniformDistributionGen(
+    _explosionGen = new UniformDistributionGen<Particle>(
         _explosionModel.get(),
         Vector3(0, 0, 0),                   
         Vector3(0, 0, 0),                   
@@ -58,7 +58,7 @@ void FireworkParticleSystem::setupGenerators()
     _explosionGen->setDesVel(Vector3(6.0f, 6.0f, 6.0f));
     _explosionGen->setDesDur(0.2f);   
 
-    _sparkGen = new UniformDistributionGen(
+    _sparkGen = new UniformDistributionGen<Particle>(
         _sparkModel.get(),
         Vector3(0, 0, 0),                   
         Vector3(0, 0, 0),                   
@@ -75,7 +75,7 @@ void FireworkParticleSystem::createExplosionAt(const Vector3& pos, const Vector4
     _explosionGen->setColor(color);
     _explosionGen->setPos(pos);
 
-    auto explosionParticles = _explosionGen->generateP();
+    auto explosionParticles = _explosionGen->generate();
     for (auto& explosionParticle : explosionParticles) {
         _particles.push_back(std::unique_ptr<Particle>(explosionParticle));
         for (auto& force : _forces) {
@@ -135,7 +135,7 @@ void FireworkParticleSystem::update(double dt)
 
     for (auto* explosionParticle : deadExplosion3) {
         _sparkGen->setPos(explosionParticle->getPos());
-        auto sparks = _sparkGen->generateP();
+        auto sparks = _sparkGen->generate();
         for (auto& spark : sparks) {
             _particles.push_back(std::unique_ptr<Particle>(spark));
             for (auto& force : _forces) {

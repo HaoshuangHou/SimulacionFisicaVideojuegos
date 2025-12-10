@@ -9,6 +9,7 @@
 #include "ParticleSystem.h"
 #include "Particle.h"
 #include "GravityGenerator.h"
+#include "SolidEntity.h"
 
 class Scene
 {
@@ -43,7 +44,23 @@ protected:
 
 	std::vector<Particle*> _particles;
 	std::list<ParticleSystem*> _particleSystems;
+
+	std::vector<SolidEntity*> _rigidEntities;
+
 	std::string _text;
 	ForceRegistry* _forceRegistry;
+
+
+	physx::PxMaterial* createMaterial(float staticFriction, float dynamicFriction, float restitution);
+
+	SolidEntity* createRigidEntity(
+		bool dynamic,
+		const Vector3& pos,
+		const physx::PxGeometry& geometry,
+		float density = 1.0f,
+		physx::PxMaterial* material = nullptr,
+		const Vector4& color = Vector4(1, 1, 1, 1)
+	);
+
 };
 

@@ -43,12 +43,6 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="NormalDistributionGen.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="UniformDistributionGen.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="FireParticleSystem.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -70,6 +64,7 @@
     <ClCompile Include="ForceParticleSystem.cpp" />
     <ClCompile Include="Scene5.cpp" />
     <ClCompile Include="Scene6.cpp" />
+    <ClCompile Include="SolidSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -114,7 +109,7 @@
     <ClInclude Include="ParticleSystem.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleGen.h">
+    <ClInclude Include="Generator.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="NormalDistributionGen.h">
@@ -157,6 +152,8 @@
     <ClInclude Include="ElasticBandForceGenerator.h" />
     <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="Scene6.h" />
+    <ClInclude Include="SolidEntity.h" />
+    <ClInclude Include="SolidSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

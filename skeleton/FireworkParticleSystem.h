@@ -17,8 +17,8 @@ private:
     std::unique_ptr<Particle> _explosionModel;
     std::unique_ptr<Particle> _sparkModel;
 
-    UniformDistributionGen* _explosionGen;
-    UniformDistributionGen* _sparkGen;
+    UniformDistributionGen<Particle>* _explosionGen;
+    UniformDistributionGen<Particle>* _sparkGen;
 
     void createParticleModels();
     void setupGenerators();

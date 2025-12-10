@@ -4,6 +4,9 @@
 #include "ForceRegistry.h"
 #include "RenderUtils.hpp"
 #include <iostream>
+
+using namespace physx;
+
 Scene::~Scene()
 {
 	clean();
@@ -29,6 +32,11 @@ void Scene::clean()
 		ps = nullptr;
 	}
 	_particleSystems.clear();
+
+	for (auto r : _rigidEntities) {
+		delete r;
+	}
+	_rigidEntities.clear();
 
 	delete _forceRegistry;
 	_forceRegistry = nullptr;
@@ -77,6 +85,10 @@ void Scene::enter()
 		if (ps)ps->registerAllRenderItems();
 	}
 
+	for (auto r : _rigidEntities) {
+		if (r && !r->isRenderItemValid())
+			r->createRenderItem();
+	}
 }
 
 void Scene::exit()
@@ -86,6 +98,10 @@ void Scene::exit()
 	}
 	for (auto ps : _particleSystems) {
 		if (ps)ps->deregisterAllRenderItems();
+	}
+
+	for (auto r : _rigidEntities) {
+		if (r)r->deregisterRenderItem();
 	}
 }
 
@@ -140,6 +156,40 @@ void Scene::removePacticleSystem(ParticleSystem* ps)
 			++it;
 		}
 	}
+}
+
+physx::PxMaterial* Scene::createMaterial(float staticFriction, float dynamicFriction, float restitution)
+{
+	return _gPhysics->createMaterial(staticFriction, dynamicFriction, restitution);
+}
+
+SolidEntity* Scene::createRigidEntity(bool dynamic, const Vector3& pos, const physx::PxGeometry& geometry, float density, physx::PxMaterial* material, const Vector4& color)
+{
+	if (!material) material = _gMaterial;
+
+	const PxTransform transform(pos);
+	PxRigidActor* actor;
+	PxShape* shape = _gPhysics->createShape(geometry, *material);
+
+
+	if (dynamic)
+	{
+		actor = _gPhysics->createRigidDynamic(transform);
+		actor->attachShape(*shape);
+		PxRigidBodyExt::updateMassAndInertia(*(PxRigidDynamic*)actor, density);
+	}
+	else {
+		actor = _gPhysics->createRigidStatic(transform);
+		actor->attachShape(*shape);
+	}
+
+	_gScene->addActor(*actor);
+
+	SolidEntity* e = new SolidEntity(actor, shape, color);
+	_rigidEntities.push_back(e);
+
+	return e;
+
 }
 
 

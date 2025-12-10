@@ -6,6 +6,8 @@
 class RenderItem;
 class Entity {
 public:
+    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color);
+    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem);
     virtual ~Entity();
     virtual void update(double t) = 0;
 
@@ -20,8 +22,6 @@ public:
     bool isRenderItemValid();
     void setPosition(const Vector3& pos);
 protected:
-    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color);
-    Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem);
     physx::PxTransform _transform;
     std::unique_ptr<RenderItem> _renderItem;
     bool _alive;

@@ -15,7 +15,7 @@ FogParticleSystem::FogParticleSystem(const Vector3& center, float radius)
     }
 
     //configurar el generador
-    UniformDistributionGen* fogGen = new UniformDistributionGen(
+    UniformDistributionGen<Particle>* fogGen = new UniformDistributionGen<Particle>(
         _model_particle,
         _center,
         Vector3(0.01f, 0.01f, 0.01f),

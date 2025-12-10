@@ -1,6 +1,5 @@
 #include "ParticleSystem.h"
 #include "Particle.h"
-#include "ParticleGen.h"
 #include "RenderUtils.hpp"
 #include "ForceRegistry.h"
 #include "ForceGenerator.h"
@@ -55,7 +54,7 @@ void ParticleSystem::update(double dt)
 
 	for (auto g : _generators) {
 		if (g) {
-			auto new_particles = g->generateP();
+			auto new_particles = g->generate();
 			for (auto& new_p : new_particles) {
 				_particles.push_back(std::unique_ptr<Particle>(new_p));
 				for (auto& force : _forces) {
@@ -67,7 +66,7 @@ void ParticleSystem::update(double dt)
 	}
 }
 
-void ParticleSystem::addGenerator(ParticleGen* gen)
+void ParticleSystem::addGenerator(Generator<Particle>* gen)
 {
 	if (gen != nullptr) {
 		_generators.push_back(gen);

@@ -21,7 +21,7 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
     }
 
     //(Particle* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle
-    NormalDistributionGen* fireGen = new NormalDistributionGen(
+    NormalDistributionGen<Particle>* fireGen = new NormalDistributionGen<Particle>(
         _model_particle, 
         _center, 
         Vector3(0, 3.0f, 0), 

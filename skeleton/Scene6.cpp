@@ -10,6 +10,15 @@ void Scene6::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMat
 
 	_text = "ESCENA 6: SOLIDOS, SIGUIENTE ESCENA(Q)";
 
+
+	createRigidEntity(
+		false,                      // estático
+		Vector3(0, -1, 0),           // posición
+		PxBoxGeometry(100, 1, 100),   // suelo
+		0,                          // densidad (no importa si no es dinámico)
+		nullptr,                    // usa material por defecto
+		Vector4(0.5, 0.5, 0.5, 1)   // color
+	);
 }
 
 void Scene6::enter()

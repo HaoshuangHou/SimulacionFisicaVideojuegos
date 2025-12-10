@@ -71,6 +71,7 @@ void initPhysics(bool interactive)
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(10, 0, 0), Vector4(1, 0, 0, 1)));
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 10, 0), Vector4(0, 0, 1, 1)));
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 10), Vector4(0, 1, 0, 1)));
+
 }
 
 

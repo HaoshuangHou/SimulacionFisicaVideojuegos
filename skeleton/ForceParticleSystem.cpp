@@ -14,7 +14,7 @@ ForceParticleSystem::ForceParticleSystem(ForceGenerator* forceGenerator, const V
         _model_particle->setMass(1.0f);
     }
 
-    UniformDistributionGen* forceGen = new UniformDistributionGen(
+    UniformDistributionGen<Particle>* forceGen = new UniformDistributionGen<Particle>(
         _model_particle,
         _center,
         Vector3(0.3f, 0.2f, 0.3f),

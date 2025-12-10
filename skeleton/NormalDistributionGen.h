@@ -1,16 +1,38 @@
 #pragma once
-#include "ParticleGen.h"
+#include "Generator.h"
 
-class Particle;
-class NormalDistributionGen : public ParticleGen
+template <typename T>
+class NormalDistributionGen : public Generator<T>
 {
 private:
 	std::normal_distribution<double> _normal;
 public:
-	NormalDistributionGen(Particle* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
-		:ParticleGen(model_p, position, velocity, duration, n_particle)
+	NormalDistributionGen(T* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
+		:Generator<T>(model_p, position, velocity, duration, n_particle)
 	{};
-	std::list<Particle*> generateP() override;
+    std::list<T*> generate() override
+    {
+        std::list<T*> list;
+
+        for (int i = 0; i < n_particle; i++) {
+            if (canGenerate()) {
+
+                T* new_particle = new T(*_model);
+
+                Vector3 pos = _pos + Vector3(_normal(_mt) * _des_Pos.x, _normal(_mt) * _des_Pos.y, _normal(_mt) * _des_Pos.z);
+                Vector3 vel = _vel + Vector3(_normal(_mt) * _des_Vel.x, _normal(_mt) * _des_Vel.y, _normal(_mt) * _des_Vel.z);
+                double dur = _dur + _normal(_mt) * _des_Dur;
+
+                new_particle->setPosition(pos);
+                new_particle->setVelocity(vel);
+                new_particle->setLifeTime(dur);
+
+                list.push_back(new_particle);
+            }
+        }
+        return list;
+    }
+
 
 };
 

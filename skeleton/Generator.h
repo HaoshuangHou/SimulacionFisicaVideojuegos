@@ -3,9 +3,9 @@
 #include <list>
 #include <iostream>
 #include "core.hpp"
-#include "Particle.h"
 
-class ParticleGen
+template<typename T>
+class Generator
 {
 protected:
 	std::mt19937 _mt;
@@ -13,22 +13,22 @@ protected:
 	Vector3 _vel;
 	double _dur;
 	int n_particle;
-	Particle* _model;
+	T* _model;
 
 	Vector3 _des_Pos;
 	Vector3 _des_Vel;
 	double _des_Dur;
 public:
-	ParticleGen() : _pos(0, 0, 0), _vel(1, 0, 0), _dur(1), n_particle(1), 
+	Generator() : _pos(0, 0, 0), _vel(1, 0, 0), _dur(1), n_particle(1),
 		_mt(std::random_device{}()), _model(nullptr), _des_Pos(0, 0, 0),_des_Dur(0),_des_Vel(0, 0, 0) {};
 
-	ParticleGen(Particle* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
+	Generator(T* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
 		:_pos(position), _vel(velocity), _dur(duration), n_particle(n_particle), 
 		_mt(std::random_device{}()), _model(model_p), _des_Pos(), _des_Dur(), _des_Vel() {};
 
-	virtual ~ParticleGen() = default;
+	virtual ~Generator() = default;
 
-	virtual std::list<Particle*> generateP() = 0;
+	virtual std::list<T*> generate() = 0;
 
 	//Getters y Setters
 	inline Vector3 getPos() const { return _pos; };
@@ -51,7 +51,7 @@ public:
 	inline double getDesDur() const { return _des_Dur; };
 	inline void  setDesDur(double desDur) { _des_Dur = desDur; };
 
-	inline bool canGenerateParticle() {
+	inline bool canGenerate() {
 		std::uniform_real_distribution<double> dist(0.0, 1.0);
 		double randomProbability = dist(_mt);  
 		double randomCheck = dist(_mt);

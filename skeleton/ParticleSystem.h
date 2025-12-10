@@ -2,9 +2,9 @@
 #include <list>
 #include <memory>
 #include "core.hpp"
+#include "Generator.h"
 
 class Particle;
-class ParticleGen;
 class ForceGenerator;
 class ForceRegistry;
 
@@ -16,7 +16,7 @@ protected:
 	Vector4 _endColor;
 
 	std::list<std::unique_ptr<Particle>> _particles;
-	std::list<ParticleGen*> _generators;
+	std::list<Generator<Particle>*> _generators;
 	std::list<std::unique_ptr<ForceGenerator>> _forces;
 	std::unique_ptr<ForceRegistry> _forceRegistry;
 
@@ -31,7 +31,7 @@ public:
 	ParticleSystem(const Vector3& center, float r);
 	virtual ~ParticleSystem();
 	virtual void update(double dt);
-	void addGenerator(ParticleGen* gen);
+	void addGenerator(Generator<Particle>* gen);
 	void addForce(ForceGenerator* f);
 
 	void registerAllRenderItems();

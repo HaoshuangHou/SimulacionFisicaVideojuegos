@@ -18,7 +18,7 @@ TapParticleSystem::TapParticleSystem(const Vector3& center, const Vector3& dir, 
     }
 
     //configurar el generador
-    UniformDistributionGen* waterGen = new UniformDistributionGen(
+    UniformDistributionGen<Particle>* waterGen = new UniformDistributionGen<Particle>(
         _model_particle,
         _center,
         Vector3(0.01f, 0.01f, 0.01f),
