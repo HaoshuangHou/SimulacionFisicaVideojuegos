@@ -8,8 +8,8 @@
 #include "Scene6.h"
 #include "SceneGame.h"
 
-SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
-    :_current_scene(0), _gPhysics(physics), _gScene(scene), _gMaterial(material)
+SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene)
+    :_current_scene(0), _gPhysics(physics), _gScene(scene)
 {
 	initScenes();
 }
@@ -30,7 +30,7 @@ void SceneManager::initScenes()
 
     // Inicializar
     for (auto& s : _scenes) {
-        s->init(_gPhysics, _gScene, _gMaterial);
+        s->init(_gPhysics, _gScene);
     }
 }
 void SceneManager::update(double t)

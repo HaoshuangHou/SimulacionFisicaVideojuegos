@@ -1,24 +1,20 @@
 #include "Scene4.h"
-#include "GravityGenerator.h"
-#include "WindGenerator.h"
-#include "WhirlwindGenerator.h"
-#include "ExplosionGenerator.h"
 
-void Scene4::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+
+void Scene4::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 
 	_text = "ESCENA 4: FUERZAS, SIGUIENTE ESCENA(Q), gravedad(1), viento(2), torbellino(3), explosion(4)";
 
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 
-	_explosionGenerator = new ExplosionGenerator(Vector3(0, 10, 0), 15.0, 5000.0, 10.0);
+	_explosionGenerator = new ExplosionGenerator<Particle>(Vector3(0, 10, 0), 15.0, 5000.0, 10.0);
 
-	_windGenerator = new WindGenerator(Vector3(0, 10, 0), 15, Vector3(0, 100, 0), 0.15);
+	_windGenerator = new WindGenerator<Particle>(Vector3(0, 10, 0), 15, Vector3(0, 100, 0), 0.15);
 
-	_whirlwindGenerator = new WhirlwindGenerator(Vector3(0, 10, 0), 15, 2.0, 0.08, 0.02);
+	_whirlwindGenerator = new WhirlwindGenerator<Particle>(Vector3(0, 10, 0), 15, 2.0, 0.08, 0.02);
 }
 
 void Scene4::enter()

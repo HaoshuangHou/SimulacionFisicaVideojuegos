@@ -64,7 +64,7 @@ void initPhysics(bool interactive)
 	gScene = gPhysics->createScene(sceneDesc); //crear la escena
 
 
-	_sceneM = new SceneManager(gPhysics, gScene, gMaterial);
+	_sceneM = new SceneManager(gPhysics, gScene);
 	display_text = _sceneM->getDisplayText();
 
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));

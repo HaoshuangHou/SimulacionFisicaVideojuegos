@@ -277,6 +277,7 @@
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shooter.cpp" />
+    <ClCompile Include="SolidEntity.cpp" />
     <ClCompile Include="SolidSystem.cpp" />
     <ClCompile Include="TapParticleSystem.cpp" />
     <ClCompile Include="Vector3D.cpp" />

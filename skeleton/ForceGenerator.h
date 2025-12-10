@@ -1,8 +1,10 @@
 #pragma once
 #include "core.hpp"
 #include "Particle.h"
+#include "SolidEntity.h"
 #include "RenderUtils.hpp"
 
+template <typename T>
 class ForceGenerator
 {
 private:
@@ -39,7 +41,7 @@ public:
         }
     
     };
-	virtual void updateForce(Particle* particle, double dt) = 0;
+	virtual void updateForce(T* particle, double dt) = 0;
 
     Vector3 getCenter() { return _center; };
     double getRadius() { return _radius; };

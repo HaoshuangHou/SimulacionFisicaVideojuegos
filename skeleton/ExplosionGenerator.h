@@ -4,7 +4,8 @@
 #include "core.hpp"
 #include "RenderUtils.hpp"
 
-class ExplosionGenerator: public ForceGenerator
+template <typename T>
+class ExplosionGenerator: public ForceGenerator<T>
 {
 protected:
     double _K;               
@@ -33,7 +34,7 @@ public:
         }
     }
 
-    inline virtual void updateForce(Particle* particle, double dt) override {
+    inline virtual void updateForce(T* particle, double dt) override {
         if (particle == nullptr) return;
 
         if (_active) {

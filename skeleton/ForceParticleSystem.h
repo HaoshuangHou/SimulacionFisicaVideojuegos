@@ -5,13 +5,13 @@
 
 class ForceParticleSystem : public ParticleSystem {
 private:
-    ForceGenerator* _forceGenerator;
+    ForceGenerator<Particle>* _forceGenerator;
     Vector4 _particleColor;
     bool _isWhirlwind;
     bool _active;
 
 public:
-    ForceParticleSystem(ForceGenerator* forceGenerator, const Vector4& color, bool isWhirlwind = false);
+    ForceParticleSystem(ForceGenerator<Particle>* forceGenerator, const Vector4& color, bool isWhirlwind = false);
     void setVisible(bool visible);
 };
 

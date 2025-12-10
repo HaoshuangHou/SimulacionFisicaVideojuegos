@@ -1,7 +1,7 @@
 #pragma once
 #include "ForceGenerator.h"
-
-class SpringForceGenerator: public ForceGenerator
+template<typename T>
+class SpringForceGenerator: public ForceGenerator<T>
 {
 private:
     double _k;
@@ -15,7 +15,7 @@ public:
     inline void set_k(double k) {
         _k = k;
     }
-    inline virtual void updateForce(Particle* particle, double dt) override {
+    inline virtual void updateForce(T* particle, double dt) override {
         
         Vector3 relative_pos_vector = _other->getPos() - particle->getPos();
         Vector3 force;

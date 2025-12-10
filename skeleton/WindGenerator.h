@@ -4,7 +4,8 @@
 #include "core.hpp"
 #include "RenderUtils.hpp"
 
-class WindGenerator: public ForceGenerator
+template <typename T>
+class WindGenerator: public ForceGenerator<T>
 {
 protected:
     Vector3 _wind_velocity;
@@ -21,7 +22,7 @@ public:
     };
 	virtual ~WindGenerator() = default;
 
-    inline virtual void updateForce(Particle* particle, double dt) override {
+    inline virtual void updateForce(T* particle, double dt) override {
         if (particle == nullptr) return;
 
         if ((particle->getPos() - _center).magnitude() > _radius) return;

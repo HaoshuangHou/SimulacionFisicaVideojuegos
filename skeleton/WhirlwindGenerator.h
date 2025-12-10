@@ -1,7 +1,7 @@
 #pragma once
 #include "WindGenerator.h"
-
-class WhirlwindGenerator : public WindGenerator
+template <typename T>
+class WhirlwindGenerator : public WindGenerator<T>
 {
 protected:
     double _K; 
@@ -16,7 +16,7 @@ public:
 
     virtual ~WhirlwindGenerator() = default;
 
-    inline virtual void updateForce(Particle* particle, double dt) override {
+    inline virtual void updateForce(T* particle, double dt) override {
         if (particle == nullptr) return;
 
         const Vector3 r = particle->getPos() - _center;

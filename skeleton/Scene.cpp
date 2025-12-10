@@ -12,11 +12,10 @@ Scene::~Scene()
 	clean();
 }
 
-void Scene::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+void Scene::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 }
 
 void Scene::clean()
@@ -33,10 +32,15 @@ void Scene::clean()
 	}
 	_particleSystems.clear();
 
-	for (auto r : _rigidEntities) {
+	for (auto r : _solids) {
 		delete r;
 	}
-	_rigidEntities.clear();
+	_solids.clear();
+
+	for (auto r : _solidSystems) {
+		delete r;
+	}
+	_solidSystems.clear();
 
 	delete _forceRegistry;
 	_forceRegistry = nullptr;
@@ -49,16 +53,34 @@ void Scene::update(double t)
 	for (auto& e : _particles) {
 		if (e && e->is_alive())e->update(t);
 	}
+	for (auto& e : _solids) {
+		if (e && e->is_alive())e->update(t);
+	}
 
 	for (auto ps : _particleSystems) {
 		if (ps)ps->update(t);
 	}
+	for (auto s : _solidSystems) {
+		if (s)s->update(t);
+	}
+
 
 	for (auto it = _particles.begin(); it != _particles.end(); ) {
 		if (!(*it)->is_alive()) {
 			delete* it;
 			*it = nullptr;
 			it = _particles.erase(it);
+		}
+		else {
+			++it;
+		}
+	}
+
+	for (auto it = _solids.begin(); it != _solids.end(); ) {
+		if (!(*it)->is_alive()) {
+			delete* it;
+			*it = nullptr;
+			it = _solids.erase(it);
 		}
 		else {
 			++it;
@@ -84,10 +106,13 @@ void Scene::enter()
 	for (auto ps : _particleSystems) {
 		if (ps)ps->registerAllRenderItems();
 	}
+	for (auto ps : _solidSystems) {
+		if (ps)ps->registerAllRenderItems();
+	}
 
-	for (auto r : _rigidEntities) {
+	for (auto r : _solids) {
 		if (r && !r->isRenderItemValid())
-			r->createRenderItem();
+			r->create_renderItem();
 	}
 }
 
@@ -99,8 +124,11 @@ void Scene::exit()
 	for (auto ps : _particleSystems) {
 		if (ps)ps->deregisterAllRenderItems();
 	}
+	for (auto ps : _solidSystems) {
+		if (ps)ps->deregisterAllRenderItems();
+	}
 
-	for (auto r : _rigidEntities) {
+	for (auto r : _solids) {
 		if (r)r->deregisterRenderItem();
 	}
 }
@@ -117,7 +145,7 @@ void Scene::addParticleSystem(ParticleSystem* ps)
 	}
 }
 
-void Scene::addGlobalForce(ForceGenerator* force)
+void Scene::addGlobalForce(ForceGenerator<Particle>* force)
 {
 	if (force) {
 		for (auto& e : _particles) {
@@ -165,28 +193,8 @@ physx::PxMaterial* Scene::createMaterial(float staticFriction, float dynamicFric
 
 SolidEntity* Scene::createRigidEntity(bool dynamic, const Vector3& pos, const physx::PxGeometry& geometry, float density, physx::PxMaterial* material, const Vector4& color)
 {
-	if (!material) material = _gMaterial;
-
-	const PxTransform transform(pos);
-	PxRigidActor* actor;
-	PxShape* shape = _gPhysics->createShape(geometry, *material);
-
-
-	if (dynamic)
-	{
-		actor = _gPhysics->createRigidDynamic(transform);
-		actor->attachShape(*shape);
-		PxRigidBodyExt::updateMassAndInertia(*(PxRigidDynamic*)actor, density);
-	}
-	else {
-		actor = _gPhysics->createRigidStatic(transform);
-		actor->attachShape(*shape);
-	}
-
-	_gScene->addActor(*actor);
-
-	SolidEntity* e = new SolidEntity(actor, shape, color);
-	_rigidEntities.push_back(e);
+	SolidEntity* e = new SolidEntity(_gPhysics, _gScene, dynamic, pos, geometry, density, material, color);
+	_solids.push_back(e);
 
 	return e;
 

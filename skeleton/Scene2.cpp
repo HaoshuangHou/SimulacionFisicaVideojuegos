@@ -1,14 +1,13 @@
 #include "Scene2.h"
 
-void Scene2::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+void Scene2::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 
 	_camera = GetCamera();
 	_text = "ESCENA 2: PROYECTILES, SIGUIENTE ESCENA(Q)";
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 }
 
 void Scene2::handleInput(unsigned char key)

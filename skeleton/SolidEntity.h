@@ -1,59 +1,60 @@
 #pragma once
+
 #include "RenderUtils.hpp"
+#include "Entity.h"
 #include <PxPhysicsAPI.h>
 #include <memory>
 
-class SolidEntity
+class SolidEntity : public Entity
 {
-public:
-    SolidEntity(physx::PxRigidActor* actor, physx::PxShape* shape, Vector4 color)
-        : _actor(actor), _shape(shape), _color(color), _renderItem(nullptr), _registered(false)
-    {
-    }
-
-    ~SolidEntity()
-    {
-        deregisterRenderItem();
-    }
-
-    void createRenderItem()
-    {
-        deregisterRenderItem();
-
-        _renderItem = std::make_unique<RenderItem>(_shape, _actor, _color);
-        RegisterRenderItem(_renderItem.get());
-        _registered = true;
-    }
-
-    void deregisterRenderItem()
-    {
-        if (_renderItem && _registered)
-        {
-            DeregisterRenderItem(_renderItem.get());
-            _registered = false;
-        }
-    }
-
-    bool isRenderItemValid() const
-    {
-        return _renderItem != nullptr && _registered;
-    }
-    void setColor(const Vector4& color) {
-        _color = color;
-        if (_renderItem != nullptr) {
-            _renderItem->color = color;
-        }
-    }
-
-    physx::PxRigidActor* getActor() const { return _actor; }
-    physx::PxShape* getShape() const { return _shape; }
-
 private:
-    physx::PxRigidActor* _actor;
-    physx::PxShape* _shape;
+    double _lifetime = -1.0f;
+    double _timeAlive = 0.0f;
 
-    Vector4 _color;
+    struct ConstructionParams {
+        physx::PxPhysics* physics = nullptr;
+        physx::PxScene* scene = nullptr;
+        bool dynamic = true;
+        physx::PxGeometry* geometry = nullptr;
+        float density = 1.0f;
+        physx::PxMaterial* material = nullptr;
+    };
+    ConstructionParams* _params = nullptr;
 
-    std::unique_ptr<RenderItem> _renderItem;
-    bool _registered;
+    void createPhysicsObject(physx::PxPhysics* physics, physx::PxScene* scene,
+        bool dynamic, const physx::PxVec3& pos,
+        const physx::PxGeometry& geometry, float density,
+        physx::PxMaterial* material);
+
+public:
+    SolidEntity(physx::PxPhysics* physics, physx::PxScene* scene,
+        bool dynamic, const physx::PxVec3& pos,
+        const physx::PxGeometry& geometry, float density,
+        physx::PxMaterial* material, const Vector4& color);
+
+    SolidEntity(const SolidEntity& other);
+
+    virtual void update(double dt) override;
+    virtual void create_renderItem() override;
+
+    void addForce(const Vector3& force);
+    void addTorque(const Vector3& torque);
+
+    bool is_alive() const;
+
+    // Getters
+    double getMass() const;
+    Vector3 getVelocity() const;
+    Vector3 getAngularVelocity() const;
+    Vector3 getPos() const;
+
+    // Setters
+    void setVelocity(const Vector3& vel);
+    void setAngularVelocity(const Vector3& angVel);
+    void setPos(const Vector3& pos);
+    void setLifeTime(double lifetime);
+    void setColor(const Vector4& color);
+
+    physx::PxRigidActor* getActor() const;
+    physx::PxShape* getShape() const;
 };

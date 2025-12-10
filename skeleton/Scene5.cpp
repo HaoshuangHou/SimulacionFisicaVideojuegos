@@ -1,7 +1,4 @@
 ﻿#include "Scene5.h"
-#include "GravityGenerator.h"
-#include "SpringForceGenerator.h"
-#include "ElasticBandForceGenerator.h"
 #include "BuoyancyForceGenerator.h"
 
 void Scene5::create_slinky()
@@ -17,20 +14,19 @@ void Scene5::create_slinky()
 	}
 
 	for (int i = 0; i < 5; i++) {
-		ElasticBandForceGenerator* e = new ElasticBandForceGenerator(8, 4, _slinky_particles[i + 1]);
+		ElasticBandForceGenerator<Particle>* e = new ElasticBandForceGenerator<Particle>(8, 4, _slinky_particles[i + 1]);
 		_forceRegistry->addRegistry(_slinky_particles[i], e);
 		_forceRegistry->addRegistry(_slinky_particles[i], _gravityGenerator);
 	}
 }
 
-void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 
 	_text = "ESCENA 5: MUELLES, SIGUIENTE ESCENA(Q)";
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 
 	//Muelle: una particula unida a una posicion estatica
 	pEstatico = new Particle(
@@ -46,7 +42,7 @@ void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMat
 		1.0f, 0.85);
 	p1_muelle->setLifeTime(-1);
 
-	_fSpring = new SpringForceGenerator(10, 10, pEstatico);
+	_fSpring = new SpringForceGenerator<Particle>(10, 10, pEstatico);
 	_forceRegistry->addRegistry(p1_muelle, _fSpring);
 	_particles.push_back(p1_muelle);
 
@@ -66,8 +62,8 @@ void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMat
 	_particles.push_back(p1_goma);
 	_particles.push_back(p2_goma);
 
-	_fElastic1 = new ElasticBandForceGenerator(20, 10, p1_goma);
-	_fElastic2 = new ElasticBandForceGenerator(20, 10, p2_goma);
+	_fElastic1 = new ElasticBandForceGenerator<Particle>(20, 10, p1_goma);
+	_fElastic2 = new ElasticBandForceGenerator<Particle>(20, 10, p2_goma);
 
 	_forceRegistry->addRegistry(p1_goma, _fElastic2);
 	_forceRegistry->addRegistry(p2_goma, _fElastic1);
@@ -92,7 +88,7 @@ void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMat
 	pCubo->setLifeTime(-1);
 	_particles.push_back(pCubo);
 
-	BuoyancyForceGenerator* b1 = new BuoyancyForceGenerator(cubeHeight, volume, 1000.0f, waterHeight);
+	BuoyancyForceGenerator<Particle>* b1 = new BuoyancyForceGenerator<Particle>(cubeHeight, volume, 1000.0f, waterHeight);
 	_forceRegistry->addRegistry(pCubo, b1);
 	_forceRegistry->addRegistry(pCubo, _gravityGenerator);
 
@@ -170,12 +166,12 @@ void Scene5::handleInput(unsigned char key)
 			addEntityWithRenderItem(a);
 			addEntityWithRenderItem(b);
 
-			ElasticBandForceGenerator* f1 = new ElasticBandForceGenerator(
+			ElasticBandForceGenerator<Particle>* f1 = new ElasticBandForceGenerator<Particle>(
 				20.0f, 
 				6.0f,  
 				b        
 			);
-			ElasticBandForceGenerator* f2 = new ElasticBandForceGenerator(
+			ElasticBandForceGenerator<Particle>* f2 = new ElasticBandForceGenerator<Particle>(
 				20.0f,
 				6.0f,
 				a

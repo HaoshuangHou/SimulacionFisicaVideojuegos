@@ -7,10 +7,14 @@
 #include "RenderUtils.hpp"
 #include "Projectil.h"
 #include "ParticleSystem.h"
+#include "SolidSystem.h"
 #include "Particle.h"
-#include "GravityGenerator.h"
 #include "SolidEntity.h"
 
+#include "GravityGenerator.h"
+#include "WindGenerator.h"
+#include "WhirlwindGenerator.h"
+#include "ExplosionGenerator.h"
 class Scene
 {
 public:
@@ -22,7 +26,7 @@ public:
 	Scene(const Scene& s) = delete;  
 	Scene& operator=(const Scene& s) = delete;
 
-	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material);
+	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene);
 	virtual void clean();
 	virtual void handleInput(unsigned char key) = 0;
 	virtual void handleSpecialInput(int key) {};
@@ -33,19 +37,19 @@ public:
 	std::string getDisplayText() const;
 
 	void addParticleSystem(ParticleSystem* ps);
-	void addGlobalForce(ForceGenerator* force);
+	void addGlobalForce(ForceGenerator<Particle>* force);
 	void removeParticle(Particle* p);
 	void removePacticleSystem(ParticleSystem* ps);
 
 protected:
 	physx::PxPhysics* _gPhysics = nullptr;
 	physx::PxScene* _gScene = nullptr;
-	physx::PxMaterial* _gMaterial = nullptr;
 
 	std::vector<Particle*> _particles;
 	std::list<ParticleSystem*> _particleSystems;
+	std::list<SolidSystem*> _solidSystems;
 
-	std::vector<SolidEntity*> _rigidEntities;
+	std::vector<SolidEntity*> _solids;
 
 	std::string _text;
 	ForceRegistry* _forceRegistry;

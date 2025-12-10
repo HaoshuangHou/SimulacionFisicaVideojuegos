@@ -3,11 +3,11 @@
 class Scene1: public Scene
 {
 private:
-	GravityGenerator* _gravityGenerator;
+	GravityGenerator<Particle>* _gravityGenerator;
 public:
 	Scene1() {};
 
-	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material) override;
+	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene) override;
 	virtual void handleInput(unsigned char key) override;
 
 };

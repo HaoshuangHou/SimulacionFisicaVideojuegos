@@ -4,10 +4,6 @@
 #include "Shooter.h"
 #include <memory>
 
-class ExplosionGenerator;
-class GravityGenerator;
-class WindGenerator;
-class WhirlwindGenerator;
 class FireworkParticleSystem;
 class FireParticleSystem;
 class TapParticleSystem;
@@ -23,7 +19,7 @@ public:
 	SceneGame();
 	virtual ~SceneGame();
 
-	void init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material) override;
+	void init(physx::PxPhysics* physics, physx::PxScene* scene) override;
 	void handleInput(unsigned char key) override;
 	void handleSpecialInput(int key) override;
 
@@ -68,10 +64,10 @@ private:
 	void repositionObjects();
 
 	// Fuerzas
-	ExplosionGenerator* _explosionGenerator;
-	WindGenerator* _windGenerator;
-	GravityGenerator* _gravityGenerator;
-	WhirlwindGenerator* _whirlwindGenerator;
+	ExplosionGenerator<Particle>* _explosionGenerator;
+	WindGenerator<Particle>* _windGenerator;
+	GravityGenerator<Particle>* _gravityGenerator;
+	WhirlwindGenerator<Particle>* _whirlwindGenerator;
 
 	//sistemas de particulas
 	FireworkParticleSystem* _fireworkSystem;
@@ -89,5 +85,5 @@ private:
 
 	void setupForces();
 	void toggleForce(ForceType forceType);
-	void applyForceToAllProjectiles(ForceGenerator* forceGenerator, bool active);
+	void applyForceToAllProjectiles(ForceGenerator<Particle>* forceGenerator, bool active);
 };

@@ -1,7 +1,7 @@
 #include "ForceParticleSystem.h"
 #include "UniformDistributionGen.h"
 
-ForceParticleSystem::ForceParticleSystem(ForceGenerator* forceGenerator, const Vector4& color, bool isWhirlwind)
+ForceParticleSystem::ForceParticleSystem(ForceGenerator<Particle>* forceGenerator, const Vector4& color, bool isWhirlwind)
 	: ParticleSystem(forceGenerator->getCenter(), forceGenerator->getRadius()),
 	_forceGenerator(forceGenerator), _particleColor(color), _isWhirlwind(isWhirlwind)
 {

@@ -1,14 +1,13 @@
 #include "Scene1.h"
 #include "Particle.h"
 
-void Scene1::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+void Scene1::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 
 	_text = "ESCENA 1: PARTICULAS, SIGUIENTE ESCENA(Q)";
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 }
 
 void Scene1::handleInput(unsigned char key)

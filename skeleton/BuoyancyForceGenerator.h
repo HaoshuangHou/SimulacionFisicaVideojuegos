@@ -1,8 +1,8 @@
 #pragma once
 #include "ForceGenerator.h"
 #include <iostream>
-
-class BuoyancyForceGenerator : public ForceGenerator
+template<typename T>
+class BuoyancyForceGenerator : public ForceGenerator<T>
 {
 private:
     double _height;
@@ -16,7 +16,7 @@ public:
         : _height(h), _volume(volume), _liquid_density(density), h0(surface_height) {};
 	virtual ~BuoyancyForceGenerator() = default;
 
-    inline virtual void updateForce(Particle* particle, double dt) override {
+    inline virtual void updateForce(T* particle, double dt) override {
         
         const double h = particle->getPos().y;
         double immersed = 0.0;

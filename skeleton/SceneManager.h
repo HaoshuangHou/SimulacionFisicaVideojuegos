@@ -8,7 +8,7 @@ class Scene;
 class SceneManager
 {
 public:
-	SceneManager(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material);
+	SceneManager(physx::PxPhysics* physics, physx::PxScene* scene);
 	~SceneManager();
 
 	void update(double t);

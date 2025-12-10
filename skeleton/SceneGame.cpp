@@ -32,11 +32,10 @@ SceneGame::~SceneGame()
 }
 
 #pragma region Scene
-void SceneGame::init(physx::PxPhysics* physics, physx::PxScene* scene, physx::PxMaterial* material)
+void SceneGame::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
 	_gPhysics = physics;
 	_gScene = scene;
-	_gMaterial = material;
 
 	_text = "FLECHAS Girar / Potencia | SPACE Disparar | 1 Viento | 2 Torbellino ";
 	clearScene();
@@ -127,7 +126,7 @@ void SceneGame::handleInput(unsigned char key)
 		break;
 	}
 	case 'R': 
-		init(_gPhysics, _gScene, _gMaterial);
+		init(_gPhysics, _gScene);
 		break;
 
 	case '1':
@@ -345,14 +344,14 @@ void SceneGame::createGameObjects()
 #pragma region Forces
 void SceneGame::setupForces()
 {
-	_gravityGenerator = new GravityGenerator(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 
 	const Vector3 windPos = getRelativePosition(0.3f, 0.2f);
 	const Vector3 windDir = Vector3(0, 1, 0);
-	_windGenerator = new WindGenerator(windPos, 5, windDir *50, 0.3);
+	_windGenerator = new WindGenerator<Particle>(windPos, 5, windDir *50, 0.3);
 
 	const Vector3 whirlwindPos = getRelativePosition(0.4f, 0.6f);
-	_whirlwindGenerator = new WhirlwindGenerator(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
+	_whirlwindGenerator = new WhirlwindGenerator<Particle>(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
 
 	_windParticleSystem = new ForceParticleSystem(
 		_windGenerator,
@@ -379,7 +378,7 @@ void SceneGame::setupForces()
 		_whirlwindParticleSystem->addForce(_whirlwindGenerator);
 	}
 
-	_explosionGenerator = new ExplosionGenerator(_victoryPos, 5.0f, 100, 5);
+	_explosionGenerator = new ExplosionGenerator<Particle>(_victoryPos, 5.0f, 100, 5);
 }
 void SceneGame::toggleForce(ForceType forceType)
 {
@@ -406,7 +405,7 @@ void SceneGame::toggleForce(ForceType forceType)
 	}	
 }
 
-void SceneGame::applyForceToAllProjectiles(ForceGenerator* forceGenerator, bool active)
+void SceneGame::applyForceToAllProjectiles(ForceGenerator<Particle>* forceGenerator, bool active)
 {
 	if (!forceGenerator) return;
 

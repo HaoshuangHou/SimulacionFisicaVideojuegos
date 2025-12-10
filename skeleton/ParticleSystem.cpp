@@ -73,10 +73,10 @@ void ParticleSystem::addGenerator(Generator<Particle>* gen)
 	}
 }
 
-void ParticleSystem::addForce(ForceGenerator* f)
+void ParticleSystem::addForce(ForceGenerator<Particle>* f)
 {
 	if (f != nullptr) {
-		_forces.push_back(std::unique_ptr<ForceGenerator>(f));
+		_forces.push_back(std::unique_ptr<ForceGenerator<Particle>>(f));
 		for (auto& p : _particles) {
 			_forceRegistry->addRegistry(p.get(), f);
 		}
