@@ -1,4 +1,5 @@
 #include "SolidEntity.h"
+#include <iostream>
 
 static physx::PxGeometry* cloneGeometry(const physx::PxGeometry& geo) {
     switch (geo.getType()) {
@@ -14,7 +15,7 @@ static physx::PxGeometry* cloneGeometry(const physx::PxGeometry& geo) {
         return nullptr;
     }
 }
-void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene* scene, bool dynamic, const physx::PxVec3& pos, const physx::PxGeometry& geometry, float density, physx::PxMaterial* material)
+void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene* scene, bool dynamic, const physx::PxVec3& pos, const physx::PxGeometry& geometry, double density, physx::PxMaterial* material)
 {
     if (!material)
         material = physics->createMaterial(0.5f, 0.5f, 0.5f);
@@ -25,8 +26,9 @@ void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene*
         _actor = physics->createRigidDynamic(transform);
         _shape = physics->createShape(geometry, *material);
         _actor->attachShape(*_shape);
-        physx::PxRigidBodyExt::updateMassAndInertia(
-            *(physx::PxRigidDynamic*)_actor, density);
+
+        physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>();
+        physx::PxRigidBodyExt::updateMassAndInertia(*dyn, density);
     }
     else {
         _actor = physics->createRigidStatic(transform);
@@ -35,6 +37,7 @@ void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene*
     }
 
     scene->addActor(*_actor);
+    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())dyn->clearForce();
 
     if (!_params) {
         _params = new ConstructionParams();
@@ -51,39 +54,34 @@ void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene*
 SolidEntity::SolidEntity(
     physx::PxPhysics* physics, physx::PxScene* scene,
     bool dynamic, const physx::PxVec3& pos,
-    const physx::PxGeometry& geometry, float density,
+    const physx::PxGeometry& geometry, double density,
     physx::PxMaterial* material, const Vector4& color)
     : Entity(pos, nullptr, color)
 {
     createPhysicsObject(physics, scene, dynamic, pos, geometry, density, material);
 }
-
-SolidEntity::SolidEntity(const SolidEntity& other)
-    : Entity(other.getPos(), nullptr, other._color),
-    _lifetime(other._lifetime),
-    _timeAlive(0.0f)
+SolidEntity::SolidEntity(const SolidEntity& other, const Vector3& pos)
+    : Entity(pos, nullptr, other._color)
 {
-    _color = other._color;
-    if (other._params) {
-        _params = new ConstructionParams(*other._params);
+    _lifetime = other._lifetime;
+    _timeAlive = 0.0f;
 
-        if (other._params->geometry)
-            _params->geometry = cloneGeometry(*other._params->geometry);
+    _params = new ConstructionParams(*other._params);
 
-        createPhysicsObject(
-            _params->physics,
-            _params->scene,
-            _params->dynamic,
-            other.getPos(),
-            *_params->geometry,
-            _params->density,
-            _params->material
-        );
+    if (other._params->geometry)
+        _params->geometry = cloneGeometry(*other._params->geometry);
 
-        setVelocity(other.getVelocity());
-        setAngularVelocity(other.getAngularVelocity());
-    }
+    createPhysicsObject(
+        _params->physics,
+        _params->scene,
+        _params->dynamic,
+        pos,
+        *_params->geometry,
+        _params->density,
+        _params->material
+    );
 }
+
 
 void SolidEntity::update(double dt)
 {
@@ -105,7 +103,7 @@ void SolidEntity::create_renderItem()
 void SolidEntity::addForce(const Vector3& force)
 {
     if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
-        dyn->addForce(force);
+        dyn->addForce(physx::PxVec3(force.x, force.y, force.z), physx::PxForceMode::eFORCE);
 }
 
 void SolidEntity::addTorque(const Vector3& torque)
@@ -118,7 +116,7 @@ bool SolidEntity::is_alive() const {
     return _alive;
 }
 
-// --- Getters ---
+//Getters
 
 double SolidEntity::getMass() const
 {
@@ -147,7 +145,7 @@ Vector3 SolidEntity::getPos() const
     return Vector3(transform.p.x, transform.p.y, transform.p.z);
 }
 
-// --- Setters ---
+//Setters
 
 void SolidEntity::setVelocity(const Vector3& vel)
 {
@@ -161,24 +159,21 @@ void SolidEntity::setAngularVelocity(const Vector3& angVel)
         dyn->setAngularVelocity(physx::PxVec3(angVel.x, angVel.y, angVel.z));
 }
 
-void SolidEntity::setPos(const Vector3& pos)
+void SolidEntity::setLifeTime(double lifetime)
+{
+
+    _lifetime = lifetime;
+    _timeAlive = 0.0f;
+}
+
+void SolidEntity::setMass(double mass)
 {
     if (!_actor) return;
 
-    physx::PxTransform transform = _actor->getGlobalPose();
-    transform.p = pos;
-    _actor->setGlobalPose(transform);
-
-    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>()) {
-        dyn->setLinearVelocity(physx::PxVec3(0, 0, 0));
-        dyn->setAngularVelocity(physx::PxVec3(0, 0, 0));
+    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    {
+        physx::PxRigidBodyExt::updateMassAndInertia(*dyn, mass);
     }
-}
-
-void SolidEntity::setLifeTime(double lifetime)
-{
-    _lifetime = lifetime;
-    _timeAlive = 0.0f;
 }
 
 void SolidEntity::setColor(const Vector4& color)

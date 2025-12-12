@@ -30,10 +30,20 @@ SolidSystem::~SolidSystem()
 
 void SolidSystem::update(double dt)
 {
+
+	_forceRegistry->updateForces(dt);
+
+	for (auto& s : _solids) {
+		s->update(dt);
+	}
+	
+	delete_solid();
+
 	for (auto g : _generators) {
 		if (g) {
 			auto new_solids = g->generate();
 			for (auto& s : new_solids) {
+
 				_solids.push_back(std::unique_ptr<SolidEntity>(s));
 				for (auto& force : _forces) {
 					_forceRegistry->addRegistry(s, force.get());
@@ -79,7 +89,7 @@ void SolidSystem::deregisterAllRenderItems()
 	}
 }
 
-void SolidSystem::delete_solid(SolidEntity* s)
+void SolidSystem::delete_solid()
 {
 	_solids.remove_if([this](std::unique_ptr<SolidEntity>& p) {
 		if (!p->is_alive() || isSolidOutsideArea(p.get())) {

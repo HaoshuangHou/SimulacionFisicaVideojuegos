@@ -30,12 +30,11 @@ protected:
 
 	void create_model_solid();
 
-	virtual void delete_solid(SolidEntity* s);
+	virtual void delete_solid();
 
 	bool isSolidOutsideArea(SolidEntity* solid);
 	void addGenerator(Generator<SolidEntity>* gen);
 	void addForce(ForceGenerator<SolidEntity>* f);
-
 public:
 	SolidSystem(physx::PxPhysics* physics, physx::PxScene* scene, const physx::PxVec3& center, float r);
 	virtual ~SolidSystem();

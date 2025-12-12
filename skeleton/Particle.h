@@ -22,7 +22,7 @@ public:
 		double mass = 1, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
 
 
-	Particle(const Particle& other, bool render = true);
+	Particle(const Particle& other, const Vector3& pos, bool render = true);
 	Particle& operator=(const Particle& other);
 
 	virtual void update(double t) override;

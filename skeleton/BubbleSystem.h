@@ -3,50 +3,42 @@
 #include "GravityGenerator.h"
 #include "WindGenerator.h"
 #include "NormalDistributionGen.h"
+#include "UniformDistributionGen.h"
 
 class BubbleSystem : public SolidSystem
 {
-private:
 public:
     BubbleSystem(const Vector3& pos, physx::PxPhysics* physics, physx::PxScene* scene)
-        : SolidSystem(physics, scene, pos, 30.0f)
+        : SolidSystem(physics, scene, pos, 100.0f)
     {
-        physx::PxMaterial* bubbleMaterial = physics->createMaterial(0.01f, 0.01f, 0.5f);
+        physx::PxMaterial* bubbleMaterial = physics->createMaterial(0.1f, 0.1f, 0.2f);
 
         _model_solid = new SolidEntity(
             physics, scene, true,
-            Vector3(0, 0, 0),
-            physx::PxSphereGeometry(10.0f),
-            1.5f, 
+            pos,
+            physx::PxSphereGeometry(4.0f),
+            0.5f, 
             bubbleMaterial, 
-            Vector4(0.8f, 0.9f, 1.0f, 0.7f)
+            Vector4(0.8f, 0.9f, 1.0f, 0.5f)
         );
+        _model_solid->setLifeTime(-1.0f);
 
         NormalDistributionGen<SolidEntity>* gen =
             new NormalDistributionGen<SolidEntity>(
                 _model_solid,
-                Vector3(0, 0, 0),    
-                Vector3(0, 10.0f, 0),  
-                20.0f, 
-                2  
+                pos,
+                Vector3(0,15.0f,0),  
+                -1.0f, 
+                1
             );
 
-        gen->setDesPos(Vector3(0.5f, 0.5f, 0.5f)); 
-        gen->setDesVel(Vector3(0.2f, 0.1f, 0.2f));
+        gen->setSpawnProbability(0.08);
+        gen->setDesPos(Vector3(20.0f, 4.0f, 20.0f));
+        gen->setDesVel(Vector3(0.5f, 2.0f, 0.5f)); 
+        gen->setDesMass(0.01f);
 
         addGenerator(gen);
 
-        addForce(new GravityGenerator<SolidEntity>(Vector3(0, -9.8f, 0)));
-
-        addForce(new WindGenerator<SolidEntity>(
-            Vector3(0, 5, 0),  // Centro
-            25.0f,             // Radio
-            Vector3(1.0f, 0, 0), // Viento hacia +X
-            0.3f,              // k1
-            0.05f              // k2
-        ));
+        addForce(new GravityGenerator<SolidEntity>(Vector3(0, 1.0f, 0)));
     }
-
-private:
-  
 };

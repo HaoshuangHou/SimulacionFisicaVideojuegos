@@ -64,7 +64,6 @@ void Scene::update(double t)
 		if (s)s->update(t);
 	}
 
-
 	for (auto it = _particles.begin(); it != _particles.end(); ) {
 		if (!(*it)->is_alive()) {
 			delete* it;

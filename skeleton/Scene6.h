@@ -3,10 +3,8 @@
 
 class Scene6: public Scene
 {
-protected:
-
 public:
-	Scene6() {};
+	Scene6() : Scene() {};
 	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene)  override;
 	virtual void enter() override;
 	virtual void exit() override;

@@ -86,7 +86,7 @@ void FireworkParticleSystem::createExplosionAt(const Vector3& pos, const Vector4
 
 void FireworkParticleSystem::createFirework()
 {
-    Particle* rocket = new Particle(*_rocketModel.get());
+    Particle* rocket = new Particle(*_rocketModel.get(), _launchPosition);
     _particles.push_back(std::unique_ptr<Particle>(rocket));
 }
 

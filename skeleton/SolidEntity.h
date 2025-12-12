@@ -16,23 +16,23 @@ private:
         physx::PxScene* scene = nullptr;
         bool dynamic = true;
         physx::PxGeometry* geometry = nullptr;
-        float density = 1.0f;
+        double density = 1.0f;
         physx::PxMaterial* material = nullptr;
     };
     ConstructionParams* _params = nullptr;
 
     void createPhysicsObject(physx::PxPhysics* physics, physx::PxScene* scene,
         bool dynamic, const physx::PxVec3& pos,
-        const physx::PxGeometry& geometry, float density,
+        const physx::PxGeometry& geometry, double density,
         physx::PxMaterial* material);
 
 public:
     SolidEntity(physx::PxPhysics* physics, physx::PxScene* scene,
         bool dynamic, const physx::PxVec3& pos,
-        const physx::PxGeometry& geometry, float density,
+        const physx::PxGeometry& geometry, double density,
         physx::PxMaterial* material, const Vector4& color);
 
-    SolidEntity(const SolidEntity& other);
+    SolidEntity(const SolidEntity& other, const Vector3& pos);
 
     virtual void update(double dt) override;
     virtual void create_renderItem() override;
@@ -51,8 +51,8 @@ public:
     // Setters
     void setVelocity(const Vector3& vel);
     void setAngularVelocity(const Vector3& angVel);
-    void setPos(const Vector3& pos);
     void setLifeTime(double lifetime);
+    void setMass(double mass);
     void setColor(const Vector4& color);
 
     physx::PxRigidActor* getActor() const;

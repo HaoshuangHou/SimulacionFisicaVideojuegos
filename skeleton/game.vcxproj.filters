@@ -155,6 +155,7 @@
     <ClInclude Include="Scene6.h" />
     <ClInclude Include="SolidEntity.h" />
     <ClInclude Include="SolidSystem.h" />
+    <ClInclude Include="BubbleSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

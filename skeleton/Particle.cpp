@@ -30,11 +30,11 @@ Particle::Particle(physx::PxShape* shape, Vector4 const& color, Vector3 const& p
 	_ant_pos = _transform.p;
 }
 
-Particle::Particle(const Particle& other, bool render)
-	: Entity(other._transform.p, CreateShape(PxSphereGeometry(other._size)), other._color, render),
+Particle::Particle(const Particle& other, const Vector3& pos, bool render)
+	: Entity(pos, CreateShape(PxSphereGeometry(other._size)), other._color, render),
 	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
 	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _color(other._color),
-	_ant_pos(other._transform.p), _size(other._size),
+	_ant_pos(pos), _size(other._size),
 	_force({0,0,0})
 { }
 

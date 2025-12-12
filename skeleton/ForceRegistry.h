@@ -17,6 +17,8 @@ protected:
     std::vector<ForceRegT<SolidEntity>> solidRegistry;
 
 public:
+    ForceRegistry() : particleRegistry(), solidRegistry() {};
+
     void addRegistry(Particle* particle, ForceGenerator<Particle>* fg) {
         if (particle && fg)
             particleRegistry.push_back({ particle, fg });

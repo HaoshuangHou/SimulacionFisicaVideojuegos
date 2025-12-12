@@ -12,15 +12,26 @@ void Scene6::init(physx::PxPhysics* physics, physx::PxScene* scene)
 
 
 	createRigidEntity(
-		false,                      // estático
-		Vector3(0, -1, 0),           // posición
-		PxBoxGeometry(200, 1, 200),   // suelo
-		0,                          // densidad (no importa si no es dinámico)
-		nullptr,                    // usa material por defecto
-		Vector4(0.5, 0.5, 0.5, 1)   // color
+		false,                      // estatico
+		Vector3(0, -1, 0),			//posicion
+		PxBoxGeometry(200, 1, 200), //geometria
+		0,                         
+		nullptr,                
+		Vector4(0.5, 0.5, 0.5, 1) 
 	);
 
-	BubbleSystem* b = new BubbleSystem(Vector3(0,10,0),_gPhysics, _gScene);
+	//SolidEntity* a = createRigidEntity(
+	//	true,                      // dinamico
+	//	Vector3(0, 100, 0),			//posicion
+	//	PxBoxGeometry(5.0f, 5.0f, 5.0f), //geometria
+	//	1.0f,
+	//	nullptr,
+	//	Vector4(1, 0.5, 0.5, 1)
+	//);
+	//GravityGenerator<SolidEntity>* g = new GravityGenerator<SolidEntity>(Vector3(0, -9.8, 0));
+	//_forceRegistry->addRegistry(a, g);
+
+	BubbleSystem* b = new BubbleSystem(Vector3(-30,30,-30),_gPhysics, _gScene);
 	_solidSystems.push_back(b);
 }
 
