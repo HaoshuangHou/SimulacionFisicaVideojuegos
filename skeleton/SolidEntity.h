@@ -47,12 +47,13 @@ public:
     Vector3 getVelocity() const;
     Vector3 getAngularVelocity() const;
     Vector3 getPos() const;
+    Vector3 getInertiaTensor() const;
 
     // Setters
     void setVelocity(const Vector3& vel);
     void setAngularVelocity(const Vector3& angVel);
     void setLifeTime(double lifetime);
-    void setMass(double mass);
+    void setInertiaTensor(const Vector3& I);
     void setColor(const Vector4& color);
 
     physx::PxRigidActor* getActor() const;

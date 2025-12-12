@@ -2,8 +2,8 @@
 #include "SolidSystem.h"
 #include "GravityGenerator.h"
 #include "WindGenerator.h"
-#include "NormalDistributionGen.h"
-#include "UniformDistributionGen.h"
+#include "WhirlwindGenerator.h"
+#include "SolidNormalDistributionGen.h"
 
 class BubbleSystem : public SolidSystem
 {
@@ -17,28 +17,30 @@ public:
             physics, scene, true,
             pos,
             physx::PxSphereGeometry(4.0f),
-            0.5f, 
+            0.1f, 
             bubbleMaterial, 
             Vector4(0.8f, 0.9f, 1.0f, 0.5f)
         );
-        _model_solid->setLifeTime(-1.0f);
+        _model_solid->setLifeTime(20.0f);
 
-        NormalDistributionGen<SolidEntity>* gen =
-            new NormalDistributionGen<SolidEntity>(
+        SolidNormalDistributionGen* gen =
+            new SolidNormalDistributionGen(
                 _model_solid,
                 pos,
-                Vector3(0,15.0f,0),  
-                -1.0f, 
+                Vector3(1.0f,1.0f,1.0f),  
+                20.0f, 
                 1
             );
 
-        gen->setSpawnProbability(0.08);
-        gen->setDesPos(Vector3(20.0f, 4.0f, 20.0f));
-        gen->setDesVel(Vector3(0.5f, 2.0f, 0.5f)); 
-        gen->setDesMass(0.01f);
+        gen->setSpawnProbability(0.02);
+        gen->setDesPos(Vector3(20.0f, 5.0f, 20.0f));
+        gen->setDesVel(Vector3(1.0f, 1.0f, 1.0f)); 
+        gen->setDesInertia(Vector3(0.2f, 0.2f, 0.2f));
+        gen->setDesDur(1.0f);
 
         addGenerator(gen);
 
-        addForce(new GravityGenerator<SolidEntity>(Vector3(0, 1.0f, 0)));
+       // addForce(new GravityGenerator<SolidEntity>(Vector3(0, 2.0f, 0)));
+        addForce(new WhirlwindGenerator<SolidEntity>(pos, 50.0f, 5.0f, 0.1, 0.02));
     }
 };

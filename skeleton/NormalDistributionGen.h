@@ -23,10 +23,8 @@ public:
 
                 T* new_particle = new T(*_model, pos);
 
-                const double mass = new_particle->getMass() + _normal(_mt) * _des_Mass;
                 new_particle->setVelocity(vel);
                 new_particle->setLifeTime(dur);
-                new_particle->setMass(mass);
 
                 list.push_back(new_particle);
             }

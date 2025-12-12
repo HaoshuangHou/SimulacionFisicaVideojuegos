@@ -18,16 +18,15 @@ protected:
 	Vector3 _des_Pos;
 	Vector3 _des_Vel;
 	double _des_Dur;
-	double _des_Mass;
 
 	double _spawnProbability = 0.5;
 public:
 	Generator() : _pos(0, 0, 0), _vel(1, 0, 0), _dur(1), n_particle(1),
-		_mt(std::random_device{}()), _model(nullptr), _des_Pos(0, 0, 0),_des_Dur(0),_des_Vel(0, 0, 0), _des_Mass(0) {};
+		_mt(std::random_device{}()), _model(nullptr), _des_Pos(0, 0, 0),_des_Dur(0),_des_Vel(0, 0, 0) {};
 
 	Generator(T* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
 		:_pos(position), _vel(velocity), _dur(duration), n_particle(n_particle),
-		_mt(std::random_device{}()), _model(model_p), _des_Pos(), _des_Dur(), _des_Vel(), _des_Mass() {};
+		_mt(std::random_device{}()), _model(model_p), _des_Pos(), _des_Dur(), _des_Vel() {};
 
 	virtual ~Generator() = default;
 
@@ -53,8 +52,6 @@ public:
 
 	inline double getDesDur() const { return _des_Dur; };
 	inline void  setDesDur(double desDur) { _des_Dur = desDur; };
-
-	inline void  setDesMass(double desMass) { _des_Mass = desMass; };
 
 	inline void setSpawnProbability(double p) {
 		_spawnProbability = max(0.0,min(p, 1.0));

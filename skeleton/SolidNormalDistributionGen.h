@@ -1,0 +1,43 @@
+#pragma once
+#include "Generator.h"
+#include "SolidEntity.h"
+
+class SolidNormalDistributionGen : public Generator<SolidEntity>
+{
+private:
+	std::normal_distribution<double> _normal;
+    Vector3 _des_Iner;
+public:
+    SolidNormalDistributionGen(SolidEntity* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
+        :Generator<SolidEntity>(model_p, position, velocity, duration, n_particle), _des_Iner()
+	{};
+
+    void setDesInertia(const Vector3& in) {
+        _des_Iner = in;
+    }
+    std::list<SolidEntity*> generate() override
+    {
+        std::list<SolidEntity*> list;
+
+        for (int i = 0; i < n_particle; i++) {
+            if (canGenerate()) {
+
+                const Vector3 pos = _pos + Vector3(_normal(_mt) * _des_Pos.x, _normal(_mt) * _des_Pos.y, _normal(_mt) * _des_Pos.z);
+                const Vector3 vel = _vel + Vector3(_normal(_mt) * _des_Vel.x, _normal(_mt) * _des_Vel.y, _normal(_mt) * _des_Vel.z);
+                const double dur = _dur + _normal(_mt) * _des_Dur;
+
+                SolidEntity* new_solid = new SolidEntity(*_model, pos);
+                const Vector3 inr = new_solid->getInertiaTensor() + Vector3(_normal(_mt) * _des_Iner.x, _normal(_mt) * _des_Iner.y, _normal(_mt) * _des_Iner.z);
+
+                new_solid->setVelocity(vel);
+                new_solid->setLifeTime(dur);
+
+                list.push_back(new_solid);
+            }
+        }
+        return list;
+    }
+
+
+};
+

@@ -27,6 +27,6 @@ public:
             _wind_velocity = _K * Vector3(-r.z, 20 - r.y, r.x);
         }
 
-        WindGenerator::updateForce(particle, dt);
+        WindGenerator<T>::updateForce(particle, dt);
     }
 };

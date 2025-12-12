@@ -66,6 +66,7 @@
     <ClCompile Include="Scene6.cpp" />
     <ClCompile Include="SolidSystem.cpp" />
     <ClCompile Include="SolidEntity.cpp" />
+    <ClCompile Include="SolidProjectil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Render\Camera.h">
@@ -156,6 +157,9 @@
     <ClInclude Include="SolidEntity.h" />
     <ClInclude Include="SolidSystem.h" />
     <ClInclude Include="BubbleSystem.h" />
+    <ClInclude Include="SolidProjectil.h" />
+    <ClInclude Include="SolidUniformDistributionGen.h" />
+    <ClInclude Include="SolidNormalDistributionGen.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Render">

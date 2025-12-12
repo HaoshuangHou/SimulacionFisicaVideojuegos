@@ -102,8 +102,10 @@ void SolidEntity::create_renderItem()
 
 void SolidEntity::addForce(const Vector3& force)
 {
-    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>()) {
         dyn->addForce(physx::PxVec3(force.x, force.y, force.z), physx::PxForceMode::eFORCE);
+    }
+
 }
 
 void SolidEntity::addTorque(const Vector3& torque)
@@ -120,29 +122,39 @@ bool SolidEntity::is_alive() const {
 
 double SolidEntity::getMass() const
 {
-    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    if (const physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
         return dyn->getMass();
     return 0.0f;
 }
 
 Vector3 SolidEntity::getVelocity() const
 {
-    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    if (const physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
         return dyn->getLinearVelocity();
     return Vector3(0, 0, 0);
 }
 
 Vector3 SolidEntity::getAngularVelocity() const
 {
-    if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    if (const physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
         return dyn->getAngularVelocity();
     return Vector3(0, 0, 0);
 }
 
 Vector3 SolidEntity::getPos() const
 {
-    physx::PxTransform transform = _actor->getGlobalPose();
+    const physx::PxTransform transform = _actor->getGlobalPose();
     return Vector3(transform.p.x, transform.p.y, transform.p.z);
+}
+
+Vector3 SolidEntity::getInertiaTensor() const
+{
+    if (!_actor) return Vector3(0, 0, 0);
+
+    if (const physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
+    {
+        return dyn->getMassSpaceInertiaTensor();
+    }
 }
 
 //Setters
@@ -166,13 +178,13 @@ void SolidEntity::setLifeTime(double lifetime)
     _timeAlive = 0.0f;
 }
 
-void SolidEntity::setMass(double mass)
+void SolidEntity::setInertiaTensor(const Vector3& I)
 {
     if (!_actor) return;
 
     if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
     {
-        physx::PxRigidBodyExt::updateMassAndInertia(*dyn, mass);
+        dyn->setMassSpaceInertiaTensor(I);
     }
 }
 

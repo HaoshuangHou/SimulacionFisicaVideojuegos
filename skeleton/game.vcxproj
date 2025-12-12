@@ -278,6 +278,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shooter.cpp" />
     <ClCompile Include="SolidEntity.cpp" />
+    <ClCompile Include="SolidProjectil.cpp" />
     <ClCompile Include="SolidSystem.cpp" />
     <ClCompile Include="TapParticleSystem.cpp" />
     <ClCompile Include="Vector3D.cpp" />
@@ -316,7 +317,10 @@
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shooter.h" />
+    <ClInclude Include="SolidNormalDistributionGen.h" />
+    <ClInclude Include="SolidProjectil.h" />
     <ClInclude Include="SolidSystem.h" />
+    <ClInclude Include="SolidUniformDistributionGen.h" />
     <ClInclude Include="SpringForceGenerator.h" />
     <ClInclude Include="TapParticleSystem.h" />
     <ClInclude Include="UniformDistributionGen.h" />
