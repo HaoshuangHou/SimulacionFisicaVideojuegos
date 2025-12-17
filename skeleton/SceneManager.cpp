@@ -7,6 +7,8 @@
 #include "Scene5.h"
 #include "Scene6.h"
 #include "SceneGame.h"
+#include "Game/GameMainMenu.h"
+#include "Game/GameOverMenu.h"
 
 SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene)
     :_current_scene(0), _gPhysics(physics), _gScene(scene)
@@ -27,6 +29,8 @@ void SceneManager::initScenes()
     _scenes.push_back(std::make_unique<Scene5>());
     _scenes.push_back(std::make_unique<Scene6>());
     _scenes.push_back(std::make_unique<SceneGame>());
+    _scenes.push_back(std::make_unique<GameMainMenu>());
+    _scenes.push_back(std::make_unique<GameOverMenu>());
 
     // Inicializar
     for (auto& s : _scenes) {
@@ -67,6 +71,14 @@ void SceneManager::handleSpecialInput(int key)
     if (_current_scene >= 0 && _current_scene < _scenes.size()) {
         _scenes.at(_current_scene)->handleSpecialInput(key);
     }
+}
+
+Scene* SceneManager::getCurrentScene() const
+{
+    if (_current_scene >= 0 && _current_scene < _scenes.size())
+        return _scenes[_current_scene].get();
+
+    return nullptr;
 }
 
 std::string SceneManager::getDisplayText() const

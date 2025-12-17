@@ -136,7 +136,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	}
 	case 'G':
 	{
-		_sceneM->changeScene(4);
+		_sceneM->changeScene(5);
 		display_text = _sceneM->getDisplayText();
 		break;
 	}

@@ -48,6 +48,8 @@ void Scene::clean()
 
 void Scene::update(double t)
 {
+	updateViewportFromScreen();
+
 	_forceRegistry->updateForces(t);
 
 	for (auto& e : _particles) {
@@ -93,6 +95,14 @@ void Scene::addEntityWithRenderItem(Particle* p)
 		p->create_renderItem();
 	}
 	_particles.push_back(p);
+}
+
+void Scene::addEntityWithRenderItem(SolidEntity* s)
+{
+	if (s->getRenderItem() == nullptr) {
+		s->create_renderItem();
+	}
+	_solids.push_back(s);
 }
 
 void Scene::enter()
@@ -199,4 +209,44 @@ SolidEntity* Scene::createRigidEntity(bool dynamic, const Vector3& pos, const ph
 
 }
 
+void Scene::setupCamera()
+{
+	if (GetCamera()) {
+		GetCamera()->setEye({ 0.0f, 0.0f, 25.0f });
+		GetCamera()->setDir({ 0.0f, 0.0f, -1.0f });
+	}
+}
 
+Vector3 Scene::getRelativePosition(float relX, float relY, float z) const {
+	float worldX = (relX - 0.5f) * _worldWidth;
+	float worldY = (relY - 0.5f) * _worldHeight;
+
+	return Vector3(worldX, worldY, z);
+}
+void Scene::updateViewportFromScreen() {
+	int screenWidth = glutGet(GLUT_WINDOW_WIDTH);
+	int	screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
+	float screenAspect = (float)screenWidth / (float)screenHeight;
+
+	float baseWorldHeight = 25.0f;
+	float baseWorldWidth = 30.0f;
+	float baseAspect = baseWorldWidth / baseWorldHeight;
+
+	float oldWorldWidth = _worldWidth;
+	float oldWorldHeight = _worldHeight;
+
+	// Calcular nuevas dimensiones
+	if (screenAspect > baseAspect) {
+		_worldHeight = baseWorldHeight;
+		_worldWidth = baseWorldHeight * screenAspect;
+	}
+	else {
+		_worldWidth = baseWorldWidth;
+		_worldHeight = baseWorldWidth / screenAspect;
+	}
+
+	// Si las dimensiones cambiaron, reposicionar objetos
+	if (oldWorldWidth != _worldWidth || oldWorldHeight != _worldHeight) {
+		repositionObjects();
+	}
+}

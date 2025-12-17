@@ -47,7 +47,11 @@
 #endif
 #include <string>
 
+#include "../SceneManager.h"
+class Scene;
+
 extern std::string display_text;
+extern SceneManager* _sceneM;
 
 enum ProjectionMode {
     PROJ_PERSPECTIVE,   // Forzar perspectiva
@@ -66,6 +70,7 @@ void renderShape(const physx::PxShape& shape, const physx::PxTransform& transfor
 void renderActors(physx::PxRigidActor** actors, const physx::PxU32 numActors, bool shadows = false, const physx::PxVec4 & color = physx::PxVec4(0.0f, 0.75f, 0.0f, 1.0f));
 void finishRender();
 void drawText(const std::string& text, int x, int y);
+void drawText(const std::string& text, float x, float y, int tam, bool centered, bool bold = false, bool drawBackground = false, const float textColor[4] = nullptr, const float bgColor[4] = nullptr);
 }
 
 #define MAX_NUM_ACTOR_SHAPES 128

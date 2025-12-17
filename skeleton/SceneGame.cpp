@@ -11,6 +11,10 @@
 #include "TapParticleSystem.h"
 #include "FireworkParticleSystem.h"
 
+#include "SolidEntity.h"
+#include "SolidProjectil.h"
+#include "BubbleSystem.h"
+
 #include <iostream>
 #include <sstream>
 
@@ -20,8 +24,7 @@ SceneGame::SceneGame()
 	_fireSystem(nullptr), _fireworkSystem(nullptr), _fog(nullptr),
 	_windParticleSystem(nullptr), _whirlwindParticleSystem(nullptr),
 	_projectilePower(20.0f),_projectilesRemaining(8), _maxProjectiles(8),
-	_windActive(false), _whirlwindActive(false),_gameWon(false),_gameOver(false),
-	_worldWidth(30.0f), _worldHeight(25.0f), _explosionTimer(0)
+	_windActive(false), _whirlwindActive(false),_gameWon(false),_gameOver(false), _explosionTimer(0)
 {}
 
 SceneGame::~SceneGame()
@@ -40,8 +43,6 @@ void SceneGame::init(physx::PxPhysics* physics, physx::PxScene* scene)
 	_text = "FLECHAS Girar / Potencia | SPACE Disparar | 1 Viento | 2 Torbellino ";
 	clearScene();
 
-	updateViewportFromScreen();
-
 	createGameObjects();
 	setupForces();
 
@@ -55,7 +56,6 @@ void SceneGame::init(physx::PxPhysics* physics, physx::PxScene* scene)
 void SceneGame::update(double t)
 {
 	updateGameState(t);
-	updateViewportFromScreen();
 	if (_gameWon) {
 		if (_explosionTimer > 0.0) {
 			_explosionTimer -= t;
@@ -103,13 +103,6 @@ void SceneGame::clearScene()
 
 	if (_explosionGenerator) {
 		_explosionGenerator->active(false);
-	}
-}
-void SceneGame::setupCamera()
-{
-	if (GetCamera()) {
-		GetCamera()->setEye({ 0.0f, 0.0f, 25.0f });
-		GetCamera()->setDir({ 0.0f, 0.0f, -1.0f });
 	}
 }
 
@@ -175,8 +168,8 @@ void SceneGame::shoot()
 	dir.normalize();
 	const Vector3 ini_pos = _shooter->getPosition();
 
-	Projectil* newProjectile = new Projectil(ini_pos, _projectilePower * dir, ProjectilType::GAME, Vector4(0.0, 0.0, 1.0, 1.0));
-	newProjectile->setTam(0.5);
+	SolidProjectil* newProjectile = new SolidProjectil(_gPhysics, _gScene, ini_pos, _projectilePower * dir, Vector4(0.0, 0.0, 1.0, 1.0));
+	//newProjectile->setTam(0.5);
 	newProjectile->setLifeTime(10.0f);
 
 	addEntityWithRenderItem(newProjectile);
@@ -275,50 +268,13 @@ void SceneGame::updateGameState(double t)
 #pragma endregion
 
 #pragma region GameObjectPosition
-Vector3 SceneGame::getRelativePosition(float relX, float relY, float z) const
-{
-	float worldX = (relX - 0.5f) * _worldWidth;
-	float worldY = (relY - 0.5f) * _worldHeight;
-
-	return Vector3(worldX, worldY, z);
-}
-
-void SceneGame::updateViewportFromScreen()
-{
-	int screenWidth = glutGet(GLUT_WINDOW_WIDTH);
-	int	screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
-	float screenAspect = (float)screenWidth / (float)screenHeight;
-
-	float baseWorldHeight = 25.0f;
-	float baseWorldWidth = 30.0f;
-	float baseAspect = baseWorldWidth / baseWorldHeight;
-
-	float oldWorldWidth = _worldWidth;
-	float oldWorldHeight = _worldHeight;
-
-	// Calcular nuevas dimensiones
-	if (screenAspect > baseAspect) {
-		_worldHeight = baseWorldHeight;
-		_worldWidth = baseWorldHeight * screenAspect;
-	}
-	else {
-		_worldWidth = baseWorldWidth;
-		_worldHeight = baseWorldWidth / screenAspect;
-	}
-
-	// Si las dimensiones cambiaron, reposicionar objetos
-	if (oldWorldWidth != _worldWidth || oldWorldHeight != _worldHeight) {
-		repositionObjects();
-	}
-}
 
 void SceneGame::repositionObjects()
 {
 	if (_shooter) {
 		_shooter->setPosition(getRelativePosition(0.05f, 0.05f));
 	}
-
-	// Reposicionar el objetivo
+	
 	if (_target) {
 		_target->setPosition(getRelativePosition(0.8f, 0.5f));
 	}
@@ -344,23 +300,25 @@ void SceneGame::createGameObjects()
 #pragma region Forces
 void SceneGame::setupForces()
 {
-	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
+	_gravityGenerator = new GravityGenerator<SolidEntity>(Vector3(0, -9.8, 0));
 
 	const Vector3 windPos = getRelativePosition(0.3f, 0.2f);
 	const Vector3 windDir = Vector3(0, 1, 0);
-	_windGenerator = new WindGenerator<Particle>(windPos, 5, windDir *50, 0.3);
+	_windGenerator = new WindGenerator<SolidEntity>(windPos, 5, windDir *50, 0.3);
+	WindGenerator<Particle>* w = new WindGenerator<Particle>(windPos, 5, windDir * 50, 0.3);
 
 	const Vector3 whirlwindPos = getRelativePosition(0.4f, 0.6f);
-	_whirlwindGenerator = new WhirlwindGenerator<Particle>(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
+	_whirlwindGenerator = new WhirlwindGenerator<SolidEntity>(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
+	WhirlwindGenerator<Particle>* ww = new WhirlwindGenerator<Particle>(whirlwindPos, 4.0f, 1.8f, 0.2f, 0.05f, true);
 
 	_windParticleSystem = new ForceParticleSystem(
-		_windGenerator,
+		w,
 		Vector4(0.6f, 0.7f, 0.8f, 0.45f),
 		false
 	);
 
 	_whirlwindParticleSystem = new ForceParticleSystem(
-		_whirlwindGenerator,
+		ww,
 		Vector4(0.65f, 0.6f, 0.9f, 0.5f),
 		true
 	);
@@ -372,10 +330,10 @@ void SceneGame::setupForces()
 	_whirlwindParticleSystem->setVisible(false);
 
 	if (_windParticleSystem) {
-		_windParticleSystem->addForce(_windGenerator);
+		_windParticleSystem->addForce(w);
 	}
 	if (_whirlwindParticleSystem) {
-		_whirlwindParticleSystem->addForce(_whirlwindGenerator);
+		_whirlwindParticleSystem->addForce(ww);
 	}
 
 	_explosionGenerator = new ExplosionGenerator<Particle>(_victoryPos, 5.0f, 100, 5);
@@ -405,7 +363,7 @@ void SceneGame::toggleForce(ForceType forceType)
 	}	
 }
 
-void SceneGame::applyForceToAllProjectiles(ForceGenerator<Particle>* forceGenerator, bool active)
+void SceneGame::applyForceToAllProjectiles(ForceGenerator<SolidEntity>* forceGenerator, bool active)
 {
 	if (!forceGenerator) return;
 

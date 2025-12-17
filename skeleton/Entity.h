@@ -8,7 +8,6 @@ class Entity {
 public:
     Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color);
     Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem);
-    Entity(physx::PxRigidActor* actor, physx::PxShape* shape, Vector4 color);
 
     virtual ~Entity();
     virtual void update(double t) = 0;

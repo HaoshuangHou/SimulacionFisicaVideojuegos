@@ -32,16 +32,25 @@ public:
 	virtual void handleSpecialInput(int key) {};
 	virtual void update(double t);
 	virtual void addEntityWithRenderItem(Particle* p);
+	virtual void addEntityWithRenderItem(SolidEntity* s);
 	virtual void enter();
 	virtual void exit();
 	std::string getDisplayText() const;
+
+	virtual void render_interface() {};
 
 	void addParticleSystem(ParticleSystem* ps);
 	void addGlobalForce(ForceGenerator<Particle>* force);
 	void removeParticle(Particle* p);
 	void removePacticleSystem(ParticleSystem* ps);
+	virtual void setupCamera();
+
+	virtual void repositionObjects() {}
 
 protected:
+	virtual Vector3 getRelativePosition(float relX, float relY, float z = 0.0f) const;
+	void updateViewportFromScreen();
+
 	physx::PxPhysics* _gPhysics = nullptr;
 	physx::PxScene* _gScene = nullptr;
 
@@ -54,6 +63,8 @@ protected:
 	std::string _text;
 	ForceRegistry* _forceRegistry;
 
+	float _worldWidth = 30.0f;
+	float _worldHeight = 25.0f;
 
 	physx::PxMaterial* createMaterial(float staticFriction, float dynamicFriction, float restitution);
 

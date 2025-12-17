@@ -9,6 +9,7 @@ class FireParticleSystem;
 class TapParticleSystem;
 class FogParticleSystem;
 class ForceParticleSystem;
+class SolidProjectil;
 
 enum ForceType {
 	WIND, WHIRLWIND, EXPLOSION, NUM_FORCE
@@ -36,12 +37,11 @@ private:
 	void updateProjectilePower(float delta);
 	void checkProjectileState();
 
-	void setupCamera();
 	void updateGameState(double t);
 
 	Shooter* _shooter = nullptr;
 	Particle* _target;
-	std::list<Projectil*> _activeProjectiles;
+	std::list<SolidProjectil*> _activeProjectiles;
 
 	// Estado del juego
 	float _projectilePower;
@@ -56,18 +56,13 @@ private:
 	const float MAX_POWER = 50.0f;
 	const float MIN_POWER = 5.0f;
 
-
-	float _worldWidth, _worldHeight;
-
-	Vector3 getRelativePosition(float relX, float relY, float z = 0.0f) const;
-	void updateViewportFromScreen();
-	void repositionObjects();
+	virtual	void repositionObjects() override;
 
 	// Fuerzas
 	ExplosionGenerator<Particle>* _explosionGenerator;
-	WindGenerator<Particle>* _windGenerator;
-	GravityGenerator<Particle>* _gravityGenerator;
-	WhirlwindGenerator<Particle>* _whirlwindGenerator;
+	WindGenerator<SolidEntity>* _windGenerator;
+	GravityGenerator<SolidEntity>* _gravityGenerator;
+	WhirlwindGenerator<SolidEntity>* _whirlwindGenerator;
 
 	//sistemas de particulas
 	FireworkParticleSystem* _fireworkSystem;
@@ -85,5 +80,5 @@ private:
 
 	void setupForces();
 	void toggleForce(ForceType forceType);
-	void applyForceToAllProjectiles(ForceGenerator<Particle>* forceGenerator, bool active);
+	void applyForceToAllProjectiles(ForceGenerator<SolidEntity>* forceGenerator, bool active);
 };

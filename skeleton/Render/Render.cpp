@@ -29,6 +29,7 @@
 
 #include "Render.h"
 #include <assert.h>
+#include "../Scene.h"
 
 using namespace physx;
 
@@ -416,11 +417,20 @@ void finishRender()
 	// Display text
 	drawText(display_text, 1, 2);
 
+	if (_sceneM)
+	{
+		Scene* scene = _sceneM->getCurrentScene();
+		if (scene) scene->render_interface();
+	}
+
 	glutSwapBuffers();
 }
 
 void drawText(const std::string& text, int x, int y)
 {
+	if (text.empty())
+		return;
+
 	glMatrixMode(GL_PROJECTION);
 	double* matrix = new double[16];
 	glGetDoublev(GL_PROJECTION_MATRIX, matrix);
@@ -477,6 +487,89 @@ void drawText(const std::string& text, int x, int y)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+
+void drawText(const std::string& text, float x, float y, int tam, bool centered, bool bold,
+	bool drawBackground, const float textColor[4], const float bgColor[4])
+{
+	if (text.empty()) return;
+
+	//fuente
+	void* font = GLUT_STROKE_ROMAN;
+
+	const int width = glutGet(GLUT_WINDOW_WIDTH);
+	const int height = glutGet(GLUT_WINDOW_HEIGHT);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho(0, width, 0, height, -1, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+	glDisable(GL_DEPTH_TEST);
+
+	//escalal
+	const float scale = tam / 100.0f;
+
+	//ancho total
+	float textWidth = 0.0f;
+	for (char c : text) textWidth += glutStrokeWidth(font, c);
+
+	float textHeight = 100.0f;
+
+	float drawX = x;
+	if (centered) drawX -= (textWidth * scale) / 2.0f;
+
+	if (drawBackground)
+	{
+		glColor4f(
+			bgColor ? bgColor[0] : 0.5f,
+			bgColor ? bgColor[1] : 0.5f,
+			bgColor ? bgColor[2] : 0.5f,
+			bgColor ? bgColor[3] : 0.5f
+		);
+
+		glBegin(GL_QUADS);
+		glVertex2f(drawX - 5, y - 5);
+		glVertex2f(drawX + textWidth * scale + 5, y - 5);
+		glVertex2f(drawX + textWidth * scale + 5, y + textHeight * scale + 5);
+		glVertex2f(drawX - 5, y + textHeight * scale + 5);
+		glEnd();
+	}
+
+	glTranslatef(drawX, y, 0.0f);
+	glScalef(scale, scale, 1.0f);
+
+	glColor4f(
+		textColor ? textColor[0] : 1.0f,
+		textColor ? textColor[1] : 1.0f,
+		textColor ? textColor[2] : 1.0f,
+		textColor ? textColor[3] : 1.0f
+	);
+
+	if (bold)
+	{
+		for (float dx = -4.0f; dx <= 4.0f; dx += 0.25f)
+		{
+			for (float dy = -3.0f; dy <= 3.0f; dy += 0.25f)
+			{
+				glPushMatrix();
+				glTranslatef(dx, dy, 0.0f);
+				for (char c : text) glutStrokeCharacter(font, c);
+				glPopMatrix();
+			}
+		}
+	}
+
+	for (char c : text) glutStrokeCharacter(font, c);
+
+	glEnable(GL_DEPTH_TEST);
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+}
 
 
 } //namespace Snippets
