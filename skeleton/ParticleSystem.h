@@ -2,8 +2,8 @@
 #include <list>
 #include <memory>
 #include "core.hpp"
-#include "Generator.h"
 #include "ForceGenerator.h"
+#include "Generator.h"
 
 class Particle;
 class ForceRegistry;

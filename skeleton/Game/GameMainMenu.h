@@ -3,7 +3,7 @@
 class GameMainMenu : public Scene
 {
 public:
-	GameMainMenu() {};
+	GameMainMenu():Scene() {};
 
 	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene) override;
 	virtual void handleInput(unsigned char key) override;

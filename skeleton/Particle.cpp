@@ -13,29 +13,33 @@ Particle::Particle(Vector3 const&  pos, Vector3 const& velocity,
 	
 	:Entity(pos, CreateShape(PxSphereGeometry(1)), color), _vel(velocity), 
 	_ac(acceleration),_intType(t), _mass(mass), _dampingValue(dumping), 
-	_lifeTime(10), _iniTime(0), _color(color), _size(1),
-	_force({ 0,0,0 })
+	_lifeTime(10), _iniTime(0), _color(color), _size(1,0,0),
+	_force({ 0,0,0 }), _shapeType(SPHERE)
 {
 	_ant_pos = _transform.p;
 }
 
-Particle::Particle(physx::PxShape* shape, Vector4 const& color, Vector3 const& pos, 
-	Vector3 const& velocity, Vector3 const& acceleration,double mass, 
+Particle::Particle(ShapeType shape, Vector4 const& color, Vector3 const& pos,
+	Vector3 const& velocity, Vector3 const& acceleration, double mass,
 	double dumping, IntegrateType t)
-	:Entity(pos, shape, color), _vel(velocity),
-	_ac(acceleration), _intType(t), _mass(mass), _dampingValue(dumping),
-	_lifeTime(20), _iniTime(0), _color(color), _size(1),
-	_force({ 0,0,0 })
+	:Entity(pos, (shape == ShapeType::CUBE) ? CreateShape(PxBoxGeometry(1.0f, 1.0f, 1.0f)) : CreateShape(PxSphereGeometry(1.0f)), color) ,
+	_vel(velocity),_ac(acceleration), _intType(t), _mass(mass), _dampingValue(dumping),
+	_lifeTime(20), _iniTime(0), _color(color), _size(1,0,0),
+	_force({ 0,0,0 }), _shapeType(shape)
 {
 	_ant_pos = _transform.p;
 }
 
 Particle::Particle(const Particle& other, const Vector3& pos, bool render)
-	: Entity(pos, CreateShape(PxSphereGeometry(other._size)), other._color, render),
+	: Entity(pos, 
+			(other._shapeType == ShapeType::CUBE) ?
+			CreateShape(PxBoxGeometry(other._size)) :
+			CreateShape(PxSphereGeometry(other._size.x)),
+			other._color, render),
 	_vel(other._vel), _ac(other._ac), _mass(other._mass), _dampingValue(other._dampingValue),
 	_lifeTime(other._lifeTime), _intType(other._intType), _iniTime(0), _color(other._color),
 	_ant_pos(pos), _size(other._size),
-	_force({0,0,0})
+	_force({0,0,0}), _shapeType(other._shapeType)
 { }
 
 Particle& Particle::operator=(const Particle& other)
@@ -176,11 +180,33 @@ void Particle::setDamping(double damping)
 	_dampingValue = damping;
 }
 
-void Particle::setTam(double tam)
+void Particle::setTam(float tam)
 {
 	if (_shape) {
-		const PxSphereGeometry sphere(tam);
-		_shape->setGeometry(sphere);
+		if (_shapeType == SPHERE) {
+			const PxSphereGeometry sphere(tam);
+			_shape->setGeometry(sphere);
+		}
+		else if (_shapeType == CUBE) {
+			const PxBoxGeometry cube(tam, tam, tam);
+			_shape->setGeometry(cube);
+		}
+
+		if (_renderItem) {
+			DeregisterRenderItem(_renderItem.get());
+			RegisterRenderItem(_renderItem.get());
+		}
+		_size = { tam,tam,tam };
+	}
+}
+
+void Particle::setTam(Vector3 tam)
+{
+	if (_shape) {
+		if (_shapeType == CUBE) {
+			const PxBoxGeometry cube(tam.x, tam.y, tam.z);
+			_shape->setGeometry(cube);
+		}
 
 		if (_renderItem) {
 			DeregisterRenderItem(_renderItem.get());
@@ -189,6 +215,7 @@ void Particle::setTam(double tam)
 		_size = tam;
 	}
 }
+
 
 void Particle::addForce(Vector3 const& f)
 {

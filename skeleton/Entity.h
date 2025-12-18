@@ -10,7 +10,7 @@ public:
     Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color, bool renderItem);
 
     virtual ~Entity();
-    virtual void update(double t) = 0;
+    virtual void update(double t) {};
 
     // Getters
     physx::PxTransform getTransform() const { return _transform; };
@@ -19,15 +19,16 @@ public:
     bool is_alive()const { return _alive; };
     void setAlive(bool alive) { _alive = alive; }
     virtual void create_renderItem();
-    void deregisterRenderItem();
+    virtual void deregisterRenderItem();
     bool isRenderItemValid();
-    void setPosition(const Vector3& pos);
+    virtual void setPosition(const Vector3& pos);
+    virtual void setRotation(const physx::PxQuat& q);
 protected:
     physx::PxTransform _transform;
     std::unique_ptr<RenderItem> _renderItem;
-    bool _alive;
-    physx::PxShape* _shape;
-    physx::PxRigidActor* _actor;
+    bool _alive = true;
+    physx::PxShape* _shape = nullptr;
+    physx::PxRigidActor* _actor = nullptr;
     Vector4 _color;
 
     bool _renderItemRegistered;

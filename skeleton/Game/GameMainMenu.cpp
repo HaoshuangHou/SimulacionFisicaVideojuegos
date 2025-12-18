@@ -1,5 +1,6 @@
 #include "GameMainMenu.h"
 #include "../BubbleSystem.h"
+#include "../AlgaeParticleSystem.h"
 
 void GameMainMenu::init(physx::PxPhysics* physics, physx::PxScene* scene)
 {
@@ -8,7 +9,7 @@ void GameMainMenu::init(physx::PxPhysics* physics, physx::PxScene* scene)
 	_text = "";
 
 	title = "JUEGO";
-	BubbleSystem* b = new BubbleSystem({ 0,0,0 }, physics, scene);
+	BubbleSystem* b = new BubbleSystem({ 0,10,0 }, physics, scene);
 	_solidSystems.push_back(b);
 }
 

@@ -33,14 +33,16 @@ ForceParticleSystem::ForceParticleSystem(ForceGenerator<Particle>* forceGenerato
         forceGen->setDesDur(2.0f);
     }
     addGenerator(forceGen);
+    addForce(forceGenerator);
 }
 
 void ForceParticleSystem::setVisible(bool visible)
 {
     const float alpha = visible ? 1.0f : 0.0f;
 
+    size_t nullCount = 0;
     for (auto& p : _particles) {
-        p->setColor(Vector4(_particleColor.x, _particleColor.y, _particleColor.z, alpha));
+        if (p)p->setColor(Vector4(_particleColor.x, _particleColor.y, _particleColor.z, alpha));
     }
 
     if (_model_particle) {

@@ -254,10 +254,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AlgaeParticleSystem.cpp" />
     <ClCompile Include="callbacks.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FireParticleSystem.cpp" />
     <ClCompile Include="FireworkParticleSystem.cpp" />
+    <ClCompile Include="Fish.cpp" />
     <ClCompile Include="FogParticleSystem.cpp" />
     <ClCompile Include="ForceParticleSystem.cpp" />
     <ClCompile Include="Game\GameMainMenu.cpp" />
@@ -276,9 +278,9 @@
     <ClCompile Include="Scene4.cpp" />
     <ClCompile Include="Scene5.cpp" />
     <ClCompile Include="Scene6.cpp" />
+    <ClCompile Include="SceneCollisionCallback.cpp" />
     <ClCompile Include="SceneGame.cpp" />
     <ClCompile Include="SceneManager.cpp" />
-    <ClCompile Include="Shooter.cpp" />
     <ClCompile Include="SolidEntity.cpp" />
     <ClCompile Include="SolidProjectil.cpp" />
     <ClCompile Include="SolidSystem.cpp" />
@@ -286,6 +288,7 @@
     <ClCompile Include="Vector3D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AlgaeParticleSystem.h" />
     <ClInclude Include="BubbleSystem.h" />
     <ClInclude Include="BuoyancyForceGenerator.h" />
     <ClInclude Include="callbacks.hpp" />
@@ -295,6 +298,7 @@
     <ClInclude Include="ExplosionGenerator.h" />
     <ClInclude Include="FireParticleSystem.h" />
     <ClInclude Include="FireworkParticleSystem.h" />
+    <ClInclude Include="Fish.h" />
     <ClInclude Include="FogParticleSystem.h" />
     <ClInclude Include="ForceGenerator.h" />
     <ClInclude Include="ForceParticleSystem.h" />
@@ -310,6 +314,7 @@
     <ClInclude Include="RenderUtils.hpp" />
     <ClInclude Include="Render\Camera.h" />
     <ClInclude Include="Render\Render.h" />
+    <ClInclude Include="SceneCollisionCallback.h" />
     <ClInclude Include="SolidEntity.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
@@ -320,7 +325,6 @@
     <ClInclude Include="Scene6.h" />
     <ClInclude Include="SceneGame.h" />
     <ClInclude Include="SceneManager.h" />
-    <ClInclude Include="Shooter.h" />
     <ClInclude Include="SolidNormalDistributionGen.h" />
     <ClInclude Include="SolidProjectil.h" />
     <ClInclude Include="SolidSystem.h" />

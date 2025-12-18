@@ -1,17 +1,16 @@
 ﻿#include "FireParticleSystem.h"
 #include "Particle.h"
-#include "NormalDistributionGen.h"
-
 #include <cmath>
 
-FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
-    : ParticleSystem(center, radius)
+FireParticleSystem::FireParticleSystem(const Vector3& center, float radius,
+    const Vector4& start, const Vector4& end, float systemLifeTime)
+    : ParticleSystem(center, radius), _systemLifeTime(systemLifeTime)
 {
     create_model_particle(radius / 10);
     _center = center;
 
-    _startColor = Vector4(1.0f, 0.2f, 0.0f, 1.0f);
-    _endColor = Vector4(1.0f, 1.0f, 0.3f, 1.0f);
+    _startColor = start;
+    _endColor = end;
 
     if (_model_particle) {
         _model_particle->setPosition(_center);
@@ -21,7 +20,7 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
     }
 
     //(Particle* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle
-    NormalDistributionGen<Particle>* fireGen = new NormalDistributionGen<Particle>(
+    fireGen = new NormalDistributionGen<Particle>(
         _model_particle, 
         _center, 
         Vector3(0, 3.0f, 0), 
@@ -38,6 +37,13 @@ FireParticleSystem::FireParticleSystem(const Vector3& center, float radius)
 
 void FireParticleSystem::update(double dt)
 {
+    _elapsedTime += dt;
+    if (_systemLifeTime > 0.0f &&_elapsedTime >= _systemLifeTime)
+    {
+        fireGen->setSpawnProbability(0.0);
+    }
+
+
     ParticleSystem::update(dt);
     for (auto& p : _particles) {
         updateParticleColor(p.get());

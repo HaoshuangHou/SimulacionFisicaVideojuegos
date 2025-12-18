@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "Scene.h"
 #include "Projectil.h"
-#include "Shooter.h"
+#include "Fish.h"
 #include <memory>
 
 class FireworkParticleSystem;
@@ -10,12 +10,46 @@ class TapParticleSystem;
 class FogParticleSystem;
 class ForceParticleSystem;
 class SolidProjectil;
+class AlgaeParticleSystem;
+class SceneCollisionCallback;
 
 enum ForceType {
-	WIND, WHIRLWIND, EXPLOSION, NUM_FORCE
+	WIND, WHIRLWIND, NUM_FORCE
 };
+
+struct ForceZoneData {
+	Vector3 pos;
+	Vector3 size;
+	ForceType type;
+};
+
+struct ForceData {
+	Vector3 pos;
+	Vector3 dir;   
+	float radius;
+	ForceType type;
+};
+
+struct PlatformData {
+	Vector3 pos;
+	Vector3 size;
+	Vector4 color;
+};
+
+struct LevelData {
+	physx::PxVec2 shooterPos;
+	physx::PxVec2 targetPos;
+	physx::PxVec2 targetFishPos;
+	std::vector<PlatformData> platforms;
+	std::vector<ForceZoneData> forceZones;
+	std::vector<ForceData> forces;
+};
+
 class SceneGame : public Scene
 {
+	std::vector<LevelData> _levels;
+	int _currentLevel = 0;
+
 public:
 	SceneGame();
 	virtual ~SceneGame();
@@ -28,19 +62,49 @@ public:
 	void enter() override;
 	void exit() override;
 
-private:
+	void loadLevel(int index);
+
+	SolidProjectil* getProjectileFromActor(physx::PxActor* const actor);
+	SolidEntity* getTargetFromActor(physx::PxActor* actor);
+	void onProjectileHitTarget(SolidProjectil* proj, SolidEntity* target);
+
+	void setForceActive(ForceType forceType, bool active);
+
+protected:
+	void initLevels();
 	void clearScene();
 	void createGameObjects();
 
 	void shoot();
 	void updateShootAngle(float delta);
 	void updateProjectilePower(float delta);
-	void checkProjectileState();
+
+	void cleanupDeadProjectiles();
 
 	void updateGameState(double t);
 
-	Shooter* _shooter = nullptr;
-	Particle* _target;
+	void toggleForce(ForceType forceType);
+	
+	void applyForceToAllProjectiles(ForceGenerator<SolidEntity>* forceGenerator, bool active);
+
+	virtual	void repositionObjects() override;
+	
+	void createTarget(const Vector3& pos, float radius);
+	void createGround(float width, float depth, float height = 0.0f);
+	
+	virtual void createPlatforms(const std::vector<PlatformData>& platforms);
+	virtual void createZone(const Vector3& pos,const Vector3& halfExtents,physx::PxMaterial* material,ForceType forceType);
+	virtual void createForceZones(const std::vector<ForceZoneData>& zones);
+	virtual void createAlgaeField();
+
+	Fish* _shooter = nullptr;
+	float projectilSize = 0.6f;
+	SolidEntity* _target = nullptr;
+	Fish* _targetFish = nullptr;
+	SolidEntity* _ground = nullptr;
+	physx::PxVec2 _posShooter;
+	physx::PxVec2 _posTarget;
+	physx::PxVec2 _posTargetFish;
 	std::list<SolidProjectil*> _activeProjectiles;
 
 	// Estado del juego
@@ -56,18 +120,18 @@ private:
 	const float MAX_POWER = 50.0f;
 	const float MIN_POWER = 5.0f;
 
-	virtual	void repositionObjects() override;
-
 	// Fuerzas
 	ExplosionGenerator<Particle>* _explosionGenerator;
 	WindGenerator<SolidEntity>* _windGenerator;
 	GravityGenerator<SolidEntity>* _gravityGenerator;
 	WhirlwindGenerator<SolidEntity>* _whirlwindGenerator;
+	BuoyancyForceGenerator<SolidEntity>* bubbleFloat;
 
 	//sistemas de particulas
 	FireworkParticleSystem* _fireworkSystem;
 	FireParticleSystem* _fireSystem;
-	FogParticleSystem* _fog;
+	std::vector<AlgaeParticleSystem*> _algaeSystem;
+	//FogParticleSystem* _fog;
 
 	double _explosionTimer;
 	Vector3 _victoryPos;
@@ -78,7 +142,5 @@ private:
 	bool _windActive;
 	bool _whirlwindActive;
 
-	void setupForces();
-	void toggleForce(ForceType forceType);
-	void applyForceToAllProjectiles(ForceGenerator<SolidEntity>* forceGenerator, bool active);
+	SceneCollisionCallback* collisionCallback = nullptr;
 };

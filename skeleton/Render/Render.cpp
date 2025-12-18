@@ -275,15 +275,16 @@ void setupDefaultRenderState()
 
 	// Setup lighting
 	glEnable(GL_LIGHTING);
-	PxReal ambientColor[]	= { 0.0f, 0.1f, 0.2f, 0.0f };
-	PxReal diffuseColor[]	= { 1.0f, 1.0f, 1.0f, 0.0f };		
-	PxReal specularColor[]	= { 0.0f, 0.0f, 0.0f, 0.0f };		
-	PxReal position[]		= { 100.0f, 100.0f, 400.0f, 1.0f };		
+	PxReal ambientColor[]	= { 0.45f, 0.55f, 0.6f, 1.0f };
+	PxReal diffuseColor[]	= { 0.65f, 0.75f, 0.8f, 1.0f };
+	PxReal specularColor[]	= { 0.02f, 0.05f, 0.1f, 1.0f };
+	PxReal position[]		= { 0.0f, 30.0f, 350.0f, 1.0f };
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientColor);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseColor);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, specularColor);
 	glLightfv(GL_LIGHT0, GL_POSITION, position);
 	glEnable(GL_LIGHT0);
+
 }
 
 void startRender(const PxVec3& cameraEye, const PxVec3& cameraDir, PxReal clipNear, PxReal clipFar)
@@ -339,11 +340,20 @@ void renderShape(const PxShape& shape, const PxTransform& transform, const PxVec
 	glPushMatrix();
 	PxMat44 mtx(transform);
 	glMultMatrixf(reinterpret_cast<const float*>(&mtx));
+
+	if (current_projection_mode == PROJ_ORTHOGRAPHIC && !(color.w < 0.999f)) {
+		glDisable(GL_LIGHTING);
+	}
+	else {
+		glEnable(GL_LIGHTING);
+	}
 	if (color.w < 0.999f) { // si tiene transparencia
 		glDepthMask(GL_FALSE);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		
 	}
+
 	assert(glGetError() == GL_NO_ERROR);
 	glColor4f(color.x, color.y, color.z, color.w);
 	assert(glGetError() == GL_NO_ERROR);
@@ -360,6 +370,8 @@ void renderShape(const PxShape& shape, const PxTransform& transform, const PxVec
 		glDisable(GL_BLEND);
 	}
 	
+	GLfloat noEmission[] = { 0,0,0,1 };
+	glMaterialfv(GL_FRONT, GL_EMISSION, noEmission);
 }
 
 void renderActors(PxRigidActor** actors, const PxU32 numActors, bool shadows, const PxVec4 & color)

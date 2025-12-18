@@ -73,20 +73,39 @@ void SolidSystem::addForce(ForceGenerator<SolidEntity>* f)
 	}
 }
 
+void SolidSystem::killAll()
+{
+	for (auto& r : _solids) {
+		if (r) {
+			r->kill();
+		}
+	}
+}
+
 void SolidSystem::registerAllRenderItems()
 {
-	for (auto& particle : _solids) {
-		if (particle && !particle->isRenderItemValid()) {
-			particle->create_renderItem(); 
+	for (auto& r : _solids) {
+		if (r) {
+			r->create_physicsObject();
+			if (!r->isRenderItemValid()) {
+				r->create_renderItem();
+			}
 		}
 	}
 }
 
 void SolidSystem::deregisterAllRenderItems()
 {
-	for (auto& particle : _solids) {
-		if (particle) particle->deregisterRenderItem();
-	}
+	for (auto& r : _solids) {
+        if (r) {
+			if (physx::PxRigidActor* actor = r->getActor()) {
+				if (physx::PxScene* scene = actor->getScene())
+					scene->removeActor(*actor);
+				actor->release();
+			}
+            r->deregisterRenderItem();
+        }
+    }
 }
 
 void SolidSystem::delete_solid()

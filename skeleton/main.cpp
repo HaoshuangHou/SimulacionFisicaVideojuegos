@@ -97,6 +97,8 @@ void cleanupPhysics(bool interactive)
 {
 	PX_UNUSED(interactive);
 
+	delete _sceneM;
+
 	// Rigid Body ++++++++++++++++++++++++++++++++++++++++++
 	gScene->release();
 	gDispatcher->release();
@@ -108,7 +110,6 @@ void cleanupPhysics(bool interactive)
 	
 	gFoundation->release();
 
-	delete _sceneM;
 
 	DeregisterAllRenderItem();
 }
@@ -136,7 +137,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	}
 	case 'G':
 	{
-		_sceneM->changeScene(5);
+		_sceneM->changeScene(6);
 		display_text = _sceneM->getDisplayText();
 		break;
 	}

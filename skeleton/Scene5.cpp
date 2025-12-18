@@ -1,5 +1,4 @@
 ﻿#include "Scene5.h"
-#include "BuoyancyForceGenerator.h"
 
 void Scene5::create_slinky()
 {
@@ -29,9 +28,7 @@ void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene)
 	_gravityGenerator = new GravityGenerator<Particle>(Vector3(0, -9.8, 0));
 
 	//Muelle: una particula unida a una posicion estatica
-	pEstatico = new Particle(
-		CreateShape(physx::PxBoxGeometry(1.0f, 1.0f, 1.0f)),
-		Vector4(1, 0, 0, 1), Vector3(0, 50, 0));
+	pEstatico = new Particle(CUBE,Vector4(1, 0, 0, 1), Vector3(0, 50, 0));
 	pEstatico->setLifeTime(-1);
 	_particles.push_back(pEstatico);
 
@@ -70,20 +67,19 @@ void Scene5::init(physx::PxPhysics* physics, physx::PxScene* scene)
 
 
 	//Flotacion
-	Particle* agua = new Particle(
-		CreateShape(physx::PxBoxGeometry(10.0f, 2.0f, 10.0f)),
-		Vector4(0, 0, 1, 1), Vector3(0, 18.0f, 0));
+	Particle* agua = new Particle(CUBE, Vector4(0, 0, 1, 1), Vector3(0, 18.0f, 0));
 	agua->setLifeTime(-1);
+	agua->setTam({ 10, 2, 10 });
+
 	_particles.push_back(agua);
 
 	double const waterHeight = 21.0f;
 	double const cubeHeight = 1.0f;
 	double const volume = 1.0f;
 
-	pCubo = new Particle(
-		CreateShape(physx::PxBoxGeometry(0.5f, 0.5f, 0.5f)),
-		Vector4(1, 0, 1, 1), Vector3(0, 25.0f, 0));
+	pCubo = new Particle(CUBE,Vector4(1, 0, 1, 1), Vector3(0, 25.0f, 0));
 	pCubo->setMass(900.0f);
+	pCubo->setTam(0.5f);
 	pCubo->setDamping(0.3f);
 	pCubo->setLifeTime(-1);
 	_particles.push_back(pCubo);

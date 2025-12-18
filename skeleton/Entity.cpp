@@ -33,6 +33,11 @@ void Entity::setPosition(const Vector3& pos)
 	_transform.p = pos;
 }
 
+void Entity::setRotation(const physx::PxQuat& q)
+{
+	_transform.q = q;
+}
+
 Entity::Entity(const Vector3& pos, physx::PxShape* shape, Vector4 color)
 	:_alive(true),
 	_shape(shape),

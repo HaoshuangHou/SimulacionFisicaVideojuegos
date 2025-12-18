@@ -83,6 +83,14 @@ public:
                 }),
             particleRegistry.end());
 
+        solidRegistry.erase(
+            std::remove_if(solidRegistry.begin(), solidRegistry.end(),
+                [](const ForceRegT<SolidEntity>& reg) {
+                    // Remover si la partícula es nullptr o está muerta
+                    return reg.object == nullptr || !reg.object->is_alive();
+                }),
+            solidRegistry.end());
+
         for (auto& reg : particleRegistry) {
             if (reg.object && reg.fg)
                 reg.fg->updateForce(reg.object, dt);

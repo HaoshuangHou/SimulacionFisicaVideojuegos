@@ -25,10 +25,17 @@ void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene*
     if (dynamic) {
         _actor = physics->createRigidDynamic(transform);
         _shape = physics->createShape(geometry, *material);
+
+        physx::PxFilterData fd;
+        fd.word0 = 1; // grupo del actor
+        fd.word1 = 2; // m¨¢scara de colisi¨®n
+        _shape->setSimulationFilterData(fd);
+
         _actor->attachShape(*_shape);
 
         physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>();
         physx::PxRigidBodyExt::updateMassAndInertia(*dyn, density);
+
     }
     else {
         _actor = physics->createRigidStatic(transform);
@@ -38,17 +45,6 @@ void SolidEntity::createPhysicsObject(physx::PxPhysics* physics, physx::PxScene*
 
     scene->addActor(*_actor);
     if (physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())dyn->clearForce();
-
-    if (!_params) {
-        _params = new ConstructionParams();
-    }
-    _params->physics = physics;
-    _params->scene = scene;
-    _params->dynamic = dynamic;
-    _params->density = density;
-    _params->material = material;
-    _params->geometry = cloneGeometry(geometry);
-
 }
 
 SolidEntity::SolidEntity(
@@ -58,16 +54,23 @@ SolidEntity::SolidEntity(
     physx::PxMaterial* material, const Vector4& color)
     : Entity(pos, nullptr, color)
 {
-    createPhysicsObject(physics, scene, dynamic, pos, geometry, density, material);
+    _params = new ConstructionParams();
+    _params->physics = physics;
+    _params->pos = pos;
+    _params->dynamic = dynamic;
+    _params->density = density;
+    _params->material = material;
+    _params->geometry = cloneGeometry(geometry);
+    _params->scene = scene;
+    //createPhysicsObject(physics, scene, dynamic, pos, geometry, density, material);
 }
 SolidEntity::SolidEntity(const SolidEntity& other, const Vector3& pos)
     : Entity(pos, nullptr, other._color)
 {
     _lifetime = other._lifetime;
     _timeAlive = 0.0f;
-
     _params = new ConstructionParams(*other._params);
-
+    _params->pos = pos;
     if (other._params->geometry)
         _params->geometry = cloneGeometry(*other._params->geometry);
 
@@ -83,12 +86,18 @@ SolidEntity::SolidEntity(const SolidEntity& other, const Vector3& pos)
 }
 
 
+SolidEntity::~SolidEntity()
+{
+    deregisterRenderItem();
+}
+
 void SolidEntity::update(double dt)
 {
     if (_lifetime > 0) {
         _timeAlive += dt;
         if (_timeAlive >= _lifetime) {
             _alive = false;
+            std::cout << "SOlido muestro\n";
         }
     }
 }
@@ -98,6 +107,12 @@ void SolidEntity::create_renderItem()
     deregisterRenderItem();
     _renderItem = std::make_unique<RenderItem>(_shape, _actor, _color);
     _renderItemRegistered = true;
+}
+
+void SolidEntity::create_physicsObject()
+{
+    if (_actor) return;
+    createPhysicsObject(_params->physics, _params->scene, _params->dynamic, _params->pos, *_params->geometry, _params->density, _params->material);
 }
 
 void SolidEntity::addForce(const Vector3& force)
@@ -115,13 +130,17 @@ void SolidEntity::addTorque(const Vector3& torque)
 }
 
 bool SolidEntity::is_alive() const {
-    return _alive;
+    return _alive && _actor != nullptr;
 }
 
 //Getters
 
 double SolidEntity::getMass() const
 {
+
+    if (!_actor) {
+        return 0.0;
+    }
     if (const physx::PxRigidDynamic* dyn = _actor->is<physx::PxRigidDynamic>())
         return dyn->getMass();
     return 0.0f;
@@ -143,8 +162,11 @@ Vector3 SolidEntity::getAngularVelocity() const
 
 Vector3 SolidEntity::getPos() const
 {
-    const physx::PxTransform transform = _actor->getGlobalPose();
-    return Vector3(transform.p.x, transform.p.y, transform.p.z);
+    if (_actor) {
+        physx::PxTransform t = _actor->getGlobalPose();
+        return Vector3(t.p.x, t.p.y, t.p.z);
+    }
+    return _params->pos;
 }
 
 Vector3 SolidEntity::getInertiaTensor() const
@@ -157,6 +179,21 @@ Vector3 SolidEntity::getInertiaTensor() const
     }
 }
 
+bool SolidEntity::isDynamic() const {
+    return _params ? _params->dynamic : false;
+}
+
+physx::PxGeometry* SolidEntity::getGeometry() const {
+    return _params ? _params->geometry : nullptr;
+}
+
+float SolidEntity::getDensity() const {
+    return _params ? _params->density : 1.0f;
+}
+
+physx::PxMaterial* SolidEntity::getMaterial() const {
+    return _params ? _params->material : nullptr;
+}
 //Setters
 
 void SolidEntity::setVelocity(const Vector3& vel)
@@ -173,7 +210,6 @@ void SolidEntity::setAngularVelocity(const Vector3& angVel)
 
 void SolidEntity::setLifeTime(double lifetime)
 {
-
     _lifetime = lifetime;
     _timeAlive = 0.0f;
 }

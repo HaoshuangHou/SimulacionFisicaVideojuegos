@@ -15,6 +15,7 @@
 #include "WindGenerator.h"
 #include "WhirlwindGenerator.h"
 #include "ExplosionGenerator.h"
+#include "BuoyancyForceGenerator.h"
 class Scene
 {
 public:
@@ -42,7 +43,9 @@ public:
 	void addParticleSystem(ParticleSystem* ps);
 	void addGlobalForce(ForceGenerator<Particle>* force);
 	void removeParticle(Particle* p);
+	void removeSolid(SolidEntity* s);
 	void removePacticleSystem(ParticleSystem* ps);
+	void removeSolidSystem(SolidSystem* ss);
 	virtual void setupCamera();
 
 	virtual void repositionObjects() {}
@@ -64,7 +67,7 @@ protected:
 	ForceRegistry* _forceRegistry;
 
 	float _worldWidth = 30.0f;
-	float _worldHeight = 25.0f;
+	float _worldHeight = 26.0f;
 
 	physx::PxMaterial* createMaterial(float staticFriction, float dynamicFriction, float restitution);
 
@@ -76,6 +79,7 @@ protected:
 		physx::PxMaterial* material = nullptr,
 		const Vector4& color = Vector4(1, 1, 1, 1)
 	);
+
 
 };
 

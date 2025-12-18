@@ -1,4 +1,4 @@
-#include "Scene.h"
+﻿#include "Scene.h"
 #include "Entity.h"
 #include "ParticleSystem.h"
 #include "ForceRegistry.h"
@@ -50,8 +50,6 @@ void Scene::update(double t)
 {
 	updateViewportFromScreen();
 
-	_forceRegistry->updateForces(t);
-
 	for (auto& e : _particles) {
 		if (e && e->is_alive())e->update(t);
 	}
@@ -79,14 +77,20 @@ void Scene::update(double t)
 
 	for (auto it = _solids.begin(); it != _solids.end(); ) {
 		if (!(*it)->is_alive()) {
+			if (_forceRegistry) {
+				_forceRegistry->clearSolid(*it);  // eliminar del registry antes de borrar
+			}
 			delete* it;
 			*it = nullptr;
 			it = _solids.erase(it);
+
+			std::cout << "SOLIDO ELIMINADOA\n";
 		}
 		else {
 			++it;
 		}
 	}
+	_forceRegistry->updateForces(t);
 }
 
 void Scene::addEntityWithRenderItem(Particle* p)
@@ -100,6 +104,7 @@ void Scene::addEntityWithRenderItem(Particle* p)
 void Scene::addEntityWithRenderItem(SolidEntity* s)
 {
 	if (s->getRenderItem() == nullptr) {
+		s->create_physicsObject();
 		s->create_renderItem();
 	}
 	_solids.push_back(s);
@@ -120,8 +125,12 @@ void Scene::enter()
 	}
 
 	for (auto r : _solids) {
-		if (r && !r->isRenderItemValid())
-			r->create_renderItem();
+		if (r) {
+			r->create_physicsObject();
+			if (!r->isRenderItemValid()) {
+				r->create_renderItem();
+			}
+		}
 	}
 }
 
@@ -138,7 +147,13 @@ void Scene::exit()
 	}
 
 	for (auto r : _solids) {
-		if (r)r->deregisterRenderItem();
+		if (!r) continue;
+		if (PxRigidActor* actor = r->getActor()) {
+			if (PxScene* scene = actor->getScene())
+				scene->removeActor(*actor);
+			actor->release();
+		}
+		r->deregisterRenderItem();
 	}
 }
 
@@ -179,6 +194,22 @@ void Scene::removeParticle(Particle* p)
 	}
 }
 
+void Scene::removeSolid(SolidEntity* s)
+{
+	for (auto it = _solids.begin(); it != _solids.end();) {
+		if (*it == s && *it != nullptr) {
+			physx::PxActor* actor = s->getActor();
+			if (actor && _gScene) {
+				_gScene->removeActor(*actor);
+			}
+			s->deregisterRenderItem();
+			delete* it;
+			*it = nullptr;
+			it = _solids.erase(it);
+		}
+	}
+}
+
 void Scene::removePacticleSystem(ParticleSystem* ps)
 {
 	if(!ps) return;
@@ -194,6 +225,25 @@ void Scene::removePacticleSystem(ParticleSystem* ps)
 		}
 	}
 }
+
+void Scene::removeSolidSystem(SolidSystem* ss)
+{
+	if (!ss) return;
+
+	for (auto it = _solidSystems.begin(); it != _solidSystems.end();) {
+		if (*it == ss) {
+			(*it)->killAll();
+			/*ss->deregisterAllRenderItems();
+			delete* it;
+			*it = nullptr;
+			it = _solidSystems.erase(it);*/
+		}
+		else {
+			++it;
+		}
+	}
+}
+
 
 physx::PxMaterial* Scene::createMaterial(float staticFriction, float dynamicFriction, float restitution)
 {
@@ -212,15 +262,14 @@ SolidEntity* Scene::createRigidEntity(bool dynamic, const Vector3& pos, const ph
 void Scene::setupCamera()
 {
 	if (GetCamera()) {
-		GetCamera()->setEye({ 0.0f, 0.0f, 25.0f });
+		GetCamera()->setEye({ 0.1f, 0.2f, 25.0f });
 		GetCamera()->setDir({ 0.0f, 0.0f, -1.0f });
 	}
 }
 
 Vector3 Scene::getRelativePosition(float relX, float relY, float z) const {
-	float worldX = (relX - 0.5f) * _worldWidth;
-	float worldY = (relY - 0.5f) * _worldHeight;
-
+	float worldX = relX * _worldWidth - _worldWidth / 2.0f;
+	float worldY = relY * _worldHeight - _worldHeight / 2.0f;
 	return Vector3(worldX, worldY, z);
 }
 void Scene::updateViewportFromScreen() {

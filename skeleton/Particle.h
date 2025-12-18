@@ -9,6 +9,8 @@ enum IntegrateType {
 	VERLET
 };
 
+enum ShapeType { SPHERE, CUBE };
+
 class RenderItem;
 class Particle: public Entity
 {
@@ -17,7 +19,7 @@ public:
 		Vector3 const& acceleration = Vector3(0, 0, 0), Vector4 const& color = Vector4(1, 1, 1, 1),
 		double mass = 1, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
 
-	Particle(physx::PxShape* shape, Vector4 const& color = Vector4(1, 1, 1, 1), Vector3 const& pos = Vector3(0, 0, 0), 
+	Particle(ShapeType shape, Vector4 const& color = Vector4(1, 1, 1, 1), Vector3 const& pos = Vector3(0, 0, 0),
 		Vector3 const& velocity = Vector3(0, 0, 0), Vector3 const& acceleration = Vector3(0, 0, 0),
 		double mass = 1, double dumping = 0.99, IntegrateType t = EULER_SEMI_IMPLICITO);
 
@@ -42,7 +44,8 @@ public:
 	void setAcceleration(const Vector3& acceleration);
 	void setMass(double mass);
 	void setDamping(double damping);
-	void setTam(double tam);
+	void setTam(float tam);
+	void setTam(Vector3 tam);
 	void addForce(Vector3 const& f);
 	void cleanForce();
 
@@ -54,10 +57,12 @@ protected:
 	double _lifeTime;
 	double _dampingValue;
 	Vector4 _color;
-	double _size;
+	Vector3 _size;
 
 private:
 	IntegrateType _intType;
+	ShapeType _shapeType;
+
 	double _iniTime;
 	Vector3 _ant_pos; //posicion anterior
 
