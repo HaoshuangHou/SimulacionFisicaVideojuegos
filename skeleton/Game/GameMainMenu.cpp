@@ -20,6 +20,12 @@ void GameMainMenu::handleInput(unsigned char key)
 {
 	switch (toupper(key))
 	{
+	case 'Z':
+		if (sceneManager)
+		{
+			sceneManager->changeScene(0);
+		}
+		break;
 	default:
 		sceneManager->changeScene(6);
 		break;

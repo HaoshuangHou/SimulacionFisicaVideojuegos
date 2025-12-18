@@ -10,7 +10,7 @@
 #include "Game/GameMainMenu.h"
 
 SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene)
-    :_current_scene(7), _gPhysics(physics), _gScene(scene)
+    :_current_scene(0), _gPhysics(physics), _gScene(scene)
 {
 	initScenes();
 }
@@ -53,7 +53,7 @@ void SceneManager::changeScene(int sceneIndex)
 void SceneManager::nextScene()
 {
     int next_scene = _current_scene + 1;
-    if (next_scene >= _scenes.size())
+    if (next_scene >= _scenes.size()-2)
         next_scene = 0;
 
     changeScene(next_scene);

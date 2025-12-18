@@ -111,7 +111,9 @@ void SolidEntity::create_renderItem()
 
 void SolidEntity::create_physicsObject()
 {
-    if (_actor) return;
+    if (_actor) {
+        _actor = nullptr;
+    };
     createPhysicsObject(_params->physics, _params->scene, _params->dynamic, _params->pos, *_params->geometry, _params->density, _params->material);
 }
 

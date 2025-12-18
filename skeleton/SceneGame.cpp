@@ -116,10 +116,17 @@ void SceneGame::enter()
 void SceneGame::exit()
 {
 	current_projection_mode = PROJ_PERSPECTIVE;
+	if (_shooter && _shooter->is_alive()) {
+		_shooter->deregisterRenderItem();
+	}
+
+	if (_targetFish && _targetFish->is_alive()) {
+		_targetFish->deregisterRenderItem();
+	}
 	Scene::exit();
 	if (GetCamera()) GetCamera()->resetCamera();
-	_shooter->deregisterRenderItem();
-	_targetFish->deregisterRenderItem();
+	//_shooter->deregisterRenderItem();
+	//_targetFish->deregisterRenderItem();
 }
 
 void SceneGame::loadLevel(int index)
@@ -394,22 +401,28 @@ void SceneGame::handleInput(unsigned char key)
 		break;
 
 	case 'N':
-		if (_currentState == SHOW_VICTORY_MENU) 
+		if (_currentState == SHOW_VICTORY_MENU)
 		{
 			bool isLastLevel = (_currentLevel >= _levels.size() - 1);
-			if (isLastLevel) 
+			if (isLastLevel)
 			{
 				if (sceneManager)
 				{
 					sceneManager->changeScene(7);
 				}
 			}
-			else 
+			else
 			{
 				nextLevel();
 				_currentState = PLAYING;
 			}
-			
+
+		}
+		break;
+	case 'Z':
+		if (sceneManager)
+		{
+			sceneManager->changeScene(0);
 		}
 		break;
 	default:

@@ -12,13 +12,12 @@ public:
     SolidUniformDistributionGen(SolidEntity* model_p, Vector3 position, Vector3 velocity, double duration, int n_particle)
 		:Generator<SolidEntity>(model_p, position, velocity, duration, n_particle), _des_Iner()
 	{};
+    void setDesInertia(const Vector3& in) {
+        _des_Iner = in;
+    }
     std::list<SolidEntity*> generate() override
     {
         std::list<SolidEntity*> list;
-
-        void setDesInertia(const Vector3 & in) {
-            _des_Iner = in;
-        }
 
         for (int i = 0; i < n_particle; i++) {
             if (canGenerate()) {

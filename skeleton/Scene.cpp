@@ -83,12 +83,10 @@ void Scene::update(double t)
 		SolidEntity* solid = *it;
 
 		if (!solid->is_alive()) {
-			// 1. Limpiar del registro de fuerzas (IMPORTANTE)
 			if (_forceRegistry) {
 				_forceRegistry->clearSolid(solid);
 			}
 
-			// 2. Eliminar físicamente de PhysX
 			if (PxRigidActor* actor = solid->getActor()) {
 				if (PxScene* scene = actor->getScene()) {
 					scene->removeActor(*actor);
@@ -97,10 +95,8 @@ void Scene::update(double t)
 			}
 			solid->deregisterRenderItem();
 
-			// 4. Liberar memoria
 			delete solid;
 
-			// 5. Eliminar del vector
 			it = _solids.erase(it);
 		}
 		else {
