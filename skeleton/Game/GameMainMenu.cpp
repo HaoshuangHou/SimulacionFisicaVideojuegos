@@ -36,7 +36,7 @@ void GameMainMenu::render_interface()
 
 	drawText(title, titlePos.x, titlePos.y, 80, true, true, false, navyBlue);
 
-	drawText("Pulsa una tecla para iniciar", screenWidth / 2.0f, screenHeight * 0.5f, 35, true, true, false, white);
+	//drawText("Pulsa una tecla para iniciar", screenWidth / 2.0f, screenHeight * 0.5f, 35, true, true, false, white);
 }
 void GameMainMenu::repositionObjects()
 {

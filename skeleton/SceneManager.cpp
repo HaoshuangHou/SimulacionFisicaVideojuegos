@@ -10,7 +10,7 @@
 #include "Game/GameMainMenu.h"
 
 SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene)
-    :_current_scene(0), _gPhysics(physics), _gScene(scene)
+    :_current_scene(7), _gPhysics(physics), _gScene(scene)
 {
 	initScenes();
 }

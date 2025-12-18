@@ -283,7 +283,7 @@ void SceneGame::initLevels()
 		{
 			{ getRelativePosition(0.6f, 0.1f), Vector3(-1,0,0), 6.0f, ForceType::WIND },
 			// Torbellino cerca del suelo, gira a la derecha y sube un poco
-			{getRelativePosition(0.55f, 0.6f), Vector3(0.5f,1.0f,0.5f), 4.0f, ForceType::WHIRLWIND}
+			{getRelativePosition(0.55f, 0.45f), Vector3(0.5f,1.0f,0.5f), 4.0f, ForceType::WHIRLWIND}
 	}
 		});
 }
