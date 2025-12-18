@@ -263,7 +263,6 @@
     <ClCompile Include="FogParticleSystem.cpp" />
     <ClCompile Include="ForceParticleSystem.cpp" />
     <ClCompile Include="Game\GameMainMenu.cpp" />
-    <ClCompile Include="Game\GameOverMenu.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
@@ -304,7 +303,6 @@
     <ClInclude Include="ForceParticleSystem.h" />
     <ClInclude Include="ForceRegistry.h" />
     <ClInclude Include="Game\GameMainMenu.h" />
-    <ClInclude Include="Game\GameOverMenu.h" />
     <ClInclude Include="GravityGenerator.h" />
     <ClInclude Include="NormalDistributionGen.h" />
     <ClInclude Include="Particle.h" />

@@ -34,6 +34,7 @@ struct PlatformData {
 	Vector3 pos;
 	Vector3 size;
 	Vector4 color;
+
 };
 
 struct LevelData {
@@ -70,16 +71,17 @@ public:
 
 	void setForceActive(ForceType forceType, bool active);
 
+	void render_interface() override;
+
 protected:
 	void initLevels();
 	void clearScene();
-	void createGameObjects();
+	void restartLevel();
+	void nextLevel();
+	void updateVictoryMenuState(double t);
 
 	void shoot();
 	void updateShootAngle(float delta);
-	void updateProjectilePower(float delta);
-
-	void cleanupDeadProjectiles();
 
 	void updateGameState(double t);
 
@@ -105,31 +107,27 @@ protected:
 	physx::PxVec2 _posShooter;
 	physx::PxVec2 _posTarget;
 	physx::PxVec2 _posTargetFish;
-	std::list<SolidProjectil*> _activeProjectiles;
 
 	// Estado del juego
 	float _projectilePower;
 	int _projectilesRemaining;
 	int _maxProjectiles;
-	bool _gameWon;
-	bool _gameOver;
 
 	// Constantes para limitar los valores
-	const float MAX_ANGLE = 3.14159f * 0.6f;
-	const float MIN_ANGLE = -3.14159f * 0.1f; 
-	const float MAX_POWER = 50.0f;
-	const float MIN_POWER = 5.0f;
+	const float MAX_ANGLE = 3.14159f;
+	const float MIN_ANGLE = -3.14159f; 
 
 	// Fuerzas
-	ExplosionGenerator<Particle>* _explosionGenerator;
 	WindGenerator<SolidEntity>* _windGenerator;
 	GravityGenerator<SolidEntity>* _gravityGenerator;
 	WhirlwindGenerator<SolidEntity>* _whirlwindGenerator;
 	BuoyancyForceGenerator<SolidEntity>* bubbleFloat;
 
 	//sistemas de particulas
-	FireworkParticleSystem* _fireworkSystem;
+	FireworkParticleSystem* _fireworkSystem1;
+	FireworkParticleSystem* _fireworkSystem2;
 	FireParticleSystem* _fireSystem;
+	FogParticleSystem* _fogSystem;
 	std::vector<AlgaeParticleSystem*> _algaeSystem;
 	//FogParticleSystem* _fog;
 
@@ -143,4 +141,27 @@ protected:
 	bool _whirlwindActive;
 
 	SceneCollisionCallback* collisionCallback = nullptr;
+
+
+	// Colores
+	float _victoryColor[4] = { 0.0f, 1.0f, 0.0f, 1.0f }; 
+	float _gameOverColor[4] = { 1.0f, 0.0f, 0.0f, 1.0f };
+	float _whiteColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f }; 
+	float _blackColor[4] = { 0.0f, 0.0f, 0.0f, 0.7f };
+
+	// metodos auxiliares
+	void drawVictoryScreen();
+	void drawGameOverScreen();
+
+private:
+	enum GameState {
+		PLAYING,           
+		VICTORY_SEQUENCE,
+		SHOW_VICTORY_MENU, 
+		GAME_OVER    
+	};
+
+	GameState _currentState = PLAYING;
+	float _victorySequenceTimer = 0.0f;
+	float _victorySequenceDuration = 3.0f;
 };

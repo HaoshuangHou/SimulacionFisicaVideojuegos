@@ -230,6 +230,15 @@ void SolidEntity::setColor(const Vector4& color)
     if (_renderItem && _renderItemRegistered)
         _renderItem->color = color;
 }
+void SolidEntity::setRotation(const physx::PxQuat& q) {
+
+    if(_actor)
+    {
+        physx::PxTransform t = _actor->getGlobalPose();
+        t.q = q;
+        _actor->setGlobalPose(t);
+    }
+}
 
 physx::PxRigidActor* SolidEntity::getActor() const { return _actor; }
 physx::PxShape* SolidEntity::getShape() const { return _shape; }

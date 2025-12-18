@@ -4,8 +4,10 @@
 #include "ForceRegistry.h"
 #include "RenderUtils.hpp"
 #include <iostream>
-
+#include "SceneManager.h"
 using namespace physx;
+
+SceneManager* Scene::sceneManager = nullptr;
 
 Scene::~Scene()
 {
@@ -34,11 +36,13 @@ void Scene::clean()
 
 	for (auto r : _solids) {
 		delete r;
+		r = nullptr;
 	}
 	_solids.clear();
 
 	for (auto r : _solidSystems) {
 		delete r;
+		r = nullptr;
 	}
 	_solidSystems.clear();
 
@@ -76,15 +80,28 @@ void Scene::update(double t)
 	}
 
 	for (auto it = _solids.begin(); it != _solids.end(); ) {
-		if (!(*it)->is_alive()) {
-			if (_forceRegistry) {
-				_forceRegistry->clearSolid(*it);  // eliminar del registry antes de borrar
-			}
-			delete* it;
-			*it = nullptr;
-			it = _solids.erase(it);
+		SolidEntity* solid = *it;
 
-			std::cout << "SOLIDO ELIMINADOA\n";
+		if (!solid->is_alive()) {
+			// 1. Limpiar del registro de fuerzas (IMPORTANTE)
+			if (_forceRegistry) {
+				_forceRegistry->clearSolid(solid);
+			}
+
+			// 2. Eliminar físicamente de PhysX
+			if (PxRigidActor* actor = solid->getActor()) {
+				if (PxScene* scene = actor->getScene()) {
+					scene->removeActor(*actor);
+				}
+				actor->release();
+			}
+			solid->deregisterRenderItem();
+
+			// 4. Liberar memoria
+			delete solid;
+
+			// 5. Eliminar del vector
+			it = _solids.erase(it);
 		}
 		else {
 			++it;
@@ -196,18 +213,22 @@ void Scene::removeParticle(Particle* p)
 
 void Scene::removeSolid(SolidEntity* s)
 {
-	for (auto it = _solids.begin(); it != _solids.end();) {
-		if (*it == s && *it != nullptr) {
-			physx::PxActor* actor = s->getActor();
-			if (actor && _gScene) {
-				_gScene->removeActor(*actor);
-			}
-			s->deregisterRenderItem();
-			delete* it;
-			*it = nullptr;
-			it = _solids.erase(it);
-		}
+	if (!s) return;
+
+	auto it = std::find(_solids.begin(), _solids.end(), s);
+	if (it == _solids.end()) return;
+
+	physx::PxActor* actor = s->getActor();
+
+	if (actor && _gScene) {
+		_gScene->removeActor(*actor);
+		actor->release();   
 	}
+
+	s->deregisterRenderItem();
+	delete s;
+
+	_solids.erase(it);
 }
 
 void Scene::removePacticleSystem(ParticleSystem* ps)
@@ -277,8 +298,8 @@ void Scene::updateViewportFromScreen() {
 	int	screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
 	float screenAspect = (float)screenWidth / (float)screenHeight;
 
-	float baseWorldHeight = 25.0f;
-	float baseWorldWidth = 30.0f;
+	float baseWorldHeight = 24;
+	float baseWorldWidth = 44;
 	float baseAspect = baseWorldWidth / baseWorldHeight;
 
 	float oldWorldWidth = _worldWidth;

@@ -1,0 +1,2269 @@
+﻿  AlgaeParticleSystem.cpp
+  callbacks.cpp
+  Entity.cpp
+  FireParticleSystem.cpp
+  FireworkParticleSystem.cpp
+  Fish.cpp
+  FogParticleSystem.cpp
+  ForceParticleSystem.cpp
+  GameMainMenu.cpp
+  main.cpp
+  Particle.cpp
+  ParticleSystem.cpp
+  Projectil.cpp
+  RenderUtils.cpp
+  Camera.cpp
+  Render.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Entity.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Camera.cpp(89,19): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Camera.cpp(91,19): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "main.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Particle.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Fish.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "callbacks.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Projectil.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Render/Render.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "FogParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+  Scene.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "FireParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "RenderUtils.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Projectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\RenderUtils.cpp(68,42): warning C4100: 'y': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\RenderUtils.cpp(68,35): warning C4100: 'x': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Entity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Entity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Entity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.cpp(26,32): warning C5038: miembro de datos "ParticleSystem::_model_particle" se inicializará después de miembro de datos "ParticleSystem::_forceRegistry"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.cpp(44,2): warning C5038: miembro de datos "Entity::_color" se inicializará después de miembro de datos "Entity::_transform"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.cpp(54,2): warning C5038: miembro de datos "Entity::_color" se inicializará después de miembro de datos "Entity::_transform"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Particle.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Particle.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Particle.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Particle.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Fish.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Fish.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Fish.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Render/Render.cpp")
+  
+  Scene1.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4625: 'Fish': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Fish.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4626: 'Fish': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Fish.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Render/Render.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(465,20): warning C4388: '<': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(487,13): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(525,22): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(529,50): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C4625: 'ForceParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C5026: 'ForceParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C4626: 'ForceParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C5027: 'ForceParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(15,20): warning C5038: miembro de datos "Particle::_intType" se inicializará después de miembro de datos "Particle::_mass"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(15,46): warning C5038: miembro de datos "Particle::_dampingValue" se inicializará después de miembro de datos "Particle::_lifeTime"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(16,17): warning C5038: miembro de datos "Particle::_iniTime" se inicializará después de miembro de datos "Particle::_color"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(16,45): warning C5038: miembro de datos "Particle::_size" se inicializará después de miembro de datos "Particle::_force"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(26,36): warning C5038: miembro de datos "Particle::_intType" se inicializará después de miembro de datos "Particle::_mass"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(26,62): warning C5038: miembro de datos "Particle::_dampingValue" se inicializará después de miembro de datos "Particle::_lifeTime"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(27,17): warning C5038: miembro de datos "Particle::_iniTime" se inicializará después de miembro de datos "Particle::_color"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(27,45): warning C5038: miembro de datos "Particle::_size" se inicializará después de miembro de datos "Particle::_force"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(39,56): warning C5038: miembro de datos "Particle::_dampingValue" se inicializará después de miembro de datos "Particle::_lifeTime"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(40,56): warning C5038: miembro de datos "Particle::_iniTime" se inicializará después de miembro de datos "Particle::_color"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(41,2): warning C5038: miembro de datos "Particle::_ant_pos" se inicializará después de miembro de datos "Particle::_size"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.cpp(41,17): warning C5038: miembro de datos "Particle::_size" se inicializará después de miembro de datos "Particle::_force"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.cpp(43,12): warning C4189: 'nullCount': la variable local se ha inicializado pero no se hace referencia a ella
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4625: 'FireParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5026: 'FireParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4626: 'FireParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5027: 'FireParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+  Scene2.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "main.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.cpp(17,54):
+          Vea la referencia a la creación de una instancia de clase plantilla "UniformDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(5,39):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(11,16):
+              vea la primera referencia a “Generator<Particle>::Generator” en “UniformDistributionGen<Particle>::UniformDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.cpp(17,48):
+              vea la primera referencia a “UniformDistributionGen<Particle>::UniformDistributionGen” en “ForceParticleSystem::ForceParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "ForceParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\main.cpp(151,50): warning C4100: 'camera': parámetro sin referencia
+  Scene3.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "FireParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.cpp(23,19):
+          Vea la referencia a la creación de una instancia de clase plantilla "NormalDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\NormalDistributionGen.h(5,38):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\NormalDistributionGen.h(11,22):
+              vea la primera referencia a “Generator<Particle>::Generator” en “NormalDistributionGen<Particle>::NormalDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.cpp(23,13):
+              vea la primera referencia a “NormalDistributionGen<Particle>::NormalDistributionGen” en “FireParticleSystem::FireParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "FireParticleSystem.cpp")
+  
+  Scene4.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4625: 'AlgaeParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5026: 'AlgaeParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4626: 'AlgaeParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5027: 'AlgaeParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.cpp(22,1): warning C4715: '<lambda_67b859eca67855dd93042f5252b67a31>::operator()': no todas las rutas de acceso de control devuelven un valor
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4625: 'FogParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5026: 'FogParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4626: 'FogParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5027: 'FogParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.cpp(42,18):
+          Vea la referencia a la creación de una instancia de clase plantilla "WindGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,25):
+          al compilar la función del miembro clase plantilla "void WindGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(30,38):
+              vea la primera referencia a “WindGenerator<Particle>::updateForce” en “WhirlwindGenerator<Particle>::updateForce”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4625: 'FireworkParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4626: 'FireworkParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(8,29):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(17,5):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “WindGenerator<Particle>::WindGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.cpp(42,13):
+              vea la primera referencia a “WindGenerator<Particle>::WindGenerator” en “AlgaeParticleSystem::AlgaeParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.cpp(28,54):
+          Vea la referencia a la creación de una instancia de clase plantilla "UniformDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(5,39):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(11,16):
+              vea la primera referencia a “Generator<Particle>::Generator” en “UniformDistributionGen<Particle>::UniformDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.cpp(28,48):
+              vea la primera referencia a “UniformDistributionGen<Particle>::UniformDistributionGen” en “AlgaeParticleSystem::AlgaeParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "AlgaeParticleSystem.cpp")
+  
+  Scene5.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C4625: 'GameMainMenu': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C5026: 'GameMainMenu': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C4626: 'GameMainMenu': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C5027: 'GameMainMenu': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+  Scene6.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4625: 'BubbleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5026: 'BubbleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4626: 'BubbleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5027: 'BubbleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "FogParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.cpp(18,52):
+          Vea la referencia a la creación de una instancia de clase plantilla "UniformDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(5,39):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(11,16):
+              vea la primera referencia a “Generator<Particle>::Generator” en “UniformDistributionGen<Particle>::UniformDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.cpp(18,46):
+              vea la primera referencia a “UniformDistributionGen<Particle>::UniformDistributionGen” en “FogParticleSystem::FogParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "FogParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4625: 'AlgaeParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5026: 'AlgaeParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(137,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(137,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(122) : nota: el intervalo "nbPolys" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Render\Render.cpp(137,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\foundation\PxVec3.h(105) : nota: suministra la carga de memoria en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4626: 'AlgaeParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5027: 'AlgaeParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.cpp(44,31): warning C5219: conversión implícita de "const int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.cpp(45,31): warning C5219: conversión implícita de "const int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(44,22):
+          Vea la referencia a la creación de una instancia de clase plantilla "WhirlwindGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(4,35):
+          Vea la referencia a la creación de una instancia de clase plantilla "WindGenerator<T>" que se está compilando
+          with
+          [
+              T=SolidEntity
+          ]
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,25):
+          al compilar la función del miembro clase plantilla "void WindGenerator<T>::updateForce(T *,double)"
+          with
+          [
+              T=SolidEntity
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<SolidEntity>::n_particle" se inicializará después de miembro de datos "Generator<SolidEntity>::_mt"
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(5,43):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<SolidEntity>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=SolidEntity
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(12,32):
+              vea la primera referencia a “Generator<SolidEntity>::Generator” en “SolidNormalDistributionGen::SolidNormalDistributionGen”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<SolidEntity>::_des_Dur" se inicializará después de miembro de datos "Generator<SolidEntity>::_des_Vel"
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+  
+  SceneCollisionCallback.cpp
+  SceneGame.cpp
+  SceneManager.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.cpp(18,5):
+          Vea la referencia a la creación de una instancia de clase plantilla "UniformDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(5,39):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(11,16):
+              vea la primera referencia a “Generator<Particle>::Generator” en “UniformDistributionGen<Particle>::UniformDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.cpp(50,19):
+              vea la primera referencia a “UniformDistributionGen<Particle>::UniformDistributionGen” en “FireworkParticleSystem::setupGenerators”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "FireworkParticleSystem.cpp")
+  
+  SolidEntity.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene1.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<SolidEntity>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<SolidEntity>::_isRegistered"
+  (compilando archivo de origen "Game/GameMainMenu.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(105,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<SolidEntity>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(17,5):
+              vea la primera referencia a “ForceGenerator<SolidEntity>::ForceGenerator” en “WindGenerator<T>::WindGenerator”
+          with
+          [
+              T=SolidEntity
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(11,24):
+              vea la primera referencia a “WindGenerator<T>::WindGenerator” en “WhirlwindGenerator<SolidEntity>::WhirlwindGenerator”
+          with
+          [
+              T=SolidEntity
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(44,17):
+              vea la primera referencia a “WhirlwindGenerator<SolidEntity>::WhirlwindGenerator” en “BubbleSystem::BubbleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+  SolidProjectil.cpp
+  SolidSystem.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene4.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene3.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene2.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+  TapParticleSystem.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SolidEntity.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SolidProjectil.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+  Vector3D.cpp
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene6.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SceneManager.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SolidSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220: "physx::PxLightCpuTask::mRefCount": un miembro de datos no estático con un tipo calificado volátil ya no implica
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19): warning C5220:          que los constructores de copia/movimiento generados por el compilador y los operadores de asignación de copia o movimiento no sean triviales
+  (compilando archivo de origen "TapParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PxShared\include\task\PxTask.h(326,19):
+      vea la declaración de 'physx::PxLightCpuTask::mRefCount'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C4625: 'Scene2': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C5026: 'Scene2': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C4626: 'Scene2': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C5027: 'Scene2': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene2.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene2.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.cpp(10,26):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C4625: 'Scene4': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C5026: 'Scene4': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C4626: 'Scene4': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C5027: 'Scene4': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene4.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(103,26): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "Scene2.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(10,63):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “GravityGenerator<Particle>::GravityGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.cpp(10,20):
+              vea la primera referencia a “GravityGenerator<Particle>::GravityGenerator” en “Scene2::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C4625: 'Scene1': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C5026: 'Scene1': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C4626: 'Scene1': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C5027: 'Scene1': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene1.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidEntity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidEntity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SolidEntity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidEntity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidEntity.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene4.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(15,23):
+          Vea la referencia a la creación de una instancia de clase plantilla "WindGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,25):
+          al compilar la función del miembro clase plantilla "void WindGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(30,38):
+              vea la primera referencia a “WindGenerator<Particle>::updateForce” en “WhirlwindGenerator<Particle>::updateForce”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene4.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(11,26):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C4625: 'SolidProjectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C5026: 'SolidProjectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ExplosionGenerator.h(20,41): warning C5038: miembro de datos "ExplosionGenerator<Particle>::_active" se inicializará después de miembro de datos "ExplosionGenerator<Particle>::_expan_vel"
+  (compilando archivo de origen "Scene4.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ExplosionGenerator.h(20,41):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(13,28):
+          Vea la referencia a la creación de una instancia de clase plantilla "ExplosionGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ExplosionGenerator.h(19,5):
+          al compilar la función del miembro clase plantilla "ExplosionGenerator<Particle>::ExplosionGenerator(const Vector3 &,double,double,double,double)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(13,22):
+              vea la primera referencia a “ExplosionGenerator<Particle>::ExplosionGenerator” en “Scene4::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C4626: 'SolidProjectil': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C5027: 'SolidProjectil': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidProjectil.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4625: 'FireworkParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4626: 'FireworkParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C4625: 'Scene3': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C5026: 'Scene3': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C4626: 'Scene3': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C5027: 'Scene3': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4625: 'FireParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5026: 'FireParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4626: 'FireParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5027: 'FireParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4625: 'FogParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5026: 'FogParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4626: 'FogParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5027: 'FogParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4625: 'TapParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4626: 'TapParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene3.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene1.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.cpp(10,26):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "Scene4.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(17,5):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “WindGenerator<Particle>::WindGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.cpp(15,17):
+              vea la primera referencia a “WindGenerator<Particle>::WindGenerator” en “Scene4::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C4625: 'Projectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Projectil.h(6,7): warning C5026: 'Projectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene3.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.cpp(38,18):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C4625: 'Scene5': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C5026: 'Scene5': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C4626: 'Scene5': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C5027: 'Scene5': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene5.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4625: 'Fish': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4626: 'Fish': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "Scene1.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(10,63):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “GravityGenerator<Particle>::GravityGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.cpp(10,20):
+              vea la primera referencia a “GravityGenerator<Particle>::GravityGenerator” en “Scene1::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4625: 'SceneGame': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4626: 'SceneGame': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(17,87): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(17,61): warning C4100: 'constraints': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(18,63): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(18,42): warning C4100: 'actors': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(19,64): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(19,43): warning C4100: 'actors': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(20,70): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(20,50): warning C4100: 'pairs': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(22,66): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(22,35): warning C4100: 'poseBuffer': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(21,61): warning C4100: 'bodyBuffer': parámetro sin referencia
+  (compilando archivo de origen "SceneCollisionCallback.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.cpp(5,18): warning C4100: 'nbPairs': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.cpp(4,33): warning C4100: 'pairs': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(16,5): warning C4061: el enumerador 'physx::PxGeometryType::eCONVEXMESH' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+      vea la declaración de 'physx::PxGeometryType::Enum'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(16,5): warning C4061: el enumerador 'physx::PxGeometryType::eTRIANGLEMESH' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+      vea la declaración de 'physx::PxGeometryType::Enum'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(16,5): warning C4061: el enumerador 'physx::PxGeometryType::eHEIGHTFIELD' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+      vea la declaración de 'physx::PxGeometryType::Enum'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(16,5): warning C4061: el enumerador 'physx::PxGeometryType::eGEOMETRY_COUNT' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+      vea la declaración de 'physx::PxGeometryType::Enum'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(16,5): warning C4061: el enumerador 'physx::PxGeometryType::eINVALID' en el modificador de enumeración 'physx::PxGeometryType::Enum' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\common\PhysX-3.4\PhysX_3.4\Include\geometry\PxGeometry.h(53,7):
+      vea la declaración de 'physx::PxGeometryType::Enum'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "Scene3.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(10,63):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “GravityGenerator<Particle>::GravityGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.cpp(38,13):
+              vea la primera referencia a “GravityGenerator<Particle>::GravityGenerator” en “Scene3::createParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.cpp(87,45):
+          Vea la referencia a la creación de una instancia de clase plantilla "BuoyancyForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,25):
+          al compilar la función del miembro clase plantilla "void BuoyancyForceGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SpringForceGenerator.h(18,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SpringForceGenerator.h(18,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.cpp(42,17):
+          Vea la referencia a la creación de una instancia de clase plantilla "SpringForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SpringForceGenerator.h(18,25):
+          al compilar la función del miembro clase plantilla "void SpringForceGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ElasticBandForceGenerator.h(17,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ElasticBandForceGenerator.h(17,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.cpp(16,48):
+          Vea la referencia a la creación de una instancia de clase plantilla "ElasticBandForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ElasticBandForceGenerator.h(17,25):
+          al compilar la función del miembro clase plantilla "void ElasticBandForceGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.cpp(18,53):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C4625: 'Scene6': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C5026: 'Scene6': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C4626: 'Scene6': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C5027: 'Scene6': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.cpp(10,68): warning C4100: 'sceneGroup': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4625: 'BubbleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5026: 'BubbleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4626: 'BubbleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5027: 'BubbleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.cpp(62,40): warning C4100: 'key': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C4625: 'Scene1': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C5026: 'Scene1': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C4626: 'Scene1': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene1.h(3,7): warning C5027: 'Scene1': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C4625: 'Scene2': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C5026: 'Scene2': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C4626: 'Scene2': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene2.h(3,7): warning C5027: 'Scene2': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4625: 'FireworkParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4626: 'FireworkParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C4625: 'Scene3': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C5026: 'Scene3': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C4626: 'Scene3': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene3.h(5,7): warning C5027: 'Scene3': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C4625: 'Scene4': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C5026: 'Scene4': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C4626: 'Scene4': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene4.h(4,7): warning C5027: 'Scene4': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C4625: 'Scene5': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C5026: 'Scene5': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C4626: 'Scene5': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.h(7,7): warning C5027: 'Scene5': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C4625: 'Scene6': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C5026: 'Scene6': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C4626: 'Scene6': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.h(4,7): warning C5027: 'Scene6': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4625: 'Fish': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4626: 'Fish': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "Scene5.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(16,85):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “BuoyancyForceGenerator<Particle>::BuoyancyForceGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene5.cpp(87,39):
+              vea la primera referencia a “BuoyancyForceGenerator<Particle>::BuoyancyForceGenerator” en “Scene5::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4625: 'SceneGame': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4626: 'SceneGame': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene6.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.cpp(43,41):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<SolidEntity>::updateForce(T *,double)"
+          with
+          [
+              T=SolidEntity
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C4625: 'GameMainMenu': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C5026: 'GameMainMenu': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C4626: 'GameMainMenu': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Game\GameMainMenu.h(3,7): warning C5027: 'GameMainMenu': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneManager.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "Scene6.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(44,22):
+          Vea la referencia a la creación de una instancia de clase plantilla "WhirlwindGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(4,35):
+          Vea la referencia a la creación de una instancia de clase plantilla "WindGenerator<T>" que se está compilando
+          with
+          [
+              T=SolidEntity
+          ]
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,25):
+          al compilar la función del miembro clase plantilla "void WindGenerator<T>::updateForce(T *,double)"
+          with
+          [
+              T=SolidEntity
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(13,6): warning C5038: miembro de datos "SceneManager::_current_scene" se inicializará después de miembro de datos "SceneManager::_gPhysics"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<SolidEntity>::n_particle" se inicializará después de miembro de datos "Generator<SolidEntity>::_mt"
+  (compilando archivo de origen "Scene6.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(5,43):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<SolidEntity>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=SolidEntity
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(12,32):
+              vea la primera referencia a “Generator<SolidEntity>::Generator” en “SolidNormalDistributionGen::SolidNormalDistributionGen”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<SolidEntity>::_des_Dur" se inicializará después de miembro de datos "Generator<SolidEntity>::_des_Vel"
+  (compilando archivo de origen "Scene6.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(40,47): warning C4388: '<': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(46,39): warning C4388: '<': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(56,20): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(69,47): warning C4388: '<': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneManager.cpp(76,47): warning C4388: '<': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4625: 'Entity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(7,7): warning C4626: 'Entity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Entity.h(13,32): warning C4100: 't': parámetro sin referencia
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Particle.h(15,7): warning C4625: 'Particle': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4625: 'SolidEntity': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.h(7,7): warning C4626: 'SolidEntity': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<SolidEntity>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<SolidEntity>::_isRegistered"
+  (compilando archivo de origen "Scene6.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(105,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<SolidEntity>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(10,63):
+              vea la primera referencia a “ForceGenerator<SolidEntity>::ForceGenerator” en “GravityGenerator<SolidEntity>::GravityGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene6.cpp(43,35):
+              vea la primera referencia a “GravityGenerator<SolidEntity>::GravityGenerator” en “Scene6::init”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SolidSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.cpp(16,32): warning C5038: miembro de datos "SolidSystem::_model_solid" se inicializará después de miembro de datos "SolidSystem::_forceRegistry"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidEntity.cpp(180,1): warning C4715: 'SolidEntity::getInertiaTensor': no todas las rutas de acceso de control devuelven un valor
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.cpp(17,2): warning C5038: miembro de datos "SolidSystem::_forceRegistry" se inicializará después de miembro de datos "SolidSystem::_physics"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4625: 'ParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ParticleSystem.h(11,7): warning C4626: 'ParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4625: 'TapParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4626: 'TapParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4625: 'SolidSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.h(13,7): warning C4626: 'SolidSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(30,19): warning C5038: miembro de datos "Scene::_text" se inicializará después de miembro de datos "Scene::_particleSystems"
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(39,41): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Scene.h(40,38): warning C4100: 'key': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4625: 'Fish': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Fish.h(6,7): warning C4626: 'Fish': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<Particle>::n_particle" se inicializará después de miembro de datos "Generator<Particle>::_mt"
+  (compilando archivo de origen "TapParticleSystem.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.cpp(21,54):
+          Vea la referencia a la creación de una instancia de clase plantilla "UniformDistributionGen<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(5,39):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<Particle>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\UniformDistributionGen.h(11,16):
+              vea la primera referencia a “Generator<Particle>::Generator” en “UniformDistributionGen<Particle>::UniformDistributionGen”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.cpp(21,48):
+              vea la primera referencia a “UniformDistributionGen<Particle>::UniformDistributionGen” en “TapParticleSystem::TapParticleSystem”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<Particle>::_des_Dur" se inicializará después de miembro de datos "Generator<Particle>::_des_Vel"
+  (compilando archivo de origen "TapParticleSystem.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4625: 'SceneGame': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(49,7): warning C4626: 'SceneGame': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C4625: 'ForceParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C5026: 'ForceParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C4626: 'ForceParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceParticleSystem.h(6,7): warning C5027: 'ForceParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4625: 'FireParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5026: 'FireParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C4626: 'FireParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireParticleSystem.h(5,7): warning C5027: 'FireParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4625: 'FogParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5026: 'FogParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C4626: 'FogParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FogParticleSystem.h(4,7): warning C5027: 'FogParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4625: 'TapParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\TapParticleSystem.h(4,7): warning C4626: 'TapParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4625: 'FireworkParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\FireworkParticleSystem.h(7,7): warning C4626: 'FireworkParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C4625: 'SolidProjectil': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C5026: 'SolidProjectil': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C4626: 'SolidProjectil': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidProjectil.h(3,7): warning C5027: 'SolidProjectil': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4625: 'BubbleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5026: 'BubbleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C4626: 'BubbleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BubbleSystem.h(8,7): warning C5027: 'BubbleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4625: 'AlgaeParticleSystem': el constructor de copia se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5026: 'AlgaeParticleSystem': el constructor de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C4626: 'AlgaeParticleSystem': el operador de asignaciones se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\AlgaeParticleSystem.h(5,7): warning C5027: 'AlgaeParticleSystem': el operador de asignaciones de movimiento se definió implícitamente como eliminado
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(17,87): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(17,61): warning C4100: 'constraints': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(18,63): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(18,42): warning C4100: 'actors': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(19,64): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(19,43): warning C4100: 'actors': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(20,70): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(20,50): warning C4100: 'pairs': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(22,66): warning C4100: 'count': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(22,35): warning C4100: 'poseBuffer': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneCollisionCallback.h(21,61): warning C4100: 'bodyBuffer': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(25,55): warning C5038: miembro de datos "SceneGame::_fogSystem" se inicializará después de miembro de datos "SceneGame::_fireSystem"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(26,2): warning C5038: miembro de datos "SceneGame::_fireSystem" se inicializará después de miembro de datos "SceneGame::_fireworkSystem"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(27,32): warning C5038: miembro de datos "SceneGame::_whirlwindParticleSystem" se inicializará después de miembro de datos "SceneGame::_projectilePower"
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(107,36): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(141,25): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(189,3): warning C4062: no se controla el enumerador 'NUM_FORCE' en el modificador de enumeración 'ForceType'
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(16,6):
+      vea la declaración de 'ForceType'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(228,36): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(228,7): warning C4189: 'isLastLevel': la variable local se ha inicializado pero no se hace referencia a ella
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(353,20): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(405,38): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(500,40): warning C4100: 't': parámetro sin referencia
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(536,2): warning C4061: el enumerador 'SceneGame::VICTORY_SEQUENCE' en el modificador de enumeración 'SceneGame::GameState' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(157,7):
+      vea la declaración de 'SceneGame::GameState'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(520,6): warning C4189: 'screenWidth': la variable local se ha inicializado pero no se hace referencia a ella
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(521,6): warning C4189: 'screenHeight': la variable local se ha inicializado pero no se hace referencia a ella
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(544,36): warning C4388: '>=': no coinciden signed/unsigned
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(549,12): warning C4566: el carácter representado por el nombre de carácter universal '\u00A1' no se puede representar en la página de códigos actual (936)
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(550,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(550,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(554,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(554,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(561,5): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(561,25): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(566,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(566,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(572,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(572,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(576,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(576,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(580,4): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(580,24): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(590,3): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(590,23): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(594,3): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(594,23): warning C5219: conversión implícita de "int" a "float"; posible pérdida de datos
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(713,2): warning C4061: el enumerador 'NUM_FORCE' en el modificador de enumeración 'ForceType' no está controlado explícitamente por una etiqueta de caso
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(16,6):
+      vea la declaración de 'ForceType'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(739,2): warning C4062: no se controla el enumerador 'NUM_FORCE' en el modificador de enumeración 'ForceType'
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.h(16,6):
+      vea la declaración de 'ForceType'
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(171,9):
+          Vea la referencia a la creación de una instancia de clase plantilla "WindGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(25,25):
+          al compilar la función del miembro clase plantilla "void WindGenerator<Particle>::updateForce(T *,double)"
+          with
+          [
+              T=Particle
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WhirlwindGenerator.h(30,38):
+              vea la primera referencia a “WindGenerator<Particle>::updateForce” en “WhirlwindGenerator<Particle>::updateForce”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(193,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "BuoyancyForceGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(19,25):
+          al compilar la función del miembro clase plantilla "void BuoyancyForceGenerator<SolidEntity>::updateForce(T *,double)"
+          with
+          [
+              T=SolidEntity
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57): warning C4100: 'dt': parámetro sin referencia
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,57):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(54,26):
+          Vea la referencia a la creación de una instancia de clase plantilla "GravityGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(13,25):
+          al compilar la función del miembro clase plantilla "void GravityGenerator<SolidEntity>::updateForce(T *,double)"
+          with
+          [
+              T=SolidEntity
+          ]
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52): warning C5038: miembro de datos "Generator<SolidEntity>::n_particle" se inicializará después de miembro de datos "Generator<SolidEntity>::_mt"
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(28,52):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(5,43):
+          Vea la referencia a la creación de una instancia de clase plantilla "Generator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(27,2):
+          al compilar la función del miembro clase plantilla "Generator<SolidEntity>::Generator(T *,Vector3,Vector3,double,int)"
+          with
+          [
+              T=SolidEntity
+          ]
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidNormalDistributionGen.h(12,32):
+              vea la primera referencia a “Generator<SolidEntity>::Generator” en “SolidNormalDistributionGen::SolidNormalDistributionGen”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\Generator.h(29,61): warning C5038: miembro de datos "Generator<SolidEntity>::_des_Dur" se inicializará después de miembro de datos "Generator<SolidEntity>::_des_Vel"
+  (compilando archivo de origen "SceneGame.cpp")
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SolidSystem.cpp(118,1): warning C4715: '<lambda_eeb73def32dab7003e489e69fbe7adf5>::operator()': no todas las rutas de acceso de control devuelven un valor
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<SolidEntity>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<SolidEntity>::_isRegistered"
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(105,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<SolidEntity>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<SolidEntity>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\BuoyancyForceGenerator.h(16,85):
+              vea la primera referencia a “ForceGenerator<SolidEntity>::ForceGenerator” en “BuoyancyForceGenerator<SolidEntity>::BuoyancyForceGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(193,14):
+              vea la primera referencia a “BuoyancyForceGenerator<SolidEntity>::BuoyancyForceGenerator” en “SceneGame::loadLevel”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20): warning C5038: miembro de datos "ForceGenerator<Particle>::_renderItem" se inicializará después de miembro de datos "ForceGenerator<Particle>::_isRegistered"
+  (compilando archivo de origen "SceneGame.cpp")
+      E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,20):
+      el contexto de creación de instancias de la plantilla (el más antiguo primero) es
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceRegistry.h(98,20):
+          Vea la referencia a la creación de una instancia de clase plantilla "ForceGenerator<Particle>" que se está compilando
+          E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\ForceGenerator.h(33,2):
+          al compilar la función del miembro clase plantilla "ForceGenerator<Particle>::ForceGenerator(void)"
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\WindGenerator.h(17,5):
+              vea la primera referencia a “ForceGenerator<Particle>::ForceGenerator” en “WindGenerator<Particle>::WindGenerator”
+              E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\SceneGame.cpp(170,24):
+              vea la primera referencia a “WindGenerator<Particle>::WindGenerator” en “SceneGame::loadLevel”
+  
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: El compilador insertará la mitigación de Spectre para la carga de memoria si se especificó el modificador /Qspectre
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(15) : nota: el intervalo "" del índice se comprobó por comparación en esta línea
+E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17,1): warning C5045: E:\gitHubDesktop\SimulacionFisicaVideojuegos\skeleton\GravityGenerator.h(17) : nota: suministra la llamada en esta línea
+  game.vcxproj -> E:\gitHubDesktop\SimulacionFisicaVideojuegos\bin\game.exe

@@ -67,7 +67,6 @@
     <ClCompile Include="SolidEntity.cpp" />
     <ClCompile Include="SolidProjectil.cpp" />
     <ClCompile Include="Game\GameMainMenu.cpp" />
-    <ClCompile Include="Game\GameOverMenu.cpp" />
     <ClCompile Include="Fish.cpp" />
     <ClCompile Include="AlgaeParticleSystem.cpp" />
     <ClCompile Include="SceneCollisionCallback.cpp" />
@@ -164,7 +163,6 @@
     <ClInclude Include="SolidUniformDistributionGen.h" />
     <ClInclude Include="SolidNormalDistributionGen.h" />
     <ClInclude Include="Game\GameMainMenu.h" />
-    <ClInclude Include="Game\GameOverMenu.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="AlgaeParticleSystem.h" />
     <ClInclude Include="SceneCollisionCallback.h" />

@@ -87,7 +87,9 @@ public:
             std::remove_if(solidRegistry.begin(), solidRegistry.end(),
                 [](const ForceRegT<SolidEntity>& reg) {
                     // Remover si la partícula es nullptr o está muerta
-                    return reg.object == nullptr || !reg.object->is_alive();
+                    return reg.object == nullptr
+                        || !reg.object->is_alive()
+                        || reg.object->getActor() == nullptr;
                 }),
             solidRegistry.end());
 
@@ -97,7 +99,9 @@ public:
         }
 
         for (auto& reg : solidRegistry) {
-            if (reg.object && reg.fg)
+            if (reg.object && reg.object->is_alive()
+                && reg.object->getActor()
+                && reg.fg)
                 reg.fg->updateForce(reg.object, dt);
         }
     }

@@ -1,4 +1,4 @@
-#include "GameMainMenu.h"
+﻿#include "GameMainMenu.h"
 #include "../BubbleSystem.h"
 #include "../AlgaeParticleSystem.h"
 
@@ -8,29 +8,35 @@ void GameMainMenu::init(physx::PxPhysics* physics, physx::PxScene* scene)
 	_gScene = scene;
 	_text = "";
 
-	title = "JUEGO";
+	title = "BubbleFish";
 	BubbleSystem* b = new BubbleSystem({ 0,10,0 }, physics, scene);
 	_solidSystems.push_back(b);
+
+
+	physx::PxMaterial* material = _gPhysics->createMaterial(0.8f, 0.7f, 0.1f);
 }
 
 void GameMainMenu::handleInput(unsigned char key)
 {
 	switch (toupper(key))
 	{
-	case '1':
-	{
-	}
 	default:
+		sceneManager->changeScene(6);
 		break;
 	}
 }
 
 void GameMainMenu::render_interface()
 {
+	const int screenWidth = glutGet(GLUT_WINDOW_WIDTH);
+	const int screenHeight = glutGet(GLUT_WINDOW_HEIGHT);
+
 	float navyBlue[4] = { 0.0f, 0.0f, 0.5f, 1.0f };
+	float white[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 
 	drawText(title, titlePos.x, titlePos.y, 80, true, true, false, navyBlue);
 
+	drawText("Pulsa una tecla para iniciar", screenWidth / 2.0f, screenHeight * 0.5f, 35, true, true, false, white);
 }
 void GameMainMenu::repositionObjects()
 {

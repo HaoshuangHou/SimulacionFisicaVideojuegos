@@ -31,7 +31,7 @@ public:
 
                 new_solid->setVelocity(vel);
                 new_solid->setLifeTime(dur);
-
+                new_solid->setInertiaTensor(inr);
                 list.push_back(new_solid);
             }
         }

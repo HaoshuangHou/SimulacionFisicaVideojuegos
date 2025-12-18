@@ -40,7 +40,7 @@ public:
 
                 new_particle->setVelocity(vel);
                 new_particle->setLifeTime(dur);
-
+                new_solid->setInertiaTensor(inr);
                 list.push_back(new_particle);
             }
         }

@@ -23,6 +23,7 @@ public:
     }
 
     void addForceZones(physx::PxActor* actor, ForceType force, bool active = false);
+    void clearForceZones();
 private:
     SceneGame* _scene;
     std::vector<ForceZone> _forceZones;

@@ -583,6 +583,42 @@ void drawText(const std::string& text, float x, float y, int tam, bool centered,
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void drawFullscreenOverlay(const float bgColor[4])
+{
+	const int width = glutGet(GLUT_WINDOW_WIDTH);
+	const int height = glutGet(GLUT_WINDOW_HEIGHT);
+
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	glOrtho(0, width, 0, height, -1, 1);
+
+	glMatrixMode(GL_MODELVIEW);
+	glPushMatrix();
+	glLoadIdentity();
+
+	glDisable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	glColor4f(bgColor[0], bgColor[1], bgColor[2], bgColor[3]);
+
+	glBegin(GL_QUADS);
+	glVertex2f(0, 0);
+	glVertex2f(width, 0);
+	glVertex2f(width, height);
+	glVertex2f(0, height);
+	glEnd();
+
+	glDisable(GL_BLEND);
+	glEnable(GL_DEPTH_TEST);
+
+	glPopMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+}
+
 
 } //namespace Snippets
 

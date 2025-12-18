@@ -21,7 +21,8 @@ protected:
                 DeregisterRenderItem(_renderItem);
                 _isRegistered = false;
             }
-            delete _renderItem;
+            
+            _renderItem;
         }
         _renderItem = new RenderItem(shape, new physx::PxTransform(position), color);
         RegisterRenderItem(_renderItem);

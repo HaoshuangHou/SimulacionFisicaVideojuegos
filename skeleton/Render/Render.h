@@ -71,6 +71,7 @@ void renderActors(physx::PxRigidActor** actors, const physx::PxU32 numActors, bo
 void finishRender();
 void drawText(const std::string& text, int x, int y);
 void drawText(const std::string& text, float x, float y, int tam, bool centered, bool bold = false, bool drawBackground = false, const float textColor[4] = nullptr, const float bgColor[4] = nullptr);
+void drawFullscreenOverlay(const float bgColor[4]);
 }
 
 #define MAX_NUM_ACTOR_SHAPES 128

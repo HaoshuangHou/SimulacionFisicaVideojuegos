@@ -25,6 +25,9 @@ private:
         const physx::PxGeometry& geometry, double density,
         physx::PxMaterial* material);
 public:
+    enum Type { ENTITY_BASE, PROJECTILE, FISH, TARGET };
+
+    virtual Type getType() const { return ENTITY_BASE; }
     SolidEntity(physx::PxPhysics* physics, physx::PxScene* scene,
         bool dynamic, const physx::PxVec3& pos,
         const physx::PxGeometry& geometry, double density,
@@ -61,6 +64,7 @@ public:
     void setLifeTime(double lifetime);
     void setInertiaTensor(const Vector3& I);
     void setColor(const Vector4& color);
+    void setRotation(const physx::PxQuat& q);
 
     void deactivateCollisions(); 
     void activateCollisions();

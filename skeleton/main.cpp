@@ -16,6 +16,7 @@
 
 #include "Particle.h"
 #include "SceneManager.h"
+#include "Scene.h"
 
 
 std::string display_text = "This is a test";
@@ -65,6 +66,7 @@ void initPhysics(bool interactive)
 
 
 	_sceneM = new SceneManager(gPhysics, gScene);
+	Scene::setSceneManager(_sceneM);
 	display_text = _sceneM->getDisplayText();
 
 	//RegisterRenderItem(new RenderItem(CreateShape(PxSphereGeometry(1)), new PxTransform(0, 0, 0), Vector4(1, 1, 1, 1)));
@@ -137,7 +139,7 @@ void keyPress(unsigned char key, const PxTransform& camera)
 	}
 	case 'G':
 	{
-		_sceneM->changeScene(6);
+		_sceneM->changeScene(7);
 		display_text = _sceneM->getDisplayText();
 		break;
 	}

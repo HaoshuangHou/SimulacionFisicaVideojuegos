@@ -9,11 +9,11 @@
 AlgaeParticleSystem::AlgaeParticleSystem(const Vector3& center, float radius)
     : ParticleSystem(center, radius)
 {
-    _startColor = Vector4(0.0f, 0.4f, 0.0f, 1.0f);
-    _endColor = Vector4(0.6f, 1.0f, 0.2f, 1.0f);
+    _startColor = Vector4(0.0f, 0.4f, 0.0f, 0.7f);
+    _endColor = Vector4(0.6f, 1.0f, 0.2f, 0.6f);
 
     _model_particle = new Particle(CUBE, Vector4(0.2f, 0.6f, 0.2f, 1.0f), Vector3(0, 0, 0));
-    _model_particle->setTam(0.4f);
+    _model_particle->setTam(radius/100);
     _model_particle->setLifeTime(1.0f);
 
     _center = center;

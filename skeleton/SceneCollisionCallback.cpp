@@ -7,6 +7,8 @@ void SceneCollisionCallback::onContact(const physx::PxContactPairHeader& pairHea
     physx::PxActor* a0 = pairHeader.actors[0];
     physx::PxActor* a1 = pairHeader.actors[1];
 
+    if (!a0 || !a1) return;
+
     for (auto& zone : _forceZones) {
         if (zone.actor == a0 || zone.actor == a1) {
             zone.active = !zone.active;
@@ -32,4 +34,9 @@ void SceneCollisionCallback::onContact(const physx::PxContactPairHeader& pairHea
 void SceneCollisionCallback::addForceZones(physx::PxActor* actor, ForceType force, bool active)
 {
     _forceZones.push_back({ actor, force, active });
+}
+
+void SceneCollisionCallback::clearForceZones()
+{
+    _forceZones.clear();
 }

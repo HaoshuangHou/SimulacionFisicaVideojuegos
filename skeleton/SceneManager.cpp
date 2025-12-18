@@ -8,7 +8,6 @@
 #include "Scene6.h"
 #include "SceneGame.h"
 #include "Game/GameMainMenu.h"
-#include "Game/GameOverMenu.h"
 
 SceneManager::SceneManager(physx::PxPhysics* physics, physx::PxScene* scene)
     :_current_scene(0), _gPhysics(physics), _gScene(scene)
@@ -22,15 +21,14 @@ SceneManager::~SceneManager()
 void SceneManager::initScenes()
 {
     // Crear las escenas
-    _scenes.push_back(std::make_unique<Scene1>());
-    _scenes.push_back(std::make_unique<Scene2>());
-    _scenes.push_back(std::make_unique<Scene3>());
-    _scenes.push_back(std::make_unique<Scene4>());
-    _scenes.push_back(std::make_unique<Scene5>());
-    _scenes.push_back(std::make_unique<Scene6>());
-    _scenes.push_back(std::make_unique<SceneGame>());
-    _scenes.push_back(std::make_unique<GameMainMenu>());
-    _scenes.push_back(std::make_unique<GameOverMenu>());
+    _scenes.push_back(std::make_unique<Scene1>());//0
+    _scenes.push_back(std::make_unique<Scene2>());//1
+    _scenes.push_back(std::make_unique<Scene3>());//2
+    _scenes.push_back(std::make_unique<Scene4>());//3
+    _scenes.push_back(std::make_unique<Scene5>());//4
+    _scenes.push_back(std::make_unique<Scene6>());//5
+    _scenes.push_back(std::make_unique<SceneGame>());//6
+    _scenes.push_back(std::make_unique<GameMainMenu>());//7
 
     // Inicializar
     for (auto& s : _scenes) {

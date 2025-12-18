@@ -16,9 +16,16 @@
 #include "WhirlwindGenerator.h"
 #include "ExplosionGenerator.h"
 #include "BuoyancyForceGenerator.h"
+
+class SceneManager;
+
 class Scene
 {
 public:
+	static void setSceneManager(SceneManager* manager) {
+		sceneManager = manager;
+	}
+
 	Scene()
 		: _particles(), _text(), _particleSystems(), _forceRegistry(new ForceRegistry())
 	{};
@@ -29,7 +36,7 @@ public:
 
 	virtual void init(physx::PxPhysics* physics, physx::PxScene* scene);
 	virtual void clean();
-	virtual void handleInput(unsigned char key) = 0;
+	virtual void handleInput(unsigned char key) {};
 	virtual void handleSpecialInput(int key) {};
 	virtual void update(double t);
 	virtual void addEntityWithRenderItem(Particle* p);
@@ -51,6 +58,7 @@ public:
 	virtual void repositionObjects() {}
 
 protected:
+	static SceneManager* sceneManager;
 	virtual Vector3 getRelativePosition(float relX, float relY, float z = 0.0f) const;
 	void updateViewportFromScreen();
 
@@ -66,8 +74,8 @@ protected:
 	std::string _text;
 	ForceRegistry* _forceRegistry;
 
-	float _worldWidth = 30.0f;
-	float _worldHeight = 26.0f;
+	float _worldWidth = 44;
+	float _worldHeight =24;
 
 	physx::PxMaterial* createMaterial(float staticFriction, float dynamicFriction, float restitution);
 
@@ -79,7 +87,5 @@ protected:
 		physx::PxMaterial* material = nullptr,
 		const Vector4& color = Vector4(1, 1, 1, 1)
 	);
-
-
 };
 
